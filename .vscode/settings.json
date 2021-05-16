@@ -1,0 +1,14 @@
+{
+	"python.pythonPath": "C:\\Users\\karth\\Anaconda3\\envs\\spsbk\\python.exe",
+	"python.testing.unittestArgs": [
+		"-v",
+		"-s",
+		".",
+		"-p",
+		"*test.py"
+	],
+	"python.testing.pytestEnabled": false,
+	"python.testing.nosetestsEnabled": false,
+	"python.testing.unittestEnabled": false,
+	"python.testing.promptToConfigure": false
+}

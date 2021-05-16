@@ -1,0 +1,96 @@
+
+Fitting the model for the stock predictor. 
+Starting log at 2021-05-15 19:08:00.035139
+
+
+Training set: (2412, 296) samples
+Test set: (268, 296) samples
+
+Fitting/Tuning Finished at 2021-05-15 19:08:24.558449
+
+Fitting the model for the stock predictor. 
+Starting log at 2021-05-15 19:08:24.725490
+
+
+Predictions Fitting Finished at 2021-05-15 19:08:49.018399
+    Input Labels  Input Values
+0           Date       2739.00
+1          Open1        583.41
+2          High1        592.87
+3           Low1        570.46
+4         Close1        589.74
+..           ...           ...
+291       Open59        583.41
+292       High59        592.87
+293        Low59        570.46
+294      Close59        589.74
+295  Adj Close59        589.74
+
+[296 rows x 2 columns]
+
+Predicted Date: 2021-05-17
+
+  Output Labels  Output Values
+0          Open         599.46
+1          High         597.12
+2           Low         578.94
+3         Close         599.67
+4     Adj Close         599.67
+
+Fitting the model for the stock predictor. 
+Starting log at 2021-05-15 19:09:29.994082
+
+
+Predictions Fitting Finished at 2021-05-15 19:09:50.923190
+    Input Labels  Input Values
+0           Date       2740.00
+1          Open1        583.41
+2          High1        592.87
+3           Low1        570.46
+4         Close1        589.74
+..           ...           ...
+291       Open59        583.41
+292       High59        592.87
+293        Low59        570.46
+294      Close59        589.74
+295  Adj Close59        589.74
+
+[296 rows x 2 columns]
+
+Predicted Date: 2021-05-17
+
+  Output Labels  Output Values
+0          Open         598.03
+1          High         603.92
+2           Low         582.92
+3         Close         599.25
+4     Adj Close         599.25
+
+Fitting the model for the stock predictor. 
+Starting log at 2021-05-15 19:10:32.676014
+
+
+Predictions Fitting Finished at 2021-05-15 19:10:52.686691
+    Input Labels  Input Values
+0           Date       2741.00
+1          Open1        583.41
+2          High1        592.87
+3           Low1        570.46
+4         Close1        589.74
+..           ...           ...
+291       Open59        583.41
+292       High59        592.87
+293        Low59        570.46
+294      Close59        589.74
+295  Adj Close59        589.74
+
+[296 rows x 2 columns]
+
+Predicted Date: 2021-05-17
+
+  Output Labels  Output Values
+0          Open         604.13
+1          High         611.48
+2           Low         572.55
+3         Close         605.81
+4     Adj Close         605.81
