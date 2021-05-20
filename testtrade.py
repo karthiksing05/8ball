@@ -1,9 +1,5 @@
-from predictor_v3 import MarketPredictor
+from predictor import MarketPredictor
 from threading import Thread
-import selenium
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from bs4 import BeautifulSoup
 from yahoo_fin import stock_info as si
 import pandas as pd, numpy as np
 import matplotlib.pyplot as plt

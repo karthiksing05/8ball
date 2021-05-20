@@ -8,6 +8,7 @@ watchlist = [
     "BTC-USD",
     "LTC-USD",
     "ETH-USD",
+    "DOGE-USD"
 ]
 
 date = "2021-05-05"
