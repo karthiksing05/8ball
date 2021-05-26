@@ -3,7 +3,6 @@ from predictor import MarketPredictor
 
 # Standard python libs
 from pprint import pprint
-import datetime
 
 watchlist = [
     "BTC-USD",
@@ -12,17 +11,16 @@ watchlist = [
     "DOGE-USD"
 ]
 
-date = datetime.datetime.now().strftime("%Y-%m-%d")
+date = "2021-05-05"
 
 predictors = [MarketPredictor(ticker) for ticker in watchlist]
 all_preds = {}
 for predictor in predictors:
     predictor.load_data()
+    results = predictor.pick_model(show=True)
     best_acc = predictor.fit_inital()
-    preds = predictor.predict(date)
+    preds, attrs, date = predictor.predict(date)
     all_preds[predictor.ticker] = [preds["Output Values"][x] for x in range(0, 4+1)]
-
-pprint(all_preds)
 
 def projected_results():
     pass

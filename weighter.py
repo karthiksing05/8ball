@@ -135,8 +135,6 @@ def get_weighted_preds(stock:str):
 
     # Time to do a quick fit with some models
 
-    linear = ElasticNet()
-
     data = scaled_data
     attributes = list(data.columns)
     try:
@@ -163,7 +161,7 @@ def get_weighted_preds(stock:str):
     increment = 0.01
     parameters = {
                 'alpha':[1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1, 10, 100],
-                'l1_ratio':list(range(0, 1 + increment, increment))
+                'l1_ratio':np.arange(0.0, 1.0, 0.01).tolist()
                 }
         
     rsc = RandomizedSearchCV(
@@ -178,9 +176,11 @@ def get_weighted_preds(stock:str):
     rxgb_grid = rsc
     rresults = rxgb_grid.fit(X_train, y_train)
 
-    rbest_params = rresults.estimators_[0].best_params_
+    rbest_params = rresults.best_params_
     with open("best_params.txt", "w") as f:
         f.write(str(rbest_params))
+
+    linear = rresults.best_estimator_ # best estimator
 
     # now to predict today's prices with weight values!
 
