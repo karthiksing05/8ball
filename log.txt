@@ -1,38 +1,38 @@
 
 Fitting the model for the stock predictor. 
-Starting log at 2021-05-26 10:13:30.227192
+Starting log at 2021-06-10 12:45:23.813119
 
 
-Training set: (2418, 296) samples
-Test set: (269, 296) samples
+Training set: (2427, 296) samples
+Test set: (270, 296) samples
 
-Fitting/Tuning Finished at 2021-05-26 10:13:49.613660
+Fitting/Tuning Finished at 2021-06-10 12:45:44.498752
 
 Fitting the model for the stock predictor. 
-Starting log at 2021-05-26 10:13:49.795294
+Starting log at 2021-06-10 12:45:44.665801
 
 
-Predictions Fitting Finished at 2021-05-26 10:14:09.275450
+Predictions Fitting Finished at 2021-06-10 12:46:04.634369
     Input Labels  Input Values
-0           Date       2746.00
-1          Open1        607.31
-2          High1        613.99
-3           Low1        595.71
-4         Close1        604.69
+0           Date       2756.00
+1          Open1        602.17
+2          High1        611.79
+3           Low1        597.63
+4         Close1        598.78
 ..           ...           ...
-291       Open59        607.31
-292       High59        613.99
-293        Low59        595.71
-294      Close59        604.69
-295  Adj Close59        604.69
+291       Open59        602.17
+292       High59        611.79
+293        Low59        597.63
+294      Close59        598.78
+295  Adj Close59        598.78
 
 [296 rows x 2 columns]
 
-Predicted Date: 2021-05-26
+Predicted Date: 2021-06-10
 
   Output Labels  Output Values
-0          Open         607.22
-1          High         635.07
-2           Low         590.08
-3         Close         617.96
-4     Adj Close         617.96
+0          Open         603.80
+1          High         626.26
+2           Low         587.68
+3         Close         614.89
+4     Adj Close         614.89

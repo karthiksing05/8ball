@@ -22,10 +22,12 @@ By: Karthik Singaravadivelan
 import requests
 
 # My usual machine learning imports:
-import sklearn
 from sklearn.model_selection import train_test_split
 import numpy as np
 import pandas as pd
+
+# Accuracy metric:
+from sklearn.metrics import mean_squared_error
 
 # These are for visualization
 import matplotlib.pyplot as plt
@@ -35,6 +37,9 @@ from mpl_toolkits.mplot3d import Axes3D
 # XGBoost regressor!
 from sklearn.multioutput import MultiOutputRegressor
 from xgboost.sklearn import XGBRegressor
+
+# My Python Package!!
+from biaswrappers.regressor import BiasRegressor
 
 # imports included with python that I need
 import os
@@ -454,6 +459,9 @@ class MarketPredictor(object): # v2
 
             linear.fit(X_train, y_train)
 
+            test_preds = linear.predict(X_test)
+            rmse = np.sqrt(mean_squared_error(y_test, test_preds))
+
             # print(coef_str)
             # print(y_in_str)
 
@@ -490,6 +498,8 @@ class MarketPredictor(object): # v2
             prediction = linear.predict(my_values)
             output_values = list(prediction[0])
 
+            ranges = [[rmse + pred, rmse - pred] for pred in output_values]
+
             formatted_output_values = []
             for value in output_values:
                 value = round(float(value), 2)
@@ -502,11 +512,6 @@ class MarketPredictor(object): # v2
 
             df_str = str(attr_df) + "\n\n" + "Predicted Date: {}\n\n".format(date) + str(label_df)
             append_new_line("log.txt", df_str)
-
-            if day == days-1:
-                # print("\n")
-                # print(df_str)
-                pass
 
             future_data = []
             future_data.extend(pred_values)
@@ -525,13 +530,14 @@ class MarketPredictor(object): # v2
 
             future_data.append(current_stock_date)
 
-        print("\nSee log.txt for more details about the training and testing of the model. (And all the dataframes)")
+        print("\nSee log.txt for more details about the training and testing of the model. (And all the dataframes)\n")
         # Writing to the Excel file: predictions.xlsx
         wb_name = 'data\\predictions.xlsx'
+        print("Returning Label_DF (preds) and pred_ranges.\nTo unpack, use df, ranges.")
         try:
             label_df.to_excel(wb_name)
             self.preds_dict = label_d
-            return label_df
+            return label_df, ranges
         except:
             print("You have predicted a date that has already been processed by the data.")
             print("To view the corresponding prices for this date, use the 'print_past-date'")
