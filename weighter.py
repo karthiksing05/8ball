@@ -102,7 +102,7 @@ def get_weighted_preds(stock:str):
         mp = predictor.MarketPredictor(stock, end_time=special_end_date)
         mp.load_data()
         mp.fit_inital()
-        preds = mp.predict(preddate)
+        preds, ranges = mp.predict(preddate)
         preds = list(preds['Output Values'])
         all_predictions[preddate] = preds
 

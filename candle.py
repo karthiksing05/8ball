@@ -14,5 +14,5 @@ class Candlestick(object):
         self.high = price_high
         self.low = price_low
         self.volume = volume
-        self.rsi
+        self.rsi = rsi
 

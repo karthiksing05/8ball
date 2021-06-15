@@ -371,11 +371,17 @@ class MarketPredictor(object): # v2
         )
 
         model = MultiOutputRegressor(inside_model)
+        model = BiasRegressor()
         model.fit(X_train, y_train)
+
+        test_preds = model.predict(X_test)
+        test_preds = test_preds.reshape(-1, len(self.labels))
+        rmse = np.sqrt(mean_squared_error(y_test, test_preds))
 
         self.model = model
 
         append_new_line("log.txt", "\nFitting/Tuning Finished at "+str(datetime.datetime.now()))
+        append_new_line("log.txt", "\nwith RMSE of "+rmse)
 
     def predict(self, date, filename=None):
         """
@@ -460,6 +466,7 @@ class MarketPredictor(object): # v2
             linear.fit(X_train, y_train)
 
             test_preds = linear.predict(X_test)
+            test_preds = test_preds.reshape(-1, len(self.labels))
             rmse = np.sqrt(mean_squared_error(y_test, test_preds))
 
             # print(coef_str)
@@ -496,8 +503,8 @@ class MarketPredictor(object): # v2
             # my_values = DMatrix(my_values)
 
             prediction = linear.predict(my_values)
-            output_values = list(prediction[0])
-
+            output_values = list(prediction[0])[0]
+            print(output_values)
             ranges = [[rmse + pred, rmse - pred] for pred in output_values]
 
             formatted_output_values = []
@@ -524,8 +531,6 @@ class MarketPredictor(object): # v2
 
             # print(future_data)
 
-            last_date = stock_days - days + 1 # This variable is the last real-value date predicted by the object
-
             current_stock_date = date
 
             future_data.append(current_stock_date)
@@ -543,26 +548,6 @@ class MarketPredictor(object): # v2
             print("To view the corresponding prices for this date, use the 'print_past-date'")
             print("method, please.")
             exit()
-
-    def print_past_date(self, date):
-        """
-        This function prints the Open, High, Low, Close, and Adj Close of any date in the past.
-        Note that the date must be formatted as YYYY-MM-DD
-        """
-
-        all_data = pd.read_csv(self.dataset)
-        dates = all_data['RealDate']
-        dates = dates.tolist()
-        idx = dates.index(date)
-
-        prices = all_data.loc[all_data['Date'] == idx + 1].T
-        prices.columns = ['']
-        prices.index.name = None
-        what_to_drop = []
-        what_to_drop.extend(self.test_attrs)
-        prices = prices.drop(what_to_drop, axis=0)
-
-        return prices
 
     def plot_2D(self, x, y):
         """
