@@ -120,7 +120,7 @@ def get_weighted_preds(stock:str):
         for idx, pred in enumerate(preds):
             main_data.at[xindex, pred_headers[idx]] = pred
 
-    # print(main_data)
+    print(main_data)
 
     # Scale the data here!
     scaled_data = pd.DataFrame()

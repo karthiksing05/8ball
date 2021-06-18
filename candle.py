@@ -4,9 +4,9 @@ A quick Candlestick datatype
 
 class Candlestick(object):
 
-    def __init__(self, index, body_size, candle_range, btype, price_open, price_close, price_high, price_low, volume, rsi):
+    def __init__(self, index, body_range, candle_range, btype, price_open, price_close, price_high, price_low, volume, rsi):
         self.index = index
-        self.body_size = body_size
+        self.body_range = body_range
         self.candle_range = candle_range
         self.type = btype
         self.open = price_open

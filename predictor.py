@@ -381,7 +381,7 @@ class MarketPredictor(object): # v2
         self.model = model
 
         append_new_line("log.txt", "\nFitting/Tuning Finished at "+str(datetime.datetime.now()))
-        append_new_line("log.txt", "\nwith RMSE of "+rmse)
+        append_new_line("log.txt", "\nwith RMSE of "+str(rmse))
 
     def predict(self, date, filename=None):
         """
@@ -504,7 +504,6 @@ class MarketPredictor(object): # v2
 
             prediction = linear.predict(my_values)
             output_values = list(prediction[0])[0]
-            print(output_values)
             ranges = [[rmse + pred, rmse - pred] for pred in output_values]
 
             formatted_output_values = []
