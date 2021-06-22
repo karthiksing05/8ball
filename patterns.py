@@ -5,6 +5,13 @@ indicate trend reversal patterns.
 
 import numpy as np
 
+def _about(num1, num2, margin, ndigits):
+    if round(num1 + margin, ndigits) == round(num2, ndigits):
+        return True
+    if round(num1 - margin, ndigits) == round(num2, ndigits):
+        return True
+    return False
+
 def _get_weights(X, y):
     ones = np.ones((X.shape[0], 1))
     X = np.append(ones, X, axis=1)
@@ -78,8 +85,9 @@ def identify_piercing_pattern(candle_a, candle_b, past_50_dpts):
     if define_trend(past_50_dpts) == "BEARISH":
         if candle_a.type == "BEARISH":
             if candle_b.type == "BULLISH":
-                if candle_b.close > (candle_a.open - (0.5 * candle_a.body_range)):
-                    return True
+                if candle_a.close > candle_b.open:
+                    if candle_b.close > (candle_a.open - (0.5 * candle_a.body_range)):
+                        return True
     return False
 
 

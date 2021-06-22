@@ -83,8 +83,7 @@ def show_candlestick_graph(ticker, start, end):
                     close=df['Close'])])
     fig.show()
 
-
-def find_recent_trends(candles):
+def identify_trend_reversal(candles):
     """
     This function finds recent trend reversals (past 3 days) and returns a confidence that the trend will reverse in the future.
     Note that if you get anything other than a 0, then a trend reversal may be imminent.
@@ -107,7 +106,7 @@ def find_recent_trends(candles):
     ]
 
     condition_lst = []
-
+    good_patterns = []
     for pattern in list_of_patterns:
         num_args = int(len(inspect.getfullargspec(pattern)[0])) - 1
         num_days = len(past_days)
@@ -157,8 +156,10 @@ def find_recent_trends(candles):
                 else:
                     # print("done")
                     break
+        if cond:
+            good_patterns.append(str(pattern.__name__))
         condition_lst.append(cond)
     # print(condition_lst)
     num_true = condition_lst.count(True)
     proba = (num_true / len(condition_lst))
-    return proba, condition_lst
+    return proba, good_patterns

@@ -5,5 +5,5 @@ if __name__ == '__main__':
     mp = MarketPredictor("TSLA")
     mp.load_data()
     mp.fit_inital()
-    df, ranges = mp.predict(datetime.datetime.now().strftime("%Y-%m-%d"))
+    df, ranges = mp.predict("2021-06-21")
     print(df)

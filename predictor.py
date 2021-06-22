@@ -110,7 +110,7 @@ class MarketPredictor(object): # v2
     def __init__(self, ticker, dayspast=60, start_time=None, end_time=None):
         self.ticker = ticker.upper()
         self.attributes = None
-        self.labels = ["Open","High","Low","Close","Adj Close"]
+        self.labels = ["Open","High","Low","Close", "Adj Close"]
         self.model = None # a variable to hold the regression model.
         self.model_path = "stockmodel.pickle"
         self.dayspast = dayspast
@@ -242,7 +242,7 @@ class MarketPredictor(object): # v2
             writer = csv.writer(csvfile, quoting=csv.QUOTE_NONNUMERIC)
             writer.writerow(final_header_row)
 
-        self.attributes = final_header_row[0:-1]
+        self.attributes = list(final_header_row)[0:-1]
         self.test_attrs = [x for x in self.attributes if x not in self.labels] # all the attributes for testing the model
         self.num_test_attrs = len(self.test_attrs)
 
@@ -370,8 +370,9 @@ class MarketPredictor(object): # v2
             min_child_weight=10
         )
 
-        model = MultiOutputRegressor(inside_model)
-        model = BiasRegressor()
+        multi_model = MultiOutputRegressor(inside_model)
+        model = BiasRegressor(multi_model)
+
         model.fit(X_train, y_train)
 
         test_preds = model.predict(X_test)
@@ -415,6 +416,11 @@ class MarketPredictor(object): # v2
                 cell = rows[y][x]
                 return cell
 
+        def get_next_weekday(date):
+            if date.isoweekday() in set((6, 7)):
+                date += datetime.timedelta(days=-date.isoweekday() + 8)
+            return date
+
         print("Model Used For Prediction: " + str(get_model_name(self.model)))
         # These lines are to see how many times the "for" loop should run.
 
@@ -428,12 +434,12 @@ class MarketPredictor(object): # v2
             endday = int(self.end_time[8:10])
             date2 = datetime.date(endyear, endmonth, endday)
         date1 = datetime.date(year, month, day)
+        date1 = get_next_weekday(date1)
         # print(today.year, today.month, today.day)
-        days = numOfDays(date2, date1)
+        days = int(numOfDays(date2, date1))
         # print(days, "days")
 
         stock_days = days + float(read_cell(0, -1)) - 1
-
         for day in range(0, days):
 
             # print(day)
@@ -503,12 +509,12 @@ class MarketPredictor(object): # v2
             # my_values = DMatrix(my_values)
 
             prediction = linear.predict(my_values)
-            output_values = list(prediction[0])[0]
+            output_values = list(prediction)[0][0]
             ranges = [[rmse + pred, rmse - pred] for pred in output_values]
 
             formatted_output_values = []
             for value in output_values:
-                value = round(float(value), 2)
+                value = round(float(value), 7)
                 formatted_output_values.append(value)
 
             attr_d = {"Input Labels":self.test_attrs, "Input Values":[float(round(x, 2)) for x in formatted_pred_values]}
@@ -533,6 +539,10 @@ class MarketPredictor(object): # v2
             current_stock_date = date
 
             future_data.append(current_stock_date)
+
+            with open(self.future_dataset, "a") as fp:
+                wr = csv.writer(fp, dialect='excel')
+                wr.writerow(future_data)
 
         print("\nSee log.txt for more details about the training and testing of the model. (And all the dataframes)\n")
         # Writing to the Excel file: predictions.xlsx

@@ -29,8 +29,8 @@ import time
 # For various reasons, I am going to wrap the functionality of this module into a SINGLE
 # function. Doing so will allow me to easily add this to my stock predictor class.
 
-def get_weighted_preds(stock:str):
 
+def create_weight_dataset(stock: str):
     """
     This function will be used to calculate weights for a Regressor using
     trending articles about the subject from no later than the past week.
@@ -51,7 +51,7 @@ def get_weighted_preds(stock:str):
     analyzer = SentimentIntensityAnalyzer()
     for summary in all_summaries:
         sentiment = analyzer.polarity_scores(summary)['compound']
-        # Note that Compound scores are ranged from -1 to 1, 
+        # Note that Compound scores are ranged from -1 to 1,
         # with -1 being total negativity, 0 being neutrality, and 1 being total positivity
         sentiments.append(sentiment)
     data = pd.DataFrame()
@@ -80,13 +80,24 @@ def get_weighted_preds(stock:str):
     if date_today in list(sentiment_avgs):
         del sentiment_avgs[date_today]
 
-    yf_data = yf.download(stock, start=(list(sorted(sentiment_avgs))[0]), end=(list(sorted(sentiment_avgs))[-1]))
+    yf_data = yf.download(
+        stock, 
+        start=(list(sorted(sentiment_avgs))[0]), 
+        end=(list(sorted(sentiment_avgs))[-1])
+    )
     time.sleep(1)
     yf_data.to_csv("yfdata.csv")
     main_data = pd.read_csv("yfdata.csv")
     main_data = main_data.drop("Volume", axis=1)
     os.remove("yfdata.csv")
-    new_headers = ["Date", "RealOpen", "RealHigh", "RealLow", "RealClose", "RealAdjClose"]
+    new_headers = [
+        "Date", 
+        "RealOpen", 
+        "RealHigh",
+        "RealLow", 
+        "RealClose", 
+        "RealAdjClose"
+    ]
     main_data.columns = new_headers
     main_data["Sentiment"] = [0 for i in range(main_data.shape[0])]
 
@@ -98,7 +109,8 @@ def get_weighted_preds(stock:str):
     dates_to_predict = [date for date in main_data["Date"]]
     all_predictions = {}
     for preddate in dates_to_predict:
-        special_end_date = str(datetime.datetime.strptime(preddate, r"%Y-%m-%d") - datetime.timedelta(days=1))[:-9]
+        special_end_date = str(datetime.datetime.strptime(
+            preddate, r"%Y-%m-%d") - datetime.timedelta(days=1))[:-9]
         mp = predictor.MarketPredictor(stock, end_time=special_end_date)
         mp.load_data()
         mp.fit_inital()
@@ -106,7 +118,8 @@ def get_weighted_preds(stock:str):
         preds = list(preds['Output Values'])
         all_predictions[preddate] = preds
 
-    pred_headers = ["PredictedOpen", "PredictedHigh", "PredictedLow", "PredictedClose", "PredictedAdjClose"]
+    pred_headers = ["PredictedOpen", "PredictedHigh",
+                    "PredictedLow", "PredictedClose", "PredictedAdjClose"]
 
     main_data[pred_headers[0]] = [None for i in range(main_data.shape[0])]
     main_data[pred_headers[1]] = [None for i in range(main_data.shape[0])]
@@ -120,19 +133,18 @@ def get_weighted_preds(stock:str):
         for idx, pred in enumerate(preds):
             main_data.at[xindex, pred_headers[idx]] = pred
 
-    print(main_data)
-
     # Scale the data here!
     scaled_data = pd.DataFrame()
     scaler = MinMaxScaler()
     for idx, col in enumerate(main_data.columns):
-        if col != "Date":
-            scaled_data[col] = scaler.fit_transform(main_data[col].values.reshape(-1, 1))
+        if (col != "Date") and (col != "Sentiment"):
+            scaled_data[col] = scaler.fit_transform(
+                main_data[col].values.reshape(-1, 1))
         else:
             scaled_data[col] = main_data[col]
 
-    # print(scaled_data)
+    return scaled_data
 
 
 if __name__ == '__main__':
-    print(get_weighted_preds("TSLA"))
+    print(create_weight_dataset("TSLA"))
