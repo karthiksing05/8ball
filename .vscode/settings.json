@@ -1,5 +1,5 @@
 {
-	"python.pythonPath": "C:\\Users\\karth\\Anaconda3\\envs\\spsbk\\python.exe",
+	"python.defaultInterpreterPath": "C:\\Users\\karth\\Anaconda3\\envs\\spsbk\\python.exe",
 	"python.testing.unittestArgs": [
 		"-v",
 		"-s",

@@ -108,58 +108,50 @@ def identify_trend_reversal(candles):
     condition_lst = []
     good_patterns = []
     for pattern in list_of_patterns:
-        num_args = int(len(inspect.getfullargspec(pattern)[0])) - 1
-        num_days = len(past_days)
+        num_candles_needed = int(pattern.__code__.co_nlocals) - 2
         cond = False
-        if num_args == 1:
-            # print(pattern)
-            while (cond == False):
-                if (num_days > 0):
-                    cond = pattern(
-                        past_days[int(num_days - 1)],
-                        past_50_dpts
-                    )
-                    # print(cond)
-                    # print(num_days - 1)
-                    num_days -= 1
-                else:
-                    # print("done")
-                    break
-        elif num_args == 2:
-            # print(pattern)
-            while (cond == False):
-                if ((num_days - 1) > 0):
-                    cond = pattern(
-                        past_days[int(num_days - 2)],
-                        past_days[int(num_days - 1)],
-                        past_50_dpts
-                    )
-                    # print(cond)
-                    # print(num_days - 1, num_days - 2)
-                    num_days -= 1
-                else:
-                    # print("done")
-                    break
-        elif num_args == 3:
-            # print(pattern)
-            while (cond == False):
-                if ((num_days - 2) > 0):
-                    cond = pattern(
-                        past_days[int(num_days - 3)],
-                        past_days[int(num_days - 2)],
-                        past_days[int(num_days - 1)],
-                        past_50_dpts
-                    )
-                    # print(cond)
-                    # print(num_days - 1, num_days - 2, num_days - 3)
-                    num_days -= 1
-                else:
-                    # print("done")
-                    break
+        num_days = len(past_days)
+        while (cond == False):
+            if ((num_days - (num_candles_needed - 1)) > 0):
+                lst_of_candles = []
+                for val in range(num_candles_needed):
+                    lst_of_candles.append(past_days[int(num_days - (num_candles_needed - val))])
+                # lst_of_candles = [past_days[int(num_days - (num_args - val))] for val in range(num_args)]
+                cond = pattern(
+                    lst_of_candles,
+                    past_50_dpts
+                )
+                # print(cond)
+                # print(num_days - 1)
+                num_days -= 1
+            else:
+                # print("done")
+                break
         if cond:
-            good_patterns.append(str(pattern.__name__))
+            good_patterns.append(str(pattern.__name__).split("identify_")[1])
         condition_lst.append(cond)
     # print(condition_lst)
     num_true = condition_lst.count(True)
     proba = (num_true / len(condition_lst))
     return proba, good_patterns
+
+if __name__ == '__main__':
+    import datetime
+    def get_most_recent_weekday(date):
+        """
+        Accepts date as a datetime.date obj. returns most recent business day if weekend, else returns today.
+        """
+        new_date = date
+        if date.isoweekday() in set((6, 7)):
+            new_date += datetime.timedelta(days=-date.isoweekday() + 8)
+        if new_date != date:
+            new_date -= datetime.timedelta(days=3)
+        return new_date
+    ticker = input("Choose a ticker: ")
+    START = "2020-01-01"  # YYYY-MM-DD
+    END = get_most_recent_weekday(datetime.datetime.today()).strftime(
+        "%Y-%m-%d")  # datetime.datetime.now().strftime("%Y-%m-%d")  # YYYY-MM-DD
+    candles = create_candlestick_dataset(ticker, START, END)
+    output, patterns = identify_trend_reversal(candles)
+    print(output)
+    print(patterns)

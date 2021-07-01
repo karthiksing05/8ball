@@ -12,12 +12,15 @@ import yfinance as yf
 import predictor
 import scraper
 
-# Machine learning imports for final classification
-from sklearn.linear_model import ElasticNet
+# sklearn imports
 from sklearn.preprocessing import MinMaxScaler
-from sklearn.model_selection import RandomizedSearchCV
-from sklearn.metrics import mean_squared_error
+from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+
+# plot Imports
+from mpl_toolkits import mplot3d
+import matplotlib.pyplot as plt
 
 # Reg python imports
 from pprint import pprint
@@ -28,20 +31,20 @@ import time
 
 # For various reasons, I am going to wrap the functionality of this module into a SINGLE
 # function. Doing so will allow me to easily add this to my stock predictor class.
+pd.set_option('display.max_rows', 500)
+pd.set_option('display.max_columns', 500)
 
-
-def create_weight_dataset(stock: str):
+def create_weight_dataset(stock: str, daysfuture:int):
     """
-    This function will be used to calculate weights for a Regressor using
+    This function will be used to calculate weights for a BiasRegressor using
     trending articles about the subject from no later than the past week.
     """
 
     date_today = datetime.datetime.now().strftime("%Y-%m-%d")
 
     linkdates = scraper.get_articles_google(stock)
-
+    
     all_summaries = scraper.get_summaries(linkdates)
-
     res = all_summaries
 
     all_summaries = [x[0] for x in res]
@@ -72,17 +75,14 @@ def create_weight_dataset(stock: str):
         sentiment_avgs[key] = sum(avg_lst)/len(avg_lst)
 
     # print(sentiment_avgs)
-
     sentiment_today = sentiment_avgs[date_today]
-
-    # print(sentiment_today)
-
     if date_today in list(sentiment_avgs):
+
         del sentiment_avgs[date_today]
 
     yf_data = yf.download(
-        stock, 
-        start=(list(sorted(sentiment_avgs))[0]), 
+        stock,
+        start=(list(sorted(sentiment_avgs))[0]),
         end=(list(sorted(sentiment_avgs))[-1])
     )
     time.sleep(1)
@@ -99,12 +99,21 @@ def create_weight_dataset(stock: str):
         "RealAdjClose"
     ]
     main_data.columns = new_headers
-    main_data["Sentiment"] = [0 for i in range(main_data.shape[0])]
+    main_data["{}DaySentiment".format(daysfuture)] = [0 for i in range(main_data.shape[0])]
+
 
     for sentdate, sentiment_avg in sentiment_avgs.items():
-        condition = main_data["Date"] == sentdate
-        index = main_data.index[condition]
-        main_data.at[index, 'Sentiment'] = sentiment_avg
+        try:
+            condition = main_data["Date"] == sentdate
+            index = main_data.index[condition] + daysfuture
+            main_data.at[index, "{}DaySentiment".format(daysfuture)] = sentiment_avg
+        except:
+            pass
+
+    main_data = main_data.dropna()
+    for idx, row in main_data.iterrows():
+        if float(list(row)[-1]) == 0.0:
+            main_data = main_data.drop(idx, axis=0)
 
     dates_to_predict = [date for date in main_data["Date"]]
     all_predictions = {}
@@ -117,6 +126,7 @@ def create_weight_dataset(stock: str):
         preds, ranges = mp.predict(preddate)
         preds = list(preds['Output Values'])
         all_predictions[preddate] = preds
+        time.sleep(3)
 
     pred_headers = ["PredictedOpen", "PredictedHigh",
                     "PredictedLow", "PredictedClose", "PredictedAdjClose"]
@@ -133,18 +143,78 @@ def create_weight_dataset(stock: str):
         for idx, pred in enumerate(preds):
             main_data.at[xindex, pred_headers[idx]] = pred
 
-    # Scale the data here!
+    main_data.to_csv("IMPORTANT_DO_NOT_DEL.csv")
+    
+    return main_data, sentiment_today
+
+def find_correlation_by_sentiment(weight_dataset: pd.DataFrame, ticker: str, sentiment_ftr: float, date: str, daysfuture: int):
+
+    main_data = weight_dataset
+    fields = ["Open", "High", "Low", "Close", "AdjClose"]
+
     scaled_data = pd.DataFrame()
     scaler = MinMaxScaler()
-    for idx, col in enumerate(main_data.columns):
-        if (col != "Date") and (col != "Sentiment"):
+    for col in main_data.columns:
+        if (col != "Date") and (col != "{}DaySentiment".format(daysfuture)) and (col != "Unnamed: 0"):
             scaled_data[col] = scaler.fit_transform(
                 main_data[col].values.reshape(-1, 1))
         else:
             scaled_data[col] = main_data[col]
+    
+    df = scaled_data
 
-    return scaled_data
+    model_dict = {}
 
+    for field in fields:
+        attributes = ["Predicted"+field, "{}DaySentiment".format(daysfuture)]
+        predict = ["Real"+field]
+        all_cols = attributes
+        all_cols.extend(predict)
+        model = LinearRegression()
+        data = df[all_cols]
+
+        X = data.drop(predict, 1).values
+        y = data[predict].values
+
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
+        model = model.fit(X_train, y_train)
+
+        preds = model.predict(X_test)
+        rmse = np.sqrt(mean_squared_error(y_test, preds))
+
+        model_dict[field] = [model, rmse]
+
+    results = []
+    mp = predictor.MarketPredictor(ticker)
+    mp.load_data()
+    mp.fit_inital()
+    pred_df, ranges = mp.predict(date)
+    for field, lst in model_dict.items():
+        model = lst[0]        
+        ftr = np.array([pred_df['Output Values'][fields.index(field)], sentiment_ftr]).reshape(1, -1)
+        scaled_ftr = np.array([scaler.transform(xftr.reshape(-1, 1)) for xftr in ftr]).reshape(1, -1)
+        result = model.predict(scaled_ftr)
+        result = scaler.inverse_transform(np.array(result).reshape(-1, 1))
+        results.append(result[0][0])
+
+    print(results)
 
 if __name__ == '__main__':
-    print(create_weight_dataset("TSLA"))
+    stock = "AMZN"
+    daysfuture = 3
+    data, test_sent_today = create_weight_dataset(stock, daysfuture)
+    data = pd.read_csv("IMPORTANT_DO_NOT_DEL.csv")
+    date_to_predict = datetime.datetime(datetime.datetime.now() + datetime.timedelta(days=daysfuture)).strftime("%Y-%m-%d")
+    # test_sent_today = 0.5012249999999999
+    # print(data)
+    x = "Unnamed: 0"
+    y = "RealHigh"
+    z = "PredictedHigh"
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection="3d")
+    ax.scatter(data[x], data[y], data[z])
+    ax.set_xlabel(x)
+    ax.set_ylabel(y)
+    ax.set_zlabel(z)
+    # plt.show()
+    find_correlation_by_sentiment(data, stock, test_sent_today, date_to_predict, daysfuture)

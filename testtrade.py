@@ -34,7 +34,7 @@ def predictor_trade(ticker, num_stocks_to_buy):
     sp.load_data()
     # sp.pick_model(show=False, test_size=0.15)
     sp.fit_inital()
-    preds, attrs, date = sp.predict(datetime.datetime.now().strftime('%Y-%m-%d'))
+    preds, ranges = sp.predict(datetime.datetime.now().strftime('%Y-%m-%d'))
     print('Predictions: ')
     print(preds)
     PRED_HIGH = preds['Output Values'][1]

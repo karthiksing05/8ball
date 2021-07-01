@@ -2,8 +2,11 @@ from predictor import MarketPredictor
 import datetime
 
 if __name__ == '__main__':
-    mp = MarketPredictor("TSLA")
+    stock = "CMG"
+    preddate = datetime.datetime.now().strftime("%Y-%m-%d")
+    mp = MarketPredictor(stock)
     mp.load_data()
     mp.fit_inital()
-    df, ranges = mp.predict("2021-06-21")
-    print(df)
+    preds, ranges = mp.predict(preddate)
+    preds = list(preds['Output Values'])
+    print(preds)

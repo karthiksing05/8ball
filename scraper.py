@@ -24,7 +24,7 @@ def remove_punc(test_str):
             test_str = test_str.replace(ele, "")
     return test_str
 
-def split_into_sentences(text):
+def split_into_sentences(text:str):
     alphabets= "([A-Za-z])"
     prefixes = "(Mr|St|Mrs|Ms|Dr)[.]"
     suffixes = "(Inc|Ltd|Jr|Sr|Co)"
@@ -262,4 +262,4 @@ if __name__ == '__main__':
     summaries = get_summaries(linkdates)
     print("NUM_SUMMARIES:", len(summaries))
     print("DATE RANGES BELOW:")
-    print(set([x[1] for x in summaries]))
+    print(set([x[1] for x in summaries if x[1] == datetime.datetime.now().strftime("%Y-%m-%d")]))

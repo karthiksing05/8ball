@@ -3,16 +3,12 @@ Description of this price predictor:
 This is my Investor's 8ball. It focuses on using news headlines, previous stock prices, and machine
 learning to calculate the price of an item on the "Yahoo Finance Market on any date. Currently, we are 
 starting off with an sklearn framework for linear regression, which will be used to predict the stock prices, 
-and then, because numbers are not enough to express what happens in the real world, we will use news headlines 
-and Reddit and Twitter posts to calculate a weight, which we will multiply each of the stock predictions by to 
-get our final result.
+and then, because numbers are not enough to express what happens in the real world, we will use news headlines
+to calculate a weight, which we will multiply each of the stock predictions by to get our final result.
 
-
-Some Important Information:
--Attributes are the input data, they can also be called features
--Labels are the output data, they can also be called targets
-
-
+A quick note that the model in question being used is an XGBoost Regressor with the proper parameters configured
+via a RandomSearchCV, wrapped in an sklearn MultiOutputRegressor wrapper, which then gets wrapped in a biaswrapper
+of my own design.
 
 By: Karthik Singaravadivelan
 """
@@ -98,7 +94,7 @@ class MarketPredictor(object): # v2
     Then, use the load_data() method to load your dataset for the predicting.
     After you've loaded your data, use the predict method to predict your prices.
 
-    Note: The accuracy of this model ranges from 0.8 to 0.98 based on the attributes and data given.
+    Note: The accuracy of this specialized model ranges from 0.8 to 0.98 based on the attributes and data given.
 
     You can change the amount of data the model recieves, however it is preferable to keep the 
     start and end time variables to "None" to recieve maximum data. If you end up using the variables,
@@ -211,7 +207,8 @@ class MarketPredictor(object): # v2
             # Finally, writing the csv file
             with open(file_to_write_to, 'a', newline="") as csvfile:
                 writer = csv.writer(csvfile, quoting=csv.QUOTE_NONNUMERIC)
-                writer.writerow(row)
+                if row[-1] != datetime.datetime.now().strftime("%Y-%m-%d"):
+                    writer.writerow(row)
 
         benchmark_lines = []
         with open(self.benchmark, 'r', newline="") as f:
@@ -220,11 +217,18 @@ class MarketPredictor(object): # v2
                 benchmark_lines.append(row)
 
         new_benchmarks = []
+        benchmark_dates = []
         for benchmark_line in benchmark_lines:
+            benchmark_dates.append(benchmark_line[-1])
             benchmark_line.pop(-1)
             new_benchmarks.append(benchmark_line)
         
         benchmark_lines = new_benchmarks
+        if not self.start_time:
+            self.start_time = benchmark_dates[1]
+        
+        if not self.end_time:
+            self.end_time = benchmark_dates[-1]
 
         header_template = benchmark_lines.pop(0)
         header_template.pop(0)
@@ -268,64 +272,55 @@ class MarketPredictor(object): # v2
             except IndexError:
                 break
 
-        if self.start_time and self.end_time:
-            with open(self.dataset, 'a', newline="") as output_file:
-                nwriter = csv.writer(output_file)
-                with open(self.benchmark2, 'r') as input_file:
-                    reader = csv.reader(input_file)
+        with open(self.dataset, 'a', newline="") as output_file:
+            nwriter = csv.writer(output_file)
+            with open(self.benchmark2, 'r') as input_file:
+                reader = csv.reader(input_file)
 
-                    line_index = 0 # debugging 
+                line_index = 0 # debugging
 
-                    for row in reader:
-                        line_index += 1 
-                        date = row[-1]
-                        try:
+                for row in reader:
+                    line_index += 1
+                    date = row[-1]
+                    try:
 
-                            startyear = int(self.start_time[0:4])
-                            startmonth = int(self.start_time[5:7])
-                            startday = int(self.start_time[8:10])
+                        startyear = int(self.start_time[0:4])
+                        startmonth = int(self.start_time[5:7])
+                        startday = int(self.start_time[8:10])
 
-                            endyear = int(self.end_time[0:4])
-                            endmonth = int(self.end_time[5:7])
-                            endday = int(self.end_time[8:10])
+                        endyear = int(self.end_time[0:4])
+                        endmonth = int(self.end_time[5:7])
+                        endday = int(self.end_time[8:10])
 
-                            currentyear = int(date[0:4])
-                            currentmonth = int(date[5:7])
-                            currentday = int(date[8:10])
+                        currentyear = int(date[0:4])
+                        currentmonth = int(date[5:7])
+                        currentday = int(date[8:10])
 
-                            current_obj = datetime.datetime(
-                                year=currentyear, 
-                                month=currentmonth, 
-                                day=currentday
-                            )
+                        current_obj = datetime.datetime(
+                            year=currentyear, 
+                            month=currentmonth, 
+                            day=currentday
+                        )
 
-                            start_obj = datetime.datetime(
-                                year=startyear,
-                                month=startmonth,
-                                day=startday
-                            )
+                        start_obj = datetime.datetime(
+                            year=startyear,
+                            month=startmonth,
+                            day=startday
+                        )
 
-                            end_obj = datetime.datetime(
-                                year=endyear,
-                                month=endmonth,
-                                day=endday
-                            )
+                        end_obj = datetime.datetime(
+                            year=endyear,
+                            month=endmonth,
+                            day=endday
+                        )
 
-                            if (current_obj >= start_obj) and (current_obj <= end_obj):
-                                nwriter.writerow(row)
-                        except Exception as e:
-                            if str(e) == "invalid literal for int() with base 10: 'Real'":
-                                nwriter.writerow(row)
-                            else:
-                                print(e)
-        
-        else:
-            with open(self.dataset, 'a', newline="") as output_file:
-                nwriter = csv.writer(output_file)
-                with open(self.benchmark2, 'r') as input_file:
-                    reader = csv.reader(input_file)
-                    for row in reader:
-                        nwriter.writerow(row)
+                        if (current_obj >= start_obj) and (current_obj <= end_obj):
+                            nwriter.writerow(row)
+                    except Exception as e:
+                        if str(e) == "invalid literal for int() with base 10: 'Real'":
+                            nwriter.writerow(row)
+                        else:
+                            print(e)
 
         os.popen(f'copy {self.dataset} {self.future_dataset}')
         # os.remove(self.benchmark)
@@ -503,7 +498,7 @@ class MarketPredictor(object): # v2
 
             formatted_pred_values = []
             for value in my_values.tolist()[0]:
-                value = round(float(value), 2)
+                value = round(float(value), 6)
                 formatted_pred_values.append(value)
 
             # my_values = DMatrix(my_values)
@@ -540,7 +535,7 @@ class MarketPredictor(object): # v2
 
             future_data.append(current_stock_date)
 
-            with open(self.future_dataset, "a") as fp:
+            with open(self.future_dataset, "a", newline='') as fp:
                 wr = csv.writer(fp, dialect='excel')
                 wr.writerow(future_data)
 

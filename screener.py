@@ -51,13 +51,16 @@ START = "2020-01-01"  # YYYY-MM-DD
 END = get_most_recent_weekday(datetime.datetime.today()).strftime(
     "%Y-%m-%d")  # datetime.datetime.now().strftime("%Y-%m-%d")  # YYYY-MM-DD
 
+# Uncomment the lines below if you want to clear the log before screening
+"""
 file = open("screener_log.txt", "r+")
 file.truncate(0)
 file.close()
+"""
 
 logging_func = append_new_line
 
-logging_func(("Date: " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+logging_func(("Datetime: " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
 
 # Finding volatile stocks that are projected to change
 sp500_data = pd.read_html('https://en.wikipedia.org/wiki/List_of_S%26P_500_companies')

@@ -31,31 +31,45 @@ def define_trend(data_points):
     elif trend < 0:
         return "BEARISH"
 
-def identify_engulfing(candle_a, candle_b, past_50_dpts):
+def identify_engulfing(lst_of_candles, past_50_dpts):
     """
     Returns boolean indicating whether the candles signify a trend reversal.
     """
+
+    candle_a = lst_of_candles[0]
+    candle_b = lst_of_candles[1]
+
     if define_trend(past_50_dpts) == candle_b.type:
         if candle_a.type != candle_b.type:
-            if (candle_a.open < candle_b.open) and (candle_a.close < candle_b.close):
+            if (candle_a.open < candle_b.open) and (candle_a.close > candle_b.close):
                 return True
     return False
 
-def identify_morning_star(candle_a, candle_b, candle_c, past_50_dpts):
+def identify_morning_star(lst_of_candles, past_50_dpts):
     """
     Returns boolean indicating whether the candles signify a trend reversal.
     """
-    # if _define_trend(past_50_dpts) == candle_a.type:
-    if candle_a.type != candle_c.type:
-        if round(candle_b.body_range, 3) <= 0.01:
-            if candle_c.volume > candle_a.volume:
-                return True
+
+    candle_a = lst_of_candles[0]
+    candle_b = lst_of_candles[1]
+    candle_c = lst_of_candles[2]
+
+    if define_trend(past_50_dpts) == candle_a.type:
+        if candle_a.type != candle_c.type:
+            if round(candle_b.body_range, 3) <= 0.01:
+                if candle_c.volume > candle_a.volume:
+                    return True
     return False
 
-def identify_3_black_crows(candle_a, candle_b, candle_c, past_50_dpts):
+def identify_3_black_crows(lst_of_candles, past_50_dpts):
     """
     Returns boolean indicating whether the candles signify a trend reversal.
     """
+
+    candle_a = lst_of_candles[0]
+    candle_b = lst_of_candles[1]
+    candle_c = lst_of_candles[2]
+
     if define_trend(past_50_dpts) == "BULLISH":
         if 25 < candle_a.rsi < 50:
             if 25 < candle_b.rsi < 50:
@@ -65,10 +79,15 @@ def identify_3_black_crows(candle_a, candle_b, candle_c, past_50_dpts):
                             return True
     return False
 
-def identify_3_white_soldiers(candle_a, candle_b, candle_c, past_50_dpts):
+def identify_3_white_soldiers(lst_of_candles, past_50_dpts):
     """
     Returns boolean indicating whether the candles signify a trend reversal.
     """
+
+    candle_a = lst_of_candles[0]
+    candle_b = lst_of_candles[1]
+    candle_c = lst_of_candles[2]
+
     if define_trend(past_50_dpts) == "BEARISH":
         if 35 < candle_a.rsi < 70:
             if 35 < candle_b.rsi < 70:
@@ -78,10 +97,14 @@ def identify_3_white_soldiers(candle_a, candle_b, candle_c, past_50_dpts):
                             return True
     return False
 
-def identify_piercing_pattern(candle_a, candle_b, past_50_dpts):
+def identify_piercing_pattern(lst_of_candles, past_50_dpts):
     """
     Returns boolean indicating whether the candles signify a trend reversal.
     """
+
+    candle_a = lst_of_candles[0]
+    candle_b = lst_of_candles[1]
+
     if define_trend(past_50_dpts) == "BEARISH":
         if candle_a.type == "BEARISH":
             if candle_b.type == "BULLISH":
@@ -91,23 +114,14 @@ def identify_piercing_pattern(candle_a, candle_b, past_50_dpts):
     return False
 
 
-def identify_shooting_star(candle_a, past_50_dpts):
+def identify_shooting_star(lst_of_candles, past_50_dpts):
     """
     Returns boolean indicating whether the candles signify a trend reversal.
     """
+    candle_a = lst_of_candles[0]
     if define_trend(past_50_dpts) == "BULLISH":
         if candle_a.type == "BEARISH":
             if round((candle_a.high - candle_a.open), 3) >= 0.04:
                 if 0.002 < round(candle_a.body_range, 4) < 0.004:
                     return True
     return False
-
-if __name__ == "__main__":
-    m, n = 500, 1
-    X = np.random.rand(m, n)
-    y = -5 * X + np.random.randn(m, n) * 0.1
-    sample_dpts = [[X[idx], y[idx]] for idx in range(len(X))]
-    import matplotlib.pyplot as plt
-    plt.scatter(X, y)
-    plt.show()
-    print(define_trend(sample_dpts))
