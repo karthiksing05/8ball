@@ -89,7 +89,7 @@ for ticker in good_tickers:
     new_mp.fit_inital()
     next_business_day = get_next_weekday(
         datetime.datetime.now()).strftime("%Y-%m-%d")
-    df, ranges = new_mp.predict(next_business_day)
+    df = new_mp.predict(next_business_day)
     logging_func("\n")
     logging_func(ticker)
     logging_func(df)

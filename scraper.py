@@ -187,12 +187,16 @@ def get_summaries(linkdates:list):
     for link in linkdates:
         xlink = link[0]
         if "finance.yahoo" in xlink:
-            response = requests.get(xlink).text
-            scraper = BeautifulSoup(response, 'html.parser')
-            paragraphs = scraper.find('div', class_='caas-body').find_all('p')
-            text = ""
-            for p in paragraphs:
-                text += p.text + " "
+            try:
+                response = requests.get(xlink).text
+                scraper = BeautifulSoup(response, 'html.parser')
+                paragraphs = scraper.find('div', class_='caas-body')
+                paragraphs = paragraphs.find_all('p')
+                text = ""
+                for p in paragraphs:
+                    text += p.text + " "
+            except AttributeError:
+                continue
         else:
             try:
                 a = Article(xlink.strip())

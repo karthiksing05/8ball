@@ -1,7 +1,7 @@
 
 Fitting the model for the stock predictor. 
-Starting log at 2021-07-01 14:32:00.303735
+Starting log at 2021-07-07 14:18:45.432501
 
 
-Training set: (4455, 296) samples
-Test set: (495, 296) samples
+Training set: (2428, 296) samples
+Test set: (270, 296) samples

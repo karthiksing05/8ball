@@ -542,11 +542,10 @@ class MarketPredictor(object): # v2
         print("\nSee log.txt for more details about the training and testing of the model. (And all the dataframes)\n")
         # Writing to the Excel file: predictions.xlsx
         wb_name = 'data\\predictions.xlsx'
-        print("Returning Label_DF (preds) and pred_ranges.\nTo unpack, use df, ranges.")
         try:
             label_df.to_excel(wb_name)
             self.preds_dict = label_d
-            return label_df, ranges
+            return label_df
         except:
             print("You have predicted a date that has already been processed by the data.")
             print("To view the corresponding prices for this date, use the 'print_past-date'")
