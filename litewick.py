@@ -18,7 +18,7 @@ from patterns import (
 )
 from candle import Candlestick
 
-import inspect
+import datetime
 
 def _computeRSI(data, time_window=14):
     diff = data.diff(1).dropna()
@@ -40,8 +40,7 @@ def _computeRSI(data, time_window=14):
 
 
 def create_candlestick_dataset(ticker, start, end):
-    ticker = yf.Ticker(ticker.upper())
-    df = ticker.history(start=start, end=end, interval="1d")
+    df = yf.download(ticker, start=start, threads=False, end=end, interval="1d")
     if df.empty:
         return "error"
     df['RSI'] = _computeRSI(df[['Close']])
@@ -74,7 +73,7 @@ def create_candlestick_dataset(ticker, start, end):
 
 
 def show_candlestick_graph(ticker, start, end):
-    df = yf.download(ticker, start=start, end=end)
+    df = yf.download(ticker, threads=False, start=start, end=end)
 
     fig = go.Figure(data=[go.Candlestick(x=df.index,
                     open=df['Open'],
@@ -107,26 +106,20 @@ def identify_trend_reversal(candles):
 
     condition_lst = []
     good_patterns = []
+
     for pattern in list_of_patterns:
         num_candles_needed = int(pattern.__code__.co_nlocals) - 2
         cond = False
         num_days = len(past_days)
-        while (cond == False):
-            if ((num_days - (num_candles_needed - 1)) > 0):
-                lst_of_candles = []
-                for val in range(num_candles_needed):
-                    lst_of_candles.append(past_days[int(num_days - (num_candles_needed - val))])
-                # lst_of_candles = [past_days[int(num_days - (num_args - val))] for val in range(num_args)]
-                cond = pattern(
-                    lst_of_candles,
-                    past_50_dpts
-                )
-                # print(cond)
-                # print(num_days - 1)
-                num_days -= 1
-            else:
-                # print("done")
-                break
+        intval = int(num_candles_needed) * -1
+        lst_of_candles = past_days[intval:]
+        cond = pattern(
+            lst_of_candles,
+            past_50_dpts
+        )
+        # print(cond)
+        # print(num_days - 1)
+        num_days -= 1
         if cond:
             good_patterns.append(str(pattern.__name__).split("identify_")[1])
         condition_lst.append(cond)

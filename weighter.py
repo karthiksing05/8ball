@@ -1,4 +1,5 @@
 # Regular Machine Learning imports:
+from numpy.testing._private.utils import break_cycles
 import pandas as pd
 import numpy as np
 
@@ -14,12 +15,16 @@ import scraper
 
 # sklearn imports
 from sklearn.preprocessing import MinMaxScaler
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Ridge
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 
+# BiasRegressor!!!
+from biaswrappers.regressor import BiasRegressor
+
 # Reg python imports
 from pprint import pprint
+import simplejson
 import os
 import datetime
 import time
@@ -77,16 +82,19 @@ def create_weight_dataset(stock: str, daysfuture:int):
     if date_today in list(sentiment_avgs):
         del sentiment_avgs[date_today]
 
+    yf_data = None
+
     yf_data = yf.download(
         stock,
+        threads=False,
         start=(list(sorted(sentiment_avgs))[0]),
         end=(list(sorted(sentiment_avgs))[-1])
     )
-    time.sleep(1)
-    yf_data.to_csv("yfdata.csv")
-    main_data = pd.read_csv("yfdata.csv")
+
+    main_data = yf_data
     main_data = main_data.drop("Volume", axis=1)
-    os.remove("yfdata.csv")
+    main_data.reset_index(level=0, inplace=True)
+    main_data["Date"] = main_data["Date"].dt.strftime('%Y-%m-%d')
     new_headers = [
         "Date", 
         "RealOpen", 
@@ -105,11 +113,6 @@ def create_weight_dataset(stock: str, daysfuture:int):
             main_data.at[index, "{}DaySentiment".format(daysfuture)] = sentiment_avg
         except:
             pass
-
-    main_data = main_data.dropna()
-    for idx, row in main_data.iterrows():
-        if float(list(row)[-1]) == 0.0:
-            main_data = main_data.drop(idx, axis=0)
 
     dates_to_predict = [date for date in main_data["Date"]]
     all_predictions = {}
@@ -150,16 +153,7 @@ def find_correlation_by_sentiment(weight_dataset: pd.DataFrame, ticker: str, sen
     main_data = weight_dataset
     fields = ["Open", "High", "Low", "Close", "AdjClose"]
 
-    scaled_data = pd.DataFrame()
-    scaler = MinMaxScaler()
-    for col in main_data.columns:
-        if (col != "Date") and (col != "{}DaySentiment".format(daysfuture)) and (col != "Unnamed: 0"):
-            scaled_data[col] = scaler.fit_transform(
-                main_data[col].values.reshape(-1, 1))
-        else:
-            scaled_data[col] = main_data[col]
-    
-    df = scaled_data
+    df = main_data
 
     model_dict = {}
 
@@ -168,16 +162,17 @@ def find_correlation_by_sentiment(weight_dataset: pd.DataFrame, ticker: str, sen
         predict = ["Real"+field]
         all_cols = attributes
         all_cols.extend(predict)
-        model = LinearRegression()
+        inside_model = Ridge()
+        model = BiasRegressor(model=inside_model)
         data = df[all_cols]
 
         X = data.drop(predict, 1).values
         y = data[predict].values
 
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
-        model = model.fit(X_train, y_train)
+        model.fit(X_train, y_train)
 
-        preds = model.predict(X_test)
+        preds = model.predict(X_test)[0]
         rmse = np.sqrt(mean_squared_error(y_test, preds))
 
         model_dict[field] = [model, rmse]
@@ -187,12 +182,6 @@ def find_correlation_by_sentiment(weight_dataset: pd.DataFrame, ticker: str, sen
     mp.load_data()
     mp.fit_inital()
     pred_df = mp.predict(date)
-    for field, lst in model_dict.items():
-        model = lst[0]        
-        ftr = np.array([pred_df['Output Values'][fields.index(field)], sentiment_ftr]).reshape(1, -1)
-        scaled_ftr = np.array([scaler.transform(xftr.reshape(-1, 1)) for xftr in ftr]).reshape(1, -1)
-        result = model.predict(scaled_ftr)
-        result = scaler.inverse_transform(np.array(result).reshape(-1, 1))
-        results.append(result[0][0])
+    results = pred_df
 
     return results

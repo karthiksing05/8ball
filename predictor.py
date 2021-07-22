@@ -15,7 +15,7 @@ By: Karthik Singaravadivelan
 
 # All the imports go below
 # These modules are for yahoo finance information purposes and news scraping
-import requests
+import yfinance as yf
 
 # My usual machine learning imports:
 from sklearn.model_selection import train_test_split
@@ -154,67 +154,19 @@ class MarketPredictor(object): # v2
 
         ################################
         # Historical Stock Data
-        r = None
-        x = 0
-        while r == None:
-            url = f'https://query2.finance.yahoo.com/v7/finance/download/{self.ticker}?range=20y&interval=1d&events=history&includeAdjustedClose=true'
-            # print(url)
-            r = requests.get(url, allow_redirects=True)
-            if str(r.text) == ERROR_MESSAGE:
-                x += 1
-                print(f"Received error message {x} times!")
-                r = None
-                time.sleep(5)
-            else:
-                break
+        
+        df = yf.download(self.ticker, period="max")
+        df = df.drop("Volume", axis=1)
+        df.reset_index(level=0, inplace=True)
+        df.rename(columns={'Date':'RealDate'}, inplace=True)
+        df["Date"] = [1 + idx for idx, row in df.iterrows()]
+        new_order = [-1, 1, 2, 3, 4, 5, 0]
+        df = df[df.columns[new_order]]
+        df.to_csv(self.benchmark, index=False)
 
-        file = StringIO(r.text)
-        reader = csv.reader(file)
-        csvdata = list(reader)
-
-        # turning everything into a csv:
-        # this formats everthing along the way as well.
-        # Basically what this loop does is, instead of just writing a list to the end of the 
-        # csv file, this is turning everthing into floats and integers
-        # so the prediction script can read everything properly.
-        for listrow in range(len(csvdata)):
-            shifter = 0
-            quitloop = False
-            row = csvdata[listrow]
-            formatted_row = []
-            current_sdate = row[0]
-            if listrow > 0:
-                for elem in row:
-                    try:
-                        if row.index(elem) != 6:
-                            formatted_row.append(float(elem))
-                    except ValueError:
-                        if elem == "null":
-                            quitloop = True
-                            break
-                        else:
-                            formatted_row.append(listrow - shifter)
-                formatted_row.append(current_sdate)
-                row = formatted_row
-            else:
-                row.pop(-1)
-                row.append("RealDate")
-            if quitloop == True:
-                quitloop = False
-                shifter += 1
-                continue
-            file_to_write_to = self.benchmark
-            # Finally, writing the csv file
-            with open(file_to_write_to, 'a', newline="") as csvfile:
-                writer = csv.writer(csvfile, quoting=csv.QUOTE_NONNUMERIC)
-                if row[-1] != datetime.datetime.now().strftime("%Y-%m-%d"):
-                    writer.writerow(row)
-
-        benchmark_lines = []
         with open(self.benchmark, 'r', newline="") as f:
-            reader = csv.reader(f, quoting=csv.QUOTE_NONNUMERIC)
-            for row in reader:
-                benchmark_lines.append(row)
+            reader = csv.reader(f)
+            benchmark_lines = [row for row in reader]
 
         new_benchmarks = []
         benchmark_dates = []
@@ -267,6 +219,13 @@ class MarketPredictor(object): # v2
                     cdate = read_cell(6, (real_line_num + 1))
                     final_line.append(cdate)
                     today = datetime.datetime.now().strftime("%Y-%m-%d")
+                    formatted_final_line = []
+                    for elem in final_line:
+                        if (type(elem) == str):
+                            try:
+                                formatted_final_line.append(float(elem))
+                            except ValueError:
+                                formatted_final_line.append(elem)
                     if cdate != today:
                         writer.writerow(final_line)
             except IndexError:

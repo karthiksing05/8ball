@@ -1,11 +1,9 @@
 # My Custom Library Imports:
 from litewick import create_candlestick_dataset, identify_trend_reversal
-from predictor import MarketPredictor
-from patterns import define_trend
+from eightball import get_final_predictions
 
 # Other imports
 import pandas as pd
-import yfinance as yf
 
 # Python regs
 import datetime
@@ -52,11 +50,9 @@ END = get_most_recent_weekday(datetime.datetime.today()).strftime(
     "%Y-%m-%d")  # datetime.datetime.now().strftime("%Y-%m-%d")  # YYYY-MM-DD
 
 # Uncomment the lines below if you want to clear the log before screening
-"""
 file = open("screener_log.txt", "r+")
 file.truncate(0)
 file.close()
-"""
 
 logging_func = append_new_line
 
@@ -73,7 +69,7 @@ good_tickers = []
 for ticker in allsymbols:
     candles = create_candlestick_dataset(ticker, START, END)
     output, patterns = identify_trend_reversal(candles)
-    if output > 0.2:
+    if output > 0:
         good_tickers.append(ticker)
         logging_func("I am {} confident that {} will have a trend reversal within the next week!".format(
             round(output, 4), ticker))
@@ -83,13 +79,11 @@ for ticker in allsymbols:
         logging_func("")
     time.sleep(3)  # delay to prevent the API from overclocking
 
+logging_func("all good tickers" + str(good_tickers))
+exit()
 for ticker in good_tickers:
-    new_mp = MarketPredictor(ticker)
-    new_mp.load_data()
-    new_mp.fit_inital()
     next_business_day = get_next_weekday(
         datetime.datetime.now()).strftime("%Y-%m-%d")
-    df = new_mp.predict(next_business_day)
-    logging_func("\n")
-    logging_func(ticker)
-    logging_func(df)
+    weighter_res, tr_proba = get_final_predictions(ticker, next_business_day)
+    logging_func("Weighted Predictions: " + str(weighter_res))
+    logging_func("Probability of Trend Reversal: " + str(tr_proba))

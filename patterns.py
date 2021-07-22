@@ -41,8 +41,9 @@ def identify_engulfing(lst_of_candles, past_50_dpts):
 
     if define_trend(past_50_dpts) == candle_b.type:
         if candle_a.type != candle_b.type:
-            if (candle_a.open < candle_b.open) and (candle_a.close > candle_b.close):
-                return True
+            if candle_a.type == "BEARISH":
+                if (candle_a.open < candle_b.close) and (candle_a.close < candle_b.open):
+                    return True
     return False
 
 def identify_morning_star(lst_of_candles, past_50_dpts):
