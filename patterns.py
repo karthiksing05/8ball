@@ -38,7 +38,6 @@ def identify_engulfing(lst_of_candles, past_50_dpts):
 
     candle_a = lst_of_candles[0]
     candle_b = lst_of_candles[1]
-
     if define_trend(past_50_dpts) == candle_b.type:
         if candle_a.type != candle_b.type:
             if candle_a.type == "BEARISH":

@@ -1,0 +1,374 @@
+Datetime: 2021-08-23 18:30:53
+I am 0.1667 confident that AES will have a trend reversal within the next week!
+Before the trend reversal, AES was BULLISH!
+This is because of the following patterns:
+morning_star
+
+I am 0.1667 confident that ALK will have a trend reversal within the next week!
+Before the trend reversal, ALK was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that APA will have a trend reversal within the next week!
+Before the trend reversal, APA was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that BAX will have a trend reversal within the next week!
+Before the trend reversal, BAX was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that BK will have a trend reversal within the next week!
+Before the trend reversal, BK was BULLISH!
+This is because of the following patterns:
+engulfing
+
+I am 0.1667 confident that BKNG will have a trend reversal within the next week!
+Before the trend reversal, BKNG was BEARISH!
+This is because of the following patterns:
+morning_star
+
+I am 0.1667 confident that CHRW will have a trend reversal within the next week!
+Before the trend reversal, CHRW was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that CZR will have a trend reversal within the next week!
+Before the trend reversal, CZR was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that CAH will have a trend reversal within the next week!
+Before the trend reversal, CAH was BEARISH!
+This is because of the following patterns:
+morning_star
+
+I am 0.1667 confident that CCL will have a trend reversal within the next week!
+Before the trend reversal, CCL was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that C will have a trend reversal within the next week!
+Before the trend reversal, C was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that CFG will have a trend reversal within the next week!
+Before the trend reversal, CFG was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that CTXS will have a trend reversal within the next week!
+Before the trend reversal, CTXS was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that COP will have a trend reversal within the next week!
+Before the trend reversal, COP was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that CTVA will have a trend reversal within the next week!
+Before the trend reversal, CTVA was BULLISH!
+This is because of the following patterns:
+3_black_crows
+
+I am 0.1667 confident that CSX will have a trend reversal within the next week!
+Before the trend reversal, CSX was BULLISH!
+This is because of the following patterns:
+engulfing
+
+I am 0.1667 confident that XRAY will have a trend reversal within the next week!
+Before the trend reversal, XRAY was BEARISH!
+This is because of the following patterns:
+morning_star
+
+I am 0.1667 confident that DVN will have a trend reversal within the next week!
+Before the trend reversal, DVN was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.3333 confident that FANG will have a trend reversal within the next week!
+Before the trend reversal, FANG was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+morning_star
+
+I am 0.1667 confident that DFS will have a trend reversal within the next week!
+Before the trend reversal, DFS was BULLISH!
+This is because of the following patterns:
+engulfing
+
+I am 0.1667 confident that DISCK will have a trend reversal within the next week!
+Before the trend reversal, DISCK was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that DOW will have a trend reversal within the next week!
+Before the trend reversal, DOW was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that EIX will have a trend reversal within the next week!
+Before the trend reversal, EIX was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that FLT will have a trend reversal within the next week!
+Before the trend reversal, FLT was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that FOXA will have a trend reversal within the next week!
+Before the trend reversal, FOXA was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that FOX will have a trend reversal within the next week!
+Before the trend reversal, FOX was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that GD will have a trend reversal within the next week!
+Before the trend reversal, GD was BULLISH!
+This is because of the following patterns:
+engulfing
+
+I am 0.1667 confident that GL will have a trend reversal within the next week!
+Before the trend reversal, GL was BULLISH!
+This is because of the following patterns:
+morning_star
+
+I am 0.1667 confident that HBI will have a trend reversal within the next week!
+Before the trend reversal, HBI was BULLISH!
+This is because of the following patterns:
+engulfing
+
+I am 0.1667 confident that HIG will have a trend reversal within the next week!
+Before the trend reversal, HIG was BULLISH!
+This is because of the following patterns:
+engulfing
+
+I am 0.1667 confident that HST will have a trend reversal within the next week!
+Before the trend reversal, HST was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that IBM will have a trend reversal within the next week!
+Before the trend reversal, IBM was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that IPG will have a trend reversal within the next week!
+Before the trend reversal, IPG was BULLISH!
+This is because of the following patterns:
+engulfing
+
+I am 0.1667 confident that J will have a trend reversal within the next week!
+Before the trend reversal, J was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that JBHT will have a trend reversal within the next week!
+Before the trend reversal, JBHT was BULLISH!
+This is because of the following patterns:
+engulfing
+
+I am 0.3333 confident that KEY will have a trend reversal within the next week!
+Before the trend reversal, KEY was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+morning_star
+
+I am 0.1667 confident that KR will have a trend reversal within the next week!
+Before the trend reversal, KR was BULLISH!
+This is because of the following patterns:
+engulfing
+
+I am 0.1667 confident that LVS will have a trend reversal within the next week!
+Before the trend reversal, LVS was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that LEG will have a trend reversal within the next week!
+Before the trend reversal, LEG was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that LYV will have a trend reversal within the next week!
+Before the trend reversal, LYV was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that LYB will have a trend reversal within the next week!
+Before the trend reversal, LYB was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that MTB will have a trend reversal within the next week!
+Before the trend reversal, MTB was BULLISH!
+This is because of the following patterns:
+morning_star
+
+I am 0.1667 confident that MGM will have a trend reversal within the next week!
+Before the trend reversal, MGM was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that MS will have a trend reversal within the next week!
+Before the trend reversal, MS was BULLISH!
+This is because of the following patterns:
+engulfing
+
+I am 0.1667 confident that NWL will have a trend reversal within the next week!
+Before the trend reversal, NWL was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that NWSA will have a trend reversal within the next week!
+Before the trend reversal, NWSA was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that NWS will have a trend reversal within the next week!
+Before the trend reversal, NWS was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that NKE will have a trend reversal within the next week!
+Before the trend reversal, NKE was BULLISH!
+This is because of the following patterns:
+engulfing
+
+I am 0.1667 confident that NOC will have a trend reversal within the next week!
+Before the trend reversal, NOC was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that NCLH will have a trend reversal within the next week!
+Before the trend reversal, NCLH was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that NOV will have a trend reversal within the next week!
+Before the trend reversal, NOV was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that NUE will have a trend reversal within the next week!
+Before the trend reversal, NUE was BULLISH!
+This is because of the following patterns:
+morning_star
+
+I am 0.1667 confident that NVR will have a trend reversal within the next week!
+Before the trend reversal, NVR was BEARISH!
+This is because of the following patterns:
+engulfing
+
+I am 0.1667 confident that OKE will have a trend reversal within the next week!
+Before the trend reversal, OKE was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that PENN will have a trend reversal within the next week!
+Before the trend reversal, PENN was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that PBCT will have a trend reversal within the next week!
+Before the trend reversal, PBCT was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that PRGO will have a trend reversal within the next week!
+Before the trend reversal, PRGO was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that PNW will have a trend reversal within the next week!
+Before the trend reversal, PNW was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that RJF will have a trend reversal within the next week!
+Before the trend reversal, RJF was BULLISH!
+This is because of the following patterns:
+engulfing
+
+I am 0.1667 confident that RTX will have a trend reversal within the next week!
+Before the trend reversal, RTX was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that SRE will have a trend reversal within the next week!
+Before the trend reversal, SRE was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that SPG will have a trend reversal within the next week!
+Before the trend reversal, SPG was BULLISH!
+This is because of the following patterns:
+3_white_soldiers
+
+I am 0.1667 confident that SWK will have a trend reversal within the next week!
+Before the trend reversal, SWK was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that SIVB will have a trend reversal within the next week!
+Before the trend reversal, SIVB was BULLISH!
+This is because of the following patterns:
+engulfing
+
+I am 0.1667 confident that SYY will have a trend reversal within the next week!
+Before the trend reversal, SYY was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that TXT will have a trend reversal within the next week!
+Before the trend reversal, TXT was BULLISH!
+This is because of the following patterns:
+engulfing
+
+I am 0.1667 confident that TDG will have a trend reversal within the next week!
+Before the trend reversal, TDG was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that USB will have a trend reversal within the next week!
+Before the trend reversal, USB was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that UAA will have a trend reversal within the next week!
+Before the trend reversal, UAA was BULLISH!
+This is because of the following patterns:
+engulfing
+
+I am 0.1667 confident that UA will have a trend reversal within the next week!
+Before the trend reversal, UA was BULLISH!
+This is because of the following patterns:
+engulfing
+
+I am 0.1667 confident that UNM will have a trend reversal within the next week!
+Before the trend reversal, UNM was BEARISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that VNO will have a trend reversal within the next week!
+Before the trend reversal, VNO was BEARISH!
+This is because of the following patterns:
+morning_star
+
+I am 0.1667 confident that WBA will have a trend reversal within the next week!
+Before the trend reversal, WBA was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+I am 0.1667 confident that WRK will have a trend reversal within the next week!
+Before the trend reversal, WRK was BULLISH!
+This is because of the following patterns:
+piercing_pattern
+
+all good tickers['AES', 'ALK', 'APA', 'BAX', 'BK', 'BKNG', 'CHRW', 'CZR', 'CAH', 'CCL', 'C', 'CFG', 'CTXS', 'COP', 'CTVA', 'CSX', 'XRAY', 'DVN', 'FANG', 'DFS', 'DISCK', 'DOW', 'EIX', 'FLT', 'FOXA', 'FOX', 'GD', 'GL', 'HBI', 'HIG', 'HST', 'IBM', 'IPG', 'J', 'JBHT', 'KEY', 'KR', 'LVS', 'LEG', 'LYV', 'LYB', 'MTB', 'MGM', 'MS', 'NWL', 'NWSA', 'NWS', 'NKE', 'NOC', 'NCLH', 'NOV', 'NUE', 'NVR', 'OKE', 'PENN', 'PBCT', 'PRGO', 'PNW', 'RJF', 'RTX', 'SRE', 'SPG', 'SWK', 'SIVB', 'SYY', 'TXT', 'TDG', 'USB', 'UAA', 'UA', 'UNM', 'VNO', 'WBA', 'WRK']

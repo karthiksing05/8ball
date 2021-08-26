@@ -1,5 +1,5 @@
 # My Imports
-from weighter import create_weight_dataset, find_correlation_by_sentiment
+from news_weighter import create_weight_dataset, find_correlation_by_sentiment
 from litewick import create_candlestick_dataset, identify_trend_reversal
 
 # Standard Python imports
@@ -51,8 +51,8 @@ def get_final_predictions(stock: str, date_to_predict: str) -> tuple:
             data, test_sent_today = create_weight_dataset(stock, daysfuture)
     
     final_preds = find_correlation_by_sentiment(
-        data, 
-        stock, 
+        data,
+        stock,
         test_sent_today, 
         date_to_predict, 
         daysfuture

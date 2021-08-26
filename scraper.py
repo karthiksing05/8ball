@@ -6,6 +6,9 @@ from bs4 import BeautifulSoup
 # PyGoogleNews API
 from pygooglenews import GoogleNews
 
+# Tweepy API
+import tweepy
+
 # Some imports for preprocessing:
 import nltk
 from newspaper import Article
@@ -13,6 +16,7 @@ from newspaper import Article
 # Reg python imports
 import heapq
 import re
+import pickle
 from pprint import pprint
 import datetime
 import time
@@ -178,7 +182,7 @@ def get_articles_google(stock_ticker:str):
 
     return linkdates
 
-def get_summaries(linkdates:list):
+def get_news_summaries(linkdates:list):
     """
     PREPROCESSING BEGINS HERE!
     """
@@ -261,9 +265,38 @@ def get_summaries(linkdates:list):
         summaries.append([summary, date])
     return summaries
 
+def get_tweets(stock_ticker:str):
+    """
+    This function returns a list of lists. Each list contains a tweet and the date of the tweet.
+    This function uses the Tweepy API to get twitter Results.
+    """
+
+    with open('tweepy.pickle', 'rb') as f:
+        (CONSUMER_API_KEY, CONSUMER_API_SECRET, ACCESS_TOKEN, ACCESS_SECRET, BEARER_TOKEN) = pickle.load(f)
+
+    auth = tweepy.OAuthHandler(CONSUMER_API_KEY, CONSUMER_API_SECRET)
+    auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
+    api = tweepy.API(auth)
+
+    keyword = stock_ticker
+    list_of_raw_tweets = api.search(q=keyword, lang='en', count=1000)
+    list_of_tweets = []
+    tweet_texts = []
+    for tweet in list_of_raw_tweets:
+        timestamp = str(tweet._json['created_at'])
+        year = timestamp[-4:]
+        month = timestamp[4:7]
+        day = timestamp[8:10]
+        dt_str = "{}-{}-{}".format(month, day, year)
+        dt = datetime.datetime.strptime(dt_str, r"%b-%d-%Y").strftime("%Y-%m-%d")
+        text = tweet._json['text'].rstrip()
+        if text not in tweet_texts:
+            tweet_texts.append(text)
+        else:
+            continue
+        list_of_tweets.append([dt, text])
+
+    return list_of_tweets
+
 if __name__ == '__main__':
-    linkdates = get_articles_google("TSLA")
-    summaries = get_summaries(linkdates)
-    print("NUM_SUMMARIES:", len(summaries))
-    print("DATE RANGES BELOW:")
-    print(set([x[1] for x in summaries if x[1] == datetime.datetime.now().strftime("%Y-%m-%d")]))
+    print(get_tweets("TSLA"))

@@ -278,6 +278,7 @@ class MarketPredictor(object): # v2
                     except Exception as e:
                         if str(e) == "invalid literal for int() with base 10: 'Real'":
                             nwriter.writerow(row)
+                            
                         else:
                             print(e)
 
@@ -323,16 +324,14 @@ class MarketPredictor(object): # v2
             colsample_bytree=0.75,
             min_child_weight=10
         )
-
+        
         multi_model = MultiOutputRegressor(inside_model)
         model = BiasRegressor(multi_model)
-
         model.fit(X_train, y_train)
 
         test_preds = model.predict(X_test)
         test_preds = test_preds.reshape(-1, len(self.labels))
         rmse = np.sqrt(mean_squared_error(y_test, test_preds))
-
         self.model = model
 
         append_new_line("log.txt", "\nFitting/Tuning Finished at "+str(datetime.datetime.now()))
@@ -375,7 +374,7 @@ class MarketPredictor(object): # v2
                 date += datetime.timedelta(days=-date.isoweekday() + 8)
             return date
 
-        print("Model Used For Prediction: " + str(get_model_name(self.model)))
+
         # These lines are to see how many times the "for" loop should run.
 
         if not self.end_time:
@@ -387,13 +386,17 @@ class MarketPredictor(object): # v2
             endmonth = int(self.end_time[5:7])
             endday = int(self.end_time[8:10])
             date2 = datetime.date(endyear, endmonth, endday)
-        date1 = datetime.date(year, month, day)
-        date1 = get_next_weekday(date1)
+        predicted_date = datetime.date(year, month, day)
+        predicted_date = get_next_weekday(predicted_date)
         # print(today.year, today.month, today.day)
-        days = int(numOfDays(date2, date1))
+        days = int(numOfDays(date2, predicted_date))
         # print(days, "days")
 
         stock_days = days + float(read_cell(0, -1)) - 1
+
+        print("Date Predicted: " + predicted_date.strftime("%Y-%m-%d"))
+        print("Model Used For Prediction: " + str(get_model_name(self.model)))
+
         for day in range(0, days):
 
             # print(day)
@@ -438,13 +441,13 @@ class MarketPredictor(object): # v2
             Here is where the predicting begins.
             """
             current_sd = stock_days - (days - day - 1)
-
             pred_values = [current_sd]
             # print(days, stock_days)
             
             for day in range(self.dayspast - 1):
                 for pred_attr in self.labels:
-                    cell_x = int(self.attributes.index(pred_attr))
+                    pred_attr += str(day) if day > 0 else ""
+                    cell_x = int((self.attributes.index(pred_attr)))
                     cell_y = -1
                     # print(f"({cell_x}, {cell_y})")
                     pred_value = read_cell(cell_x, cell_y)

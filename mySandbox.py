@@ -2,8 +2,8 @@ from eightball import get_final_predictions
 from predictor import MarketPredictor
 import datetime
 
-daysfuture = 1
-date_to_predict = (datetime.datetime.now() + datetime.timedelta(days=daysfuture)).strftime("%Y-%m-%d")
+days_into_future = 1
+date_to_predict = (datetime.datetime.now() + datetime.timedelta(days=days_into_future)).strftime("%Y-%m-%d")
 stock = "TSLA"
 print("Date Predicted: " + date_to_predict)
 print("Stock Predicted: " + stock)

@@ -1,9 +1,11 @@
 # My Custom Library Imports:
 from litewick import create_candlestick_dataset, identify_trend_reversal
+from patterns import define_trend
 from eightball import get_final_predictions
 
 # Other imports
 import pandas as pd
+import yfinance as yf
 
 # Python regs
 import datetime
@@ -71,8 +73,14 @@ for ticker in allsymbols:
     output, patterns = identify_trend_reversal(candles)
     if output > 0:
         good_tickers.append(ticker)
+        df = yf.download(ticker)
+        past_dpts = [row[-2] for idx, row in df.iterrows()]
+        past_dpts = [(idx, elem) for idx, elem in enumerate(past_dpts)]
+        past_dpts = past_dpts[-21:]
+        trend = define_trend(past_dpts)
         logging_func("I am {} confident that {} will have a trend reversal within the next week!".format(
             round(output, 4), ticker))
+        logging_func("Before the trend reversal, {} was {}!".format(ticker, trend))
         logging_func("This is because of the following patterns:")
         for pattern in patterns:
             logging_func(pattern)
@@ -81,6 +89,7 @@ for ticker in allsymbols:
 
 logging_func("all good tickers" + str(good_tickers))
 exit()
+
 for ticker in good_tickers:
     next_business_day = get_next_weekday(
         datetime.datetime.now()).strftime("%Y-%m-%d")
