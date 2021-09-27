@@ -1,7 +1,14 @@
 
 Fitting the model for the stock predictor. 
-Starting log at 2021-08-25 18:49:59.454292
+Starting log at 2021-09-12 15:22:56.684931
 
 
-Training set: (2465, 296) samples
-Test set: (274, 296) samples
+Training set: (2485, 296) samples
+Test set: (277, 296) samples
+
+Fitting/Tuning Finished at 2021-09-12 15:23:22.574699
+
+with RMSE of 8.668519644834458
+
+Fitting the model for the stock predictor. 
+Starting log at 2021-09-12 15:23:22.872480

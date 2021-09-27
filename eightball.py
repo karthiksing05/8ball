@@ -1,6 +1,6 @@
 # My Imports
 from news_weighter import create_weight_dataset, find_correlation_by_sentiment
-from litewick import create_candlestick_dataset, identify_trend_reversal
+
 
 # Standard Python imports
 import datetime
@@ -34,14 +34,14 @@ def get_final_predictions(stock: str, date_to_predict: str) -> tuple:
     if daysfuture <= 0:
         raise ValueError("You have predicted a date in the past/today. To use this function, please predict a date in the future.")
 
-    start = (pred_datetime - datetime.timedelta(days=365)).strftime("%Y-%m-%d")
-    end = (pred_datetime - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
-    if not os.path.exists("benchmark.pickle"):
+    BENCHMARK_FILE = "dataset_benchmark.pickle"
+
+    if not os.path.exists(BENCHMARK_FILE):
         data, test_sent_today = create_weight_dataset(stock, daysfuture)
-        with open('benchmark.pickle', 'wb') as f:
+        with open(BENCHMARK_FILE, 'wb') as f:
             pickle.dump([today.strftime("%Y-%m-%d"), [data, test_sent_today]], f)
     else:
-        with open('benchmark.pickle', 'rb') as f:
+        with open(BENCHMARK_FILE, 'rb') as f:
             pickled_info = pickle.load(f)
         dumped_date = pickled_info[0]
         data = pickled_info[1][0]
@@ -58,10 +58,4 @@ def get_final_predictions(stock: str, date_to_predict: str) -> tuple:
         daysfuture
     )
 
-    candles = create_candlestick_dataset(stock, start, end)
-    proba, patterns = identify_trend_reversal(candles)
-
-    if proba <= 0:
-        return (final_preds, 0)
-    else:
-        return (final_preds, 1)
+    return final_preds

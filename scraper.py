@@ -297,6 +297,3 @@ def get_tweets(stock_ticker:str):
         list_of_tweets.append([dt, text])
 
     return list_of_tweets
-
-if __name__ == '__main__':
-    print(get_tweets("TSLA"))

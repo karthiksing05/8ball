@@ -14,7 +14,6 @@ import predictor
 import scraper
 
 # sklearn imports
-from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import Ridge
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
@@ -22,15 +21,13 @@ from sklearn.metrics import mean_squared_error
 # BiasRegressor!!!
 from biaswrappers.regressor import BiasRegressor
 
+# Multiprocessing import; to make the program run faster
+import multiprocessing as mp
+
 # Reg python imports
-from pprint import pprint
-import simplejson
-import os
 import datetime
 import time
 
-# For various reasons, I am going to wrap the functionality of this module into a SINGLE
-# function. Doing so will allow me to easily add this to my stock predictor class.
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
 
@@ -123,7 +120,11 @@ def create_weight_dataset(stock: str, daysfuture:int):
 
     dates_to_predict = [date for date in main_data["Date"]]
     all_predictions = {}
-    for preddate in dates_to_predict:
+
+    def predict_date(preddate):
+        """
+        Wrapper function for multiprocessing; fits and predicts data for a given date
+        """
         special_end_date = str(datetime.datetime.strptime(
             preddate, r"%Y-%m-%d") - datetime.timedelta(days=1))[:-9]
         mp = predictor.MarketPredictor(stock, end_time=special_end_date)
@@ -132,8 +133,12 @@ def create_weight_dataset(stock: str, daysfuture:int):
         preds = mp.predict(preddate)
         preds = list(preds['Output Values'])
         all_predictions[preddate] = preds
-        time.sleep(3)
 
+    # multiprocessing functions
+    pool = mp.Pool(mp.cpu_count())
+    pool.map(predict_date, dates_to_predict)
+
+    # final dataframe
     pred_headers = ["PredictedOpen", "PredictedHigh",
                     "PredictedLow", "PredictedClose", "PredictedAdjClose"]
 
@@ -151,7 +156,13 @@ def create_weight_dataset(stock: str, daysfuture:int):
     
     return main_data, sent_ftr
 
-def find_correlation_by_sentiment(weight_dataset: pd.DataFrame, ticker: str, sentiment_ftr: float, date: str, daysfuture: int):
+def find_correlation_by_sentiment(
+            weight_dataset: pd.DataFrame, 
+            ticker: str, 
+            sentiment_ftr: float, 
+            date: str, 
+            daysfuture: int
+        ):
     """
     Using the dataset created from _create_weight_dataset, this function will weight
     predictions created by the MarketPredictor from the predictor file.
@@ -164,6 +175,13 @@ def find_correlation_by_sentiment(weight_dataset: pd.DataFrame, ticker: str, sen
 
     model_dict = {}
 
+    mp = predictor.MarketPredictor(ticker)
+    mp.load_data()
+    mp.fit_inital()
+    pred_df = mp.predict(date)
+    raw_results = [pred_df['Output Values'][x] for x in range(5)]
+
+    results = []
     for field in fields:
         attributes = ["Predicted"+field, "{}DaySentiment".format(daysfuture)]
         predict = ["Real"+field]
@@ -184,11 +202,7 @@ def find_correlation_by_sentiment(weight_dataset: pd.DataFrame, ticker: str, sen
 
         model_dict[field] = [model, rmse]
 
-    results = []
-    mp = predictor.MarketPredictor(ticker)
-    mp.load_data()
-    mp.fit_inital()
-    pred_df = mp.predict(date)
-    results = pred_df
+        preds = model.predict(raw_results[fields.index(field)], sentiment_ftr)
+        results.append(preds[0])
 
     return results
