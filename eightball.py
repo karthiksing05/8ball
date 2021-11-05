@@ -49,6 +49,8 @@ def get_final_predictions(stock: str, date_to_predict: str) -> tuple:
 
         if dumped_date != today.strftime("%Y-%m-%d"):
             data, test_sent_today = create_weight_dataset(stock, daysfuture)
+            with open(BENCHMARK_FILE, 'wb') as f:
+                pickle.dump([today.strftime("%Y-%m-%d"), [data, test_sent_today]], f)
     
     final_preds = find_correlation_by_sentiment(
         data,

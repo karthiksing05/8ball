@@ -14,7 +14,7 @@ import predictor
 import scraper
 
 # sklearn imports
-from sklearn.linear_model import Ridge
+from sklearn.linear_model import Lasso
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 
@@ -26,10 +26,32 @@ import multiprocessing as mp
 
 # Reg python imports
 import datetime
-import time
+import pickle
+import os
 
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
+
+
+
+def predict_date(params):
+    """
+    Wrapper function for multiprocessing; fits and predicts data for a given date
+    """
+    pool_filename = "pool_data\\data{}.pickle"
+    preddate = params[0]
+    clone_id = params[1]
+    stock = params[2]
+    special_end_date = str(datetime.datetime.strptime(
+        preddate, r"%Y-%m-%d") - datetime.timedelta(days=1))[:-9]
+    mp = predictor.MarketPredictor(stock, clone_id=clone_id, end_time=special_end_date)
+    mp.load_data()
+    mp.fit_inital()
+    preds = mp.predict(preddate)
+    preds = list(preds['Output Values'])
+    with open(pool_filename.format(clone_id), "wb") as f:
+        pickle.dump([preddate, preds], f)
+    mp.delete_datasets()
 
 def create_weight_dataset(stock: str, daysfuture:int):
     """
@@ -119,24 +141,19 @@ def create_weight_dataset(stock: str, daysfuture:int):
             pass
 
     dates_to_predict = [date for date in main_data["Date"]]
-    all_predictions = {}
 
-    def predict_date(preddate):
-        """
-        Wrapper function for multiprocessing; fits and predicts data for a given date
-        """
-        special_end_date = str(datetime.datetime.strptime(
-            preddate, r"%Y-%m-%d") - datetime.timedelta(days=1))[:-9]
-        mp = predictor.MarketPredictor(stock, end_time=special_end_date)
-        mp.load_data()
-        mp.fit_inital()
-        preds = mp.predict(preddate)
-        preds = list(preds['Output Values'])
-        all_predictions[preddate] = preds
+    args = list(zip(
+            dates_to_predict, 
+            [x for x in range(len(dates_to_predict))],
+            [stock for x in range(len(dates_to_predict))]
+        ))
 
     # multiprocessing functions
-    pool = mp.Pool(mp.cpu_count())
-    pool.map(predict_date, dates_to_predict)
+    pool = mp.Pool(round(mp.cpu_count()/3))
+    pool.map(
+        predict_date, 
+        args
+    )
 
     # final dataframe
     pred_headers = ["PredictedOpen", "PredictedHigh",
@@ -147,6 +164,12 @@ def create_weight_dataset(stock: str, daysfuture:int):
     main_data[pred_headers[2]] = [None for i in range(main_data.shape[0])]
     main_data[pred_headers[3]] = [None for i in range(main_data.shape[0])]
     main_data[pred_headers[4]] = [None for i in range(main_data.shape[0])]
+
+    all_predictions = {}
+    for directory in os.listdir("pool_data"):
+        with open("pool_data\\{}".format(directory), "rb") as f:
+            date_and_preds = pickle.load(f)
+            all_predictions[date_and_preds[0]] = date_and_preds[1]
 
     for ndate, preds in all_predictions.items():
         condition = main_data["Date"] == ndate
@@ -173,36 +196,43 @@ def find_correlation_by_sentiment(
 
     df = main_data
 
-    model_dict = {}
-
     mp = predictor.MarketPredictor(ticker)
     mp.load_data()
     mp.fit_inital()
     pred_df = mp.predict(date)
     raw_results = [pred_df['Output Values'][x] for x in range(5)]
 
-    results = []
-    for field in fields:
-        attributes = ["Predicted"+field, "{}DaySentiment".format(daysfuture)]
-        predict = ["Real"+field]
-        all_cols = attributes
-        all_cols.extend(predict)
-        inside_model = Ridge()
-        model = BiasRegressor(model=inside_model)
-        data = df[all_cols]
+    models = []
+    results_list = []
 
-        X = data.drop(predict, 1).values
-        y = data[predict].values
+    for model in models:
+        model_dict = {}
+        results = []
 
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
-        model.fit(X_train, y_train)
+        for field in fields:
+            attributes = ["Predicted"+field, "{}DaySentiment".format(daysfuture)]
+            predict = ["Real"+field]
+            all_cols = attributes
+            all_cols.extend(predict)
+            model = Lasso()
+            data = df[all_cols]
 
-        preds = model.predict(X_test)[0]
-        rmse = np.sqrt(mean_squared_error(y_test, preds))
+            X = data.drop(predict, 1).values
+            y = data[predict].values
 
-        model_dict[field] = [model, rmse]
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
+            model.fit(X_train, y_train)
 
-        preds = model.predict(raw_results[fields.index(field)], sentiment_ftr)
-        results.append(preds[0])
+            preds = model.predict(X_test)
+            rmse = np.sqrt(mean_squared_error(y_test, preds))
+
+            model_dict[field] = [model, rmse]
+
+            final_X = [list((raw_results[fields.index(field)], sentiment_ftr))]
+
+            preds = model.predict(final_X)
+            results.append(float(preds[0]))
+
+        results_list.append(results)
 
     return results

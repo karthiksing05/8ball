@@ -94,7 +94,7 @@ class MarketPredictor(object):
 
     """
     # the constructor
-    def __init__(self, ticker:str, dayspast:int=60, start_time:str=None, end_time:str=None):
+    def __init__(self, ticker:str, clone_id=0, dayspast:int=60, start_time:str=None, end_time:str=None):
         self.ticker = ticker.upper()
         self.attributes = None
         self.labels = ["Open","High","Low","Close", "Adj Close"]
@@ -104,10 +104,10 @@ class MarketPredictor(object):
         self.start_time = start_time
         self.end_time = end_time
         self.data = None # a variable to hold the data python object.
-        self.dataset = R"data\{}.csv".format(str(self.ticker))# actual data
-        self.future_dataset = R"data\Future{}.csv".format(str(self.ticker))# dataset for predictions
-        self.benchmark = R"data\benchmark.csv"
-        self.benchmark2 = R"data\benchmark2.csv"
+        self.dataset = R"data\{}{}.csv".format(str(clone_id), str(self.ticker))# actual data
+        self.future_dataset = R"data\{}Future{}.csv".format(str(clone_id), str(self.ticker))# dataset for predictions
+        self.benchmark = R"data\{}benchmark.csv".format(str(clone_id))
+        self.benchmark2 = R"data\{}benchmark2.csv".format(str(clone_id))
         self.test_attrs = None
         self.num_test_attrs = None
         self.preds_dict = None
@@ -504,6 +504,38 @@ class MarketPredictor(object):
             print("To view the corresponding prices for this date, use the 'print_past-date'")
             print("method, please.")
             exit()
+
+    def up_or_down(self, date:str):
+        """
+        Determines sentiment and percentage value for given date.
+        """
+
+        data = self.benchmark
+
+        main_data = pd.DataFrame()
+        main_data["Date"] = data["Date"]
+
+        percentage_vals = [float((main_data["Close"][x] - main_data["Close"][x - 1])/(main_data["Close"][x])) for x in range(len(main_data["Close"]))]
+
+        main_data["PercentChange"] = percentage_vals
+
+        print(main_data)
+
+    def delete_datasets(self):
+        if os.path.exists(self.dataset):
+            os.remove(self.dataset)
+
+        if os.path.exists(self.future_dataset):
+            os.remove(self.future_dataset)
+
+        if os.path.exists(self.model_path):
+            os.remove(self.model_path)
+
+        if os.path.exists(self.benchmark):
+            os.remove(self.benchmark)
+        
+        if os.path.exists(self.benchmark2):
+            os.remove(self.benchmark2)
 
     def plot_2D(self, x:str, y:str):
         """

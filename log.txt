@@ -1,14 +1,947 @@
 
 Fitting the model for the stock predictor. 
-Starting log at 2021-09-12 15:22:56.684931
+Starting log at 2021-11-05 14:24:19.725320
 
 
-Training set: (2485, 296) samples
-Test set: (277, 296) samples
+Training set: (2520, 296) samples
+Test set: (281, 296) samples
 
-Fitting/Tuning Finished at 2021-09-12 15:23:22.574699
+Fitting/Tuning Finished at 2021-11-05 14:24:41.536908
 
-with RMSE of 8.668519644834458
+with RMSE of 8.776044785322163
 
 Fitting the model for the stock predictor. 
-Starting log at 2021-09-12 15:23:22.872480
+Starting log at 2021-11-05 14:24:41.830086
+
+
+Predictions Fitting Finished at 2021-11-05 14:25:03.655008
+    Input Labels  Input Values
+0           Date       2860.00
+1          Open1       1234.41
+2          High1       1243.49
+3           Low1       1217.00
+4         Close1       1229.91
+5     Adj Close1       1229.91
+6          Open2       1177.33
+7          High2       1215.39
+8           Low2       1152.62
+9         Close2       1213.86
+10    Adj Close2       1213.86
+11         Open3       1159.36
+12         High3       1208.59
+13          Low3       1146.00
+14        Close3       1172.00
+15    Adj Close3       1172.00
+16         Open4       1145.00
+17         High4       1209.75
+18          Low4       1118.66
+19        Close4       1208.59
+20    Adj Close4       1208.59
+21         Open5       1081.86
+22         High5       1115.21
+23          Low5       1073.21
+24        Close5       1114.00
+25    Adj Close5       1114.00
+26         Open6       1068.31
+27         High6       1081.00
+28          Low6       1054.20
+29        Close6       1077.04
+30    Adj Close6       1077.04
+31         Open7       1039.66
+32         High7       1070.88
+33          Low7       1030.78
+34        Close7       1037.86
+35    Adj Close7       1037.86
+36         Open8       1024.69
+37         High8       1094.94
+38          Low8       1001.44
+39        Close8       1018.43
+40    Adj Close8       1018.43
+41         Open9        950.53
+42         High9       1045.02
+43          Low9        944.20
+44        Close9       1024.86
+45    Adj Close9       1024.86
+46        Open10        895.50
+47        High10        910.00
+48         Low10        890.96
+49       Close10        909.68
+50   Adj Close10        909.68
+51        Open11        856.00
+52        High11        900.00
+53         Low11        855.50
+54       Close11        894.00
+55   Adj Close11        894.00
+56        Open12        865.35
+57        High12        869.49
+58         Low12        857.38
+59       Close12        865.80
+60   Adj Close12        865.80
+61        Open13        877.53
+62        High13        877.95
+63         Low13        862.51
+64       Close13        864.27
+65   Adj Close13        864.27
+66        Open14        851.79
+67        High14        875.26
+68         Low14        851.47
+69       Close14        870.11
+70   Adj Close14        870.11
+71        Open15        823.74
+72        High15        843.21
+73         Low15        822.35
+74       Close15        843.03
+75   Adj Close15        843.03
+76        Open16        815.49
+77        High16        820.25
+78         Low16        813.35
+79       Close16        818.32
+80   Adj Close16        818.32
+81        Open17        810.47
+82        High17        815.41
+83         Low17        805.78
+84       Close17        811.08
+85   Adj Close17        811.08
+86        Open18        800.93
+87        High18        812.32
+88         Low18        796.57
+89       Close18        805.72
+90   Adj Close18        805.72
+91        Open19        787.65
+92        High19        801.24
+93         Low19        785.50
+94       Close19        791.94
+95   Adj Close19        791.94
+96        Open20        796.21
+97        High20        796.38
+98         Low20        780.91
+99       Close20        785.49
+100  Adj Close20        785.49
+101       Open21        785.46
+102       High21        805.00
+103        Low21        783.38
+104      Close21        793.61
+105  Adj Close21        793.61
+106       Open22        776.20
+107       High22        786.66
+108        Low22        773.22
+109      Close22        782.75
+110  Adj Close22        782.75
+111       Open23        784.80
+112       High23        797.31
+113        Low23        774.20
+114      Close23        780.59
+115  Adj Close23        780.59
+116       Open24        796.50
+117       High24        806.97
+118        Low24        776.12
+119      Close24        781.53
+120  Adj Close24        781.53
+121       Open25        778.40
+122       High25        780.78
+123        Low25        763.59
+124      Close25        775.22
+125  Adj Close25        775.22
+126       Open26        781.00
+127       High26        789.13
+128        Low26        775.00
+129      Close26        775.48
+130  Adj Close26        775.48
+131       Open27        779.80
+132       High27        793.50
+133        Low27        770.68
+134      Close27        781.31
+135  Adj Close27        781.31
+136       Open28        787.20
+137       High28        795.64
+138        Low28        766.18
+139      Close28        777.56
+140  Adj Close28        777.56
+141       Open29        773.12
+142       High29        799.00
+143        Low29        769.31
+144      Close29        791.36
+145  Adj Close29        791.36
+146       Open30        745.89
+147       High30        774.80
+148        Low30        744.56
+149      Close30        774.39
+150  Adj Close30        774.39
+151       Open31        755.00
+152       High31        758.20
+153        Low31        747.92
+154      Close31        753.64
+155  Adj Close31        753.64
+156       Open32        743.53
+157       High32        753.67
+158        Low32        739.12
+159      Close32        751.94
+160  Adj Close32        751.94
+161       Open33        734.79
+162       High33        744.74
+163        Low33        730.44
+164      Close33        739.38
+165  Adj Close33        739.38
+166       Open34        734.56
+167       High34        742.00
+168        Low34        718.62
+169      Close34        730.17
+170  Adj Close34        730.17
+171       Open35        757.15
+172       High35        761.04
+173        Low35        750.00
+174      Close35        759.49
+175  Adj Close35        759.49
+176       Open36        752.83
+177       High36        758.91
+178        Low36        747.61
+179      Close36        756.99
+180  Adj Close36        756.99
+181       Open37        745.00
+182       High37        756.86
+183        Low37        738.36
+184      Close37        755.83
+185  Adj Close37        755.83
+186       Open38        742.57
+187       High38        754.47
+188        Low38        736.40
+189      Close38        744.49
+190  Adj Close38        744.49
+191       Open39        740.21
+192       High39        744.78
+193        Low39        708.85
+194      Close39        743.00
+195  Adj Close39        743.00
+196       Open40        759.60
+197       High40        762.61
+198        Low40        734.52
+199      Close40        736.27
+200  Adj Close40        736.27
+201       Open41        753.41
+202       High41        762.10
+203        Low41        751.63
+204      Close41        754.86
+205  Adj Close41        754.86
+206       Open42        761.58
+207       High42        764.45
+208        Low42        740.77
+209      Close42        753.87
+210  Adj Close42        753.87
+211       Open43        740.00
+212       High43        760.20
+213        Low43        739.26
+214      Close43        752.92
+215  Adj Close43        752.92
+216       Open44        732.25
+217       High44        734.00
+218        Low44        724.20
+219      Close44        733.57
+220  Adj Close44        733.57
+221       Open45        734.50
+222       High45        740.97
+223        Low45        730.54
+224      Close45        732.39
+225  Adj Close45        732.39
+226       Open46        734.08
+227       High46        741.99
+228        Low46        731.27
+229      Close46        734.09
+230  Adj Close46        734.09
+231       Open47        733.00
+232       High47        740.39
+233        Low47        726.44
+234      Close47        735.72
+235  Adj Close47        735.72
+236       Open48        714.72
+237       High48        731.00
+238        Low48        712.73
+239      Close48        730.91
+240  Adj Close48        730.91
+241       Open49        705.00
+242       High49        715.00
+243        Low49        702.10
+244      Close49        711.92
+245  Adj Close49        711.92
+246       Open50        708.31
+247       High50        715.40
+248        Low50        697.62
+249      Close50        701.16
+250  Adj Close50        701.16
+251       Open51        707.03
+252       High51        716.97
+253        Low51        704.00
+254      Close51        711.20
+255  Adj Close51        711.20
+256       Open52        710.68
+257       High52        715.22
+258        Low52        702.64
+259      Close52        708.49
+260  Adj Close52        708.49
+261       Open53        685.44
+262       High53        712.13
+263        Low53        680.75
+264      Close53        706.30
+265  Adj Close53        706.30
+266       Open54        682.85
+267       High54        692.13
+268        Low54        673.70
+269      Close54        680.26
+270  Adj Close54        680.26
+271       Open55        678.21
+272       High55        686.55
+273        Low55        667.59
+274      Close55        673.47
+275  Adj Close55        673.47
+276       Open56        669.75
+277       High56        695.77
+278        Low56        669.35
+279      Close56        688.99
+280  Adj Close56        688.99
+281       Open57        672.66
+282       High57        674.58
+283        Low57        648.84
+284      Close57        665.71
+285  Adj Close57        665.71
+286       Open58        705.07
+287       High58        709.50
+288        Low58        676.40
+289      Close58        686.17
+290  Adj Close58        686.17
+291       Open59        723.71
+292       High59        729.90
+293        Low59        714.34
+294      Close59        717.17
+295  Adj Close59        717.17
+
+Predicted Date: 2021-11-06
+
+  Output Labels  Output Values
+0          Open        1054.83
+1          High        1095.50
+2           Low        1044.14
+3         Close        1101.35
+4     Adj Close        1101.35
+
+Fitting the model for the stock predictor. 
+Starting log at 2021-11-05 14:26:17.720846
+
+
+Predictions Fitting Finished at 2021-11-05 14:26:41.004332
+    Input Labels  Input Values
+0           Date       2861.00
+1          Open1       1054.83
+2          High1       1095.50
+3           Low1       1044.14
+4         Close1       1101.35
+5     Adj Close1       1101.35
+6          Open2       1234.41
+7          High2       1243.49
+8           Low2       1217.00
+9         Close2       1229.91
+10    Adj Close2       1229.91
+11         Open3       1177.33
+12         High3       1215.39
+13          Low3       1152.62
+14        Close3       1213.86
+15    Adj Close3       1213.86
+16         Open4       1159.36
+17         High4       1208.59
+18          Low4       1146.00
+19        Close4       1172.00
+20    Adj Close4       1172.00
+21         Open5       1145.00
+22         High5       1209.75
+23          Low5       1118.66
+24        Close5       1208.59
+25    Adj Close5       1208.59
+26         Open6       1081.86
+27         High6       1115.21
+28          Low6       1073.21
+29        Close6       1114.00
+30    Adj Close6       1114.00
+31         Open7       1068.31
+32         High7       1081.00
+33          Low7       1054.20
+34        Close7       1077.04
+35    Adj Close7       1077.04
+36         Open8       1039.66
+37         High8       1070.88
+38          Low8       1030.78
+39        Close8       1037.86
+40    Adj Close8       1037.86
+41         Open9       1024.69
+42         High9       1094.94
+43          Low9       1001.44
+44        Close9       1018.43
+45    Adj Close9       1018.43
+46        Open10        950.53
+47        High10       1045.02
+48         Low10        944.20
+49       Close10       1024.86
+50   Adj Close10       1024.86
+51        Open11        895.50
+52        High11        910.00
+53         Low11        890.96
+54       Close11        909.68
+55   Adj Close11        909.68
+56        Open12        856.00
+57        High12        900.00
+58         Low12        855.50
+59       Close12        894.00
+60   Adj Close12        894.00
+61        Open13        865.35
+62        High13        869.49
+63         Low13        857.38
+64       Close13        865.80
+65   Adj Close13        865.80
+66        Open14        877.53
+67        High14        877.95
+68         Low14        862.51
+69       Close14        864.27
+70   Adj Close14        864.27
+71        Open15        851.79
+72        High15        875.26
+73         Low15        851.47
+74       Close15        870.11
+75   Adj Close15        870.11
+76        Open16        823.74
+77        High16        843.21
+78         Low16        822.35
+79       Close16        843.03
+80   Adj Close16        843.03
+81        Open17        815.49
+82        High17        820.25
+83         Low17        813.35
+84       Close17        818.32
+85   Adj Close17        818.32
+86        Open18        810.47
+87        High18        815.41
+88         Low18        805.78
+89       Close18        811.08
+90   Adj Close18        811.08
+91        Open19        800.93
+92        High19        812.32
+93         Low19        796.57
+94       Close19        805.72
+95   Adj Close19        805.72
+96        Open20        787.65
+97        High20        801.24
+98         Low20        785.50
+99       Close20        791.94
+100  Adj Close20        791.94
+101       Open21        796.21
+102       High21        796.38
+103        Low21        780.91
+104      Close21        785.49
+105  Adj Close21        785.49
+106       Open22        785.46
+107       High22        805.00
+108        Low22        783.38
+109      Close22        793.61
+110  Adj Close22        793.61
+111       Open23        776.20
+112       High23        786.66
+113        Low23        773.22
+114      Close23        782.75
+115  Adj Close23        782.75
+116       Open24        784.80
+117       High24        797.31
+118        Low24        774.20
+119      Close24        780.59
+120  Adj Close24        780.59
+121       Open25        796.50
+122       High25        806.97
+123        Low25        776.12
+124      Close25        781.53
+125  Adj Close25        781.53
+126       Open26        778.40
+127       High26        780.78
+128        Low26        763.59
+129      Close26        775.22
+130  Adj Close26        775.22
+131       Open27        781.00
+132       High27        789.13
+133        Low27        775.00
+134      Close27        775.48
+135  Adj Close27        775.48
+136       Open28        779.80
+137       High28        793.50
+138        Low28        770.68
+139      Close28        781.31
+140  Adj Close28        781.31
+141       Open29        787.20
+142       High29        795.64
+143        Low29        766.18
+144      Close29        777.56
+145  Adj Close29        777.56
+146       Open30        773.12
+147       High30        799.00
+148        Low30        769.31
+149      Close30        791.36
+150  Adj Close30        791.36
+151       Open31        745.89
+152       High31        774.80
+153        Low31        744.56
+154      Close31        774.39
+155  Adj Close31        774.39
+156       Open32        755.00
+157       High32        758.20
+158        Low32        747.92
+159      Close32        753.64
+160  Adj Close32        753.64
+161       Open33        743.53
+162       High33        753.67
+163        Low33        739.12
+164      Close33        751.94
+165  Adj Close33        751.94
+166       Open34        734.79
+167       High34        744.74
+168        Low34        730.44
+169      Close34        739.38
+170  Adj Close34        739.38
+171       Open35        734.56
+172       High35        742.00
+173        Low35        718.62
+174      Close35        730.17
+175  Adj Close35        730.17
+176       Open36        757.15
+177       High36        761.04
+178        Low36        750.00
+179      Close36        759.49
+180  Adj Close36        759.49
+181       Open37        752.83
+182       High37        758.91
+183        Low37        747.61
+184      Close37        756.99
+185  Adj Close37        756.99
+186       Open38        745.00
+187       High38        756.86
+188        Low38        738.36
+189      Close38        755.83
+190  Adj Close38        755.83
+191       Open39        742.57
+192       High39        754.47
+193        Low39        736.40
+194      Close39        744.49
+195  Adj Close39        744.49
+196       Open40        740.21
+197       High40        744.78
+198        Low40        708.85
+199      Close40        743.00
+200  Adj Close40        743.00
+201       Open41        759.60
+202       High41        762.61
+203        Low41        734.52
+204      Close41        736.27
+205  Adj Close41        736.27
+206       Open42        753.41
+207       High42        762.10
+208        Low42        751.63
+209      Close42        754.86
+210  Adj Close42        754.86
+211       Open43        761.58
+212       High43        764.45
+213        Low43        740.77
+214      Close43        753.87
+215  Adj Close43        753.87
+216       Open44        740.00
+217       High44        760.20
+218        Low44        739.26
+219      Close44        752.92
+220  Adj Close44        752.92
+221       Open45        732.25
+222       High45        734.00
+223        Low45        724.20
+224      Close45        733.57
+225  Adj Close45        733.57
+226       Open46        734.50
+227       High46        740.97
+228        Low46        730.54
+229      Close46        732.39
+230  Adj Close46        732.39
+231       Open47        734.08
+232       High47        741.99
+233        Low47        731.27
+234      Close47        734.09
+235  Adj Close47        734.09
+236       Open48        733.00
+237       High48        740.39
+238        Low48        726.44
+239      Close48        735.72
+240  Adj Close48        735.72
+241       Open49        714.72
+242       High49        731.00
+243        Low49        712.73
+244      Close49        730.91
+245  Adj Close49        730.91
+246       Open50        705.00
+247       High50        715.00
+248        Low50        702.10
+249      Close50        711.92
+250  Adj Close50        711.92
+251       Open51        708.31
+252       High51        715.40
+253        Low51        697.62
+254      Close51        701.16
+255  Adj Close51        701.16
+256       Open52        707.03
+257       High52        716.97
+258        Low52        704.00
+259      Close52        711.20
+260  Adj Close52        711.20
+261       Open53        710.68
+262       High53        715.22
+263        Low53        702.64
+264      Close53        708.49
+265  Adj Close53        708.49
+266       Open54        685.44
+267       High54        712.13
+268        Low54        680.75
+269      Close54        706.30
+270  Adj Close54        706.30
+271       Open55        682.85
+272       High55        692.13
+273        Low55        673.70
+274      Close55        680.26
+275  Adj Close55        680.26
+276       Open56        678.21
+277       High56        686.55
+278        Low56        667.59
+279      Close56        673.47
+280  Adj Close56        673.47
+281       Open57        669.75
+282       High57        695.77
+283        Low57        669.35
+284      Close57        688.99
+285  Adj Close57        688.99
+286       Open58        672.66
+287       High58        674.58
+288        Low58        648.84
+289      Close58        665.71
+290  Adj Close58        665.71
+291       Open59        705.07
+292       High59        709.50
+293        Low59        676.40
+294      Close59        686.17
+295  Adj Close59        686.17
+
+Predicted Date: 2021-11-06
+
+  Output Labels  Output Values
+0          Open        1075.54
+1          High        1124.39
+2           Low        1063.07
+3         Close        1101.89
+4     Adj Close        1101.89
+
+Fitting the model for the stock predictor. 
+Starting log at 2021-11-05 14:27:54.593049
+
+
+Predictions Fitting Finished at 2021-11-05 14:28:16.943077
+    Input Labels  Input Values
+0           Date       2862.00
+1          Open1       1075.54
+2          High1       1124.39
+3           Low1       1063.07
+4         Close1       1101.89
+5     Adj Close1       1101.89
+6          Open2       1054.83
+7          High2       1095.50
+8           Low2       1044.14
+9         Close2       1101.35
+10    Adj Close2       1101.35
+11         Open3       1234.41
+12         High3       1243.49
+13          Low3       1217.00
+14        Close3       1229.91
+15    Adj Close3       1229.91
+16         Open4       1177.33
+17         High4       1215.39
+18          Low4       1152.62
+19        Close4       1213.86
+20    Adj Close4       1213.86
+21         Open5       1159.36
+22         High5       1208.59
+23          Low5       1146.00
+24        Close5       1172.00
+25    Adj Close5       1172.00
+26         Open6       1145.00
+27         High6       1209.75
+28          Low6       1118.66
+29        Close6       1208.59
+30    Adj Close6       1208.59
+31         Open7       1081.86
+32         High7       1115.21
+33          Low7       1073.21
+34        Close7       1114.00
+35    Adj Close7       1114.00
+36         Open8       1068.31
+37         High8       1081.00
+38          Low8       1054.20
+39        Close8       1077.04
+40    Adj Close8       1077.04
+41         Open9       1039.66
+42         High9       1070.88
+43          Low9       1030.78
+44        Close9       1037.86
+45    Adj Close9       1037.86
+46        Open10       1024.69
+47        High10       1094.94
+48         Low10       1001.44
+49       Close10       1018.43
+50   Adj Close10       1018.43
+51        Open11        950.53
+52        High11       1045.02
+53         Low11        944.20
+54       Close11       1024.86
+55   Adj Close11       1024.86
+56        Open12        895.50
+57        High12        910.00
+58         Low12        890.96
+59       Close12        909.68
+60   Adj Close12        909.68
+61        Open13        856.00
+62        High13        900.00
+63         Low13        855.50
+64       Close13        894.00
+65   Adj Close13        894.00
+66        Open14        865.35
+67        High14        869.49
+68         Low14        857.38
+69       Close14        865.80
+70   Adj Close14        865.80
+71        Open15        877.53
+72        High15        877.95
+73         Low15        862.51
+74       Close15        864.27
+75   Adj Close15        864.27
+76        Open16        851.79
+77        High16        875.26
+78         Low16        851.47
+79       Close16        870.11
+80   Adj Close16        870.11
+81        Open17        823.74
+82        High17        843.21
+83         Low17        822.35
+84       Close17        843.03
+85   Adj Close17        843.03
+86        Open18        815.49
+87        High18        820.25
+88         Low18        813.35
+89       Close18        818.32
+90   Adj Close18        818.32
+91        Open19        810.47
+92        High19        815.41
+93         Low19        805.78
+94       Close19        811.08
+95   Adj Close19        811.08
+96        Open20        800.93
+97        High20        812.32
+98         Low20        796.57
+99       Close20        805.72
+100  Adj Close20        805.72
+101       Open21        787.65
+102       High21        801.24
+103        Low21        785.50
+104      Close21        791.94
+105  Adj Close21        791.94
+106       Open22        796.21
+107       High22        796.38
+108        Low22        780.91
+109      Close22        785.49
+110  Adj Close22        785.49
+111       Open23        785.46
+112       High23        805.00
+113        Low23        783.38
+114      Close23        793.61
+115  Adj Close23        793.61
+116       Open24        776.20
+117       High24        786.66
+118        Low24        773.22
+119      Close24        782.75
+120  Adj Close24        782.75
+121       Open25        784.80
+122       High25        797.31
+123        Low25        774.20
+124      Close25        780.59
+125  Adj Close25        780.59
+126       Open26        796.50
+127       High26        806.97
+128        Low26        776.12
+129      Close26        781.53
+130  Adj Close26        781.53
+131       Open27        778.40
+132       High27        780.78
+133        Low27        763.59
+134      Close27        775.22
+135  Adj Close27        775.22
+136       Open28        781.00
+137       High28        789.13
+138        Low28        775.00
+139      Close28        775.48
+140  Adj Close28        775.48
+141       Open29        779.80
+142       High29        793.50
+143        Low29        770.68
+144      Close29        781.31
+145  Adj Close29        781.31
+146       Open30        787.20
+147       High30        795.64
+148        Low30        766.18
+149      Close30        777.56
+150  Adj Close30        777.56
+151       Open31        773.12
+152       High31        799.00
+153        Low31        769.31
+154      Close31        791.36
+155  Adj Close31        791.36
+156       Open32        745.89
+157       High32        774.80
+158        Low32        744.56
+159      Close32        774.39
+160  Adj Close32        774.39
+161       Open33        755.00
+162       High33        758.20
+163        Low33        747.92
+164      Close33        753.64
+165  Adj Close33        753.64
+166       Open34        743.53
+167       High34        753.67
+168        Low34        739.12
+169      Close34        751.94
+170  Adj Close34        751.94
+171       Open35        734.79
+172       High35        744.74
+173        Low35        730.44
+174      Close35        739.38
+175  Adj Close35        739.38
+176       Open36        734.56
+177       High36        742.00
+178        Low36        718.62
+179      Close36        730.17
+180  Adj Close36        730.17
+181       Open37        757.15
+182       High37        761.04
+183        Low37        750.00
+184      Close37        759.49
+185  Adj Close37        759.49
+186       Open38        752.83
+187       High38        758.91
+188        Low38        747.61
+189      Close38        756.99
+190  Adj Close38        756.99
+191       Open39        745.00
+192       High39        756.86
+193        Low39        738.36
+194      Close39        755.83
+195  Adj Close39        755.83
+196       Open40        742.57
+197       High40        754.47
+198        Low40        736.40
+199      Close40        744.49
+200  Adj Close40        744.49
+201       Open41        740.21
+202       High41        744.78
+203        Low41        708.85
+204      Close41        743.00
+205  Adj Close41        743.00
+206       Open42        759.60
+207       High42        762.61
+208        Low42        734.52
+209      Close42        736.27
+210  Adj Close42        736.27
+211       Open43        753.41
+212       High43        762.10
+213        Low43        751.63
+214      Close43        754.86
+215  Adj Close43        754.86
+216       Open44        761.58
+217       High44        764.45
+218        Low44        740.77
+219      Close44        753.87
+220  Adj Close44        753.87
+221       Open45        740.00
+222       High45        760.20
+223        Low45        739.26
+224      Close45        752.92
+225  Adj Close45        752.92
+226       Open46        732.25
+227       High46        734.00
+228        Low46        724.20
+229      Close46        733.57
+230  Adj Close46        733.57
+231       Open47        734.50
+232       High47        740.97
+233        Low47        730.54
+234      Close47        732.39
+235  Adj Close47        732.39
+236       Open48        734.08
+237       High48        741.99
+238        Low48        731.27
+239      Close48        734.09
+240  Adj Close48        734.09
+241       Open49        733.00
+242       High49        740.39
+243        Low49        726.44
+244      Close49        735.72
+245  Adj Close49        735.72
+246       Open50        714.72
+247       High50        731.00
+248        Low50        712.73
+249      Close50        730.91
+250  Adj Close50        730.91
+251       Open51        705.00
+252       High51        715.00
+253        Low51        702.10
+254      Close51        711.92
+255  Adj Close51        711.92
+256       Open52        708.31
+257       High52        715.40
+258        Low52        697.62
+259      Close52        701.16
+260  Adj Close52        701.16
+261       Open53        707.03
+262       High53        716.97
+263        Low53        704.00
+264      Close53        711.20
+265  Adj Close53        711.20
+266       Open54        710.68
+267       High54        715.22
+268        Low54        702.64
+269      Close54        708.49
+270  Adj Close54        708.49
+271       Open55        685.44
+272       High55        712.13
+273        Low55        680.75
+274      Close55        706.30
+275  Adj Close55        706.30
+276       Open56        682.85
+277       High56        692.13
+278        Low56        673.70
+279      Close56        680.26
+280  Adj Close56        680.26
+281       Open57        678.21
+282       High57        686.55
+283        Low57        667.59
+284      Close57        673.47
+285  Adj Close57        673.47
+286       Open58        669.75
+287       High58        695.77
+288        Low58        669.35
+289      Close58        688.99
+290  Adj Close58        688.99
+291       Open59        672.66
+292       High59        674.58
+293        Low59        648.84
+294      Close59        665.71
+295  Adj Close59        665.71
+
+Predicted Date: 2021-11-06
+
+  Output Labels  Output Values
+0          Open        1046.57
+1          High        1073.18
+2           Low        1022.86
+3         Close        1061.48
+4     Adj Close        1061.48
