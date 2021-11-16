@@ -510,7 +510,7 @@ class MarketPredictor(object):
         Determines sentiment and percentage value for given date.
         """
 
-        data = self.benchmark
+        data = pd.read_csv(self.benchmark)
 
         main_data = pd.DataFrame()
         main_data["Date"] = data["Date"]

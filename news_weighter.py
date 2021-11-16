@@ -13,13 +13,17 @@ import yfinance as yf
 import predictor
 import scraper
 
-# sklearn imports
-from sklearn.linear_model import Lasso
+# sklearn ML imports
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 
 # BiasRegressor!!!
 from biaswrappers.regressor import BiasRegressor
+
+# Other imports, to find the best inside model
+from sklearn.linear_model import LinearRegression, Lasso, Ridge
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.tree import DecisionTreeRegressor
 
 # Multiprocessing import; to make the program run faster
 import multiprocessing as mp
@@ -32,8 +36,11 @@ import os
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
 
+# helper function for getting the model names for sklearn
+def get_model_name(model):
+    return str(model.__class__).split('.')[-1][:-2]
 
-
+# helper function for pool
 def predict_date(params):
     """
     Wrapper function for multiprocessing; fits and predicts data for a given date
@@ -202,37 +209,57 @@ def find_correlation_by_sentiment(
     pred_df = mp.predict(date)
     raw_results = [pred_df['Output Values'][x] for x in range(5)]
 
-    models = []
-    results_list = []
+    results = []
 
-    for model in models:
-        model_dict = {}
-        results = []
+    for field in fields:
+        attributes = ["Predicted"+field, "{}DaySentiment".format(daysfuture)]
+        predict = ["Real"+field]
+        all_cols = attributes
+        all_cols.extend(predict)
+        print(df)
+        data = df[[all_cols]]
 
-        for field in fields:
-            attributes = ["Predicted"+field, "{}DaySentiment".format(daysfuture)]
-            predict = ["Real"+field]
-            all_cols = attributes
-            all_cols.extend(predict)
-            model = Lasso()
-            data = df[all_cols]
+        X = data.drop(predict, 1).values
+        y = data[predict].values
 
-            X = data.drop(predict, 1).values
-            y = data[predict].values
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, shuffle=True)
+        old_school = [
+            LinearRegression(),
+            KNeighborsRegressor(n_neighbors=3),
+            KNeighborsRegressor(n_neighbors=9)
+        ]
 
-            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1)
+        penalized_lr = [Lasso(tol=0.002), Ridge()]
+
+        dtrees = [DecisionTreeRegressor(max_depth=md) for md in [1, 3, 5, 10]]
+
+        reg_models = old_school + penalized_lr + dtrees
+
+        def rms_error(actual, predicted):
+            mse = mean_squared_error(actual, predicted)
+            return np.sqrt(mse)
+
+        scores = {}
+        for model in reg_models:
             model.fit(X_train, y_train)
-
             preds = model.predict(X_test)
-            rmse = np.sqrt(mean_squared_error(y_test, preds))
 
-            model_dict[field] = [model, rmse]
+            key = (get_model_name(model) + 
+            str(model.get_params().get('max_depth', "")) +
+            str(model.get_params().get('n_neighbors', "")))
+            scores[key] = [rms_error(y_test, preds), model]
 
-            final_X = [list((raw_results[fields.index(field)], sentiment_ftr))]
+        df = pd.DataFrame.from_dict(scores, orient='index').sort_values(0)
+        df.columns = ['RMSE', 'MODEL_CLASS']
 
-            preds = model.predict(final_X)
-            results.append(float(preds[0]))
+        dfd = df.to_dict()
+        best_model = str(min(dfd["RMSE"], key=dfd["RMSE"].get))
+        model = dfd['MODEL_CLASS'][best_model]
+        print("Best Model for {}: {}".format(field, best_model))
 
-        results_list.append(results)
+        final_X = [list((raw_results[fields.index(field)], sentiment_ftr))]
+
+        preds = model.predict(final_X)
+        results.append(float(preds[0]))
 
     return results
