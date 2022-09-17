@@ -51,7 +51,7 @@ def predict_date(params):
     stock = params[2]
     special_end_date = str(datetime.datetime.strptime(
         preddate, r"%Y-%m-%d") - datetime.timedelta(days=1))[:-9]
-    mp = predictor.MarketPredictor(stock, clone_id=clone_id, end_time=special_end_date)
+    mp = predictor.MarketPredictor(stock, clone_id=clone_id, end_date=special_end_date)
     mp.load_data()
     mp.fit_inital()
     preds = mp.predict(preddate)
@@ -59,6 +59,11 @@ def predict_date(params):
     with open(pool_filename.format(clone_id), "wb") as f:
         pickle.dump([preddate, preds], f)
     mp.delete_datasets()
+
+def xBRs(model, numRegs:int):
+    for _ in range(numRegs):
+        model = BiasRegressor(model)
+    return model
 
 def create_weight_dataset(stock: str, daysfuture:int):
     """
@@ -156,7 +161,7 @@ def create_weight_dataset(stock: str, daysfuture:int):
         ))
 
     # multiprocessing functions
-    pool = mp.Pool(round(mp.cpu_count()/3))
+    pool = mp.Pool(round((mp.cpu_count() - 1)))
     pool.map(
         predict_date, 
         args
@@ -202,6 +207,11 @@ def find_correlation_by_sentiment(
     fields = ["Open", "High", "Low", "Close", "AdjClose"]
 
     df = main_data
+    newCols = []
+    for col in list(df.columns):
+        newCols.append(col.strip())
+
+    df.columns = newCols
 
     mp = predictor.MarketPredictor(ticker)
     mp.load_data()
@@ -212,12 +222,13 @@ def find_correlation_by_sentiment(
     results = []
 
     for field in fields:
-        attributes = ["Predicted"+field, "{}DaySentiment".format(daysfuture)]
-        predict = ["Real"+field]
+        attributes = [str("Predicted"+field), "{}DaySentiment".format(daysfuture)]
+        predict = [str("Real"+field)]
         all_cols = attributes
         all_cols.extend(predict)
-        print(df)
-        data = df[[all_cols]]
+        data = pd.DataFrame()
+        for col in all_cols:
+            data[col.strip()] = df[col.strip()]
 
         X = data.drop(predict, 1).values
         y = data[predict].values
@@ -234,6 +245,7 @@ def find_correlation_by_sentiment(
         dtrees = [DecisionTreeRegressor(max_depth=md) for md in [1, 3, 5, 10]]
 
         reg_models = old_school + penalized_lr + dtrees
+        reg_models = [BiasRegressor(LinearRegression())]
 
         def rms_error(actual, predicted):
             mse = mean_squared_error(actual, predicted)
@@ -249,17 +261,19 @@ def find_correlation_by_sentiment(
             str(model.get_params().get('n_neighbors', "")))
             scores[key] = [rms_error(y_test, preds), model]
 
-        df = pd.DataFrame.from_dict(scores, orient='index').sort_values(0)
-        df.columns = ['RMSE', 'MODEL_CLASS']
+        modeldf = pd.DataFrame.from_dict(scores, orient='index').sort_values(0)
+        modeldf.columns = ['RMSE', 'MODEL_CLASS']
 
-        dfd = df.to_dict()
+        dfd = modeldf.to_dict()
         best_model = str(min(dfd["RMSE"], key=dfd["RMSE"].get))
         model = dfd['MODEL_CLASS'][best_model]
         print("Best Model for {}: {}".format(field, best_model))
 
+        br = xBRs(model, 10)
+
         final_X = [list((raw_results[fields.index(field)], sentiment_ftr))]
 
-        preds = model.predict(final_X)
+        preds = br.predict(final_X)
         results.append(float(preds[0]))
 
     return results

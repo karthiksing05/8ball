@@ -37,6 +37,10 @@ from xgboost.sklearn import XGBRegressor
 # My Python Package!!
 from biaswrappers.regressor import BiasRegressor
 
+# linreg for UpDown Classification (starting small, will go to
+# sentiment and more advanced regressors in future)
+from sklearn.linear_model import LinearRegression
+
 # imports included with python that I need
 import os
 import sys
@@ -61,8 +65,12 @@ def append_new_line(file_name, text_to_append):
         file_object.write(text_to_append)
 
 # this function clears the log file
-def clear_log():
-    file = open("log.txt","r+")
+def clear_log(filename:str="log.txt"):
+    """
+    Clears the log file
+    You can input your own filename with the "filename" param
+    """
+    file = open(filename,"r+")
     file.truncate(0)
     file.close()
 
@@ -94,15 +102,15 @@ class MarketPredictor(object):
 
     """
     # the constructor
-    def __init__(self, ticker:str, clone_id=0, dayspast:int=60, start_time:str=None, end_time:str=None):
+    def __init__(self, ticker:str, clone_id=0, dayspast:int=60, start_date:str=None, end_date:str=None):
         self.ticker = ticker.upper()
         self.attributes = None
         self.labels = ["Open","High","Low","Close", "Adj Close"]
         self.model = None # a variable to hold the regression model.
         self.model_path = "stockmodel.pickle"
         self.dayspast = dayspast
-        self.start_time = start_time
-        self.end_time = end_time
+        self.start_date = start_date
+        self.end_date = end_date
         self.data = None # a variable to hold the data python object.
         self.dataset = R"data\{}{}.csv".format(str(clone_id), str(self.ticker))# actual data
         self.future_dataset = R"data\{}Future{}.csv".format(str(clone_id), str(self.ticker))# dataset for predictions
@@ -167,11 +175,11 @@ class MarketPredictor(object):
             new_benchmarks.append(benchmark_line)
         
         benchmark_lines = new_benchmarks
-        if not self.start_time:
-            self.start_time = benchmark_dates[1]
+        if not self.start_date:
+            self.start_date = benchmark_dates[1]
         
-        if not self.end_time:
-            self.end_time = benchmark_dates[-1]
+        if not self.end_date:
+            self.end_date = benchmark_dates[-1]
 
         header_template = benchmark_lines.pop(0)
         header_template.pop(0)
@@ -234,13 +242,13 @@ class MarketPredictor(object):
                     date = row[-1]
                     try:
 
-                        startyear = int(self.start_time[0:4])
-                        startmonth = int(self.start_time[5:7])
-                        startday = int(self.start_time[8:10])
+                        startyear = int(self.start_date[0:4])
+                        startmonth = int(self.start_date[5:7])
+                        startday = int(self.start_date[8:10])
 
-                        endyear = int(self.end_time[0:4])
-                        endmonth = int(self.end_time[5:7])
-                        endday = int(self.end_time[8:10])
+                        endyear = int(self.end_date[0:4])
+                        endmonth = int(self.end_date[5:7])
+                        endday = int(self.end_date[8:10])
 
                         currentyear = int(date[0:4])
                         currentmonth = int(date[5:7])
@@ -368,14 +376,14 @@ class MarketPredictor(object):
 
         # These lines are to see how many times the "for" loop should run.
 
-        if not self.end_time:
+        if not self.end_date:
             today = datetime.date.today()
             today = (today - datetime.timedelta(days=1))
             date2 = datetime.date(today.year, today.month, today.day)
         else:
-            endyear = int(self.end_time[0:4])
-            endmonth = int(self.end_time[5:7])
-            endday = int(self.end_time[8:10])
+            endyear = int(self.end_date[0:4])
+            endmonth = int(self.end_date[5:7])
+            endday = int(self.end_date[8:10])
             date2 = datetime.date(endyear, endmonth, endday)
         predicted_date = datetime.date(year, month, day)
         predicted_date = get_next_weekday(predicted_date)
@@ -513,13 +521,18 @@ class MarketPredictor(object):
         data = pd.read_csv(self.benchmark)
 
         main_data = pd.DataFrame()
-        main_data["Date"] = data["Date"]
+        main_data["Date"] = data["RealDate"][1:]
+        main_data["Index"] = [x for x in range(1, (len(data["RealDate"][:-1]) + 1))]
 
-        percentage_vals = [float((main_data["Close"][x] - main_data["Close"][x - 1])/(main_data["Close"][x])) for x in range(len(main_data["Close"]))]
+        percentage_vals = [float((data["Close"][x] - data["Close"][x - 1])/(data["Close"][x]) * 100) for x in range(1, len(data["Close"]))]
 
         main_data["PercentChange"] = percentage_vals
 
-        print(main_data)
+        print(main_data.head())
+
+        model = LinearRegression()
+
+
 
     def delete_datasets(self):
         if os.path.exists(self.dataset):

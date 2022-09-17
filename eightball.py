@@ -36,7 +36,7 @@ def get_final_predictions(stock: str, date_to_predict: str) -> tuple:
 
     BENCHMARK_FILE = "dataset_benchmark.pickle"
 
-    if not os.path.exists(BENCHMARK_FILE):
+    """if not os.path.exists(BENCHMARK_FILE):
         data, test_sent_today = create_weight_dataset(stock, daysfuture)
         with open(BENCHMARK_FILE, 'wb') as f:
             pickle.dump([today.strftime("%Y-%m-%d"), [data, test_sent_today]], f)
@@ -51,7 +51,16 @@ def get_final_predictions(stock: str, date_to_predict: str) -> tuple:
             data, test_sent_today = create_weight_dataset(stock, daysfuture)
             with open(BENCHMARK_FILE, 'wb') as f:
                 pickle.dump([today.strftime("%Y-%m-%d"), [data, test_sent_today]], f)
+    """
+
     
+    with open(BENCHMARK_FILE, 'rb') as f:
+            pickled_info = pickle.load(f)
+    dumped_date = pickled_info[0]
+    data = pickled_info[1][0]
+    test_sent_today = pickled_info[1][1]
+    
+
     final_preds = find_correlation_by_sentiment(
         data,
         stock,
