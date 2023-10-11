@@ -1,0 +1,4 @@
+Predictions for Monday the 19th
+Unweighted:
+[4.34, 5.01, 4.07, 4.47, 4.47]
+Weighted:

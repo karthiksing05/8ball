@@ -5,7 +5,7 @@ import datetime
 if __name__ == '__main__':
     days_into_future = 1
     date_to_predict = (datetime.datetime.now() + datetime.timedelta(days=days_into_future)).strftime("%Y-%m-%d")
-    stock = "AAPL"
+    stock = "GRTS"
     print("Date Predicted: " + date_to_predict)
     print("Stock Predicted: " + stock)
     mp = MarketPredictor(stock)
