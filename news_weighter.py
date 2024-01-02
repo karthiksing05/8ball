@@ -17,13 +17,8 @@ import scraper
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 
-# BiasRegressor!!!
-from biaswrappers.regressor import BiasRegressor
-
-# Other imports, to find the best inside model
-from sklearn.linear_model import LinearRegression, Lasso, Ridge
-from sklearn.neighbors import KNeighborsRegressor
-from sklearn.tree import DecisionTreeRegressor
+# BiasRegressors!!!
+from biaswrappers.regressor import BiasRegressorC1, BiasRegressorC2
 
 # Multiprocessing import; to make the program run faster
 import multiprocessing as mp
@@ -62,16 +57,17 @@ def predict_date(params):
 
 def xBRs(model, numRegs:int):
     for _ in range(numRegs):
-        model = BiasRegressor(model)
+        model = BiasRegressorC1(model)
     return model
 
 def create_weight_dataset(stock: str, daysfuture:int):
     """
-    This function will be used to calculate weights for a BiasRegressor using
-    trending articles about the subject from no later than the past week.
+    This function will be used to calculate weights to be used as features using
+    trending articles about the subject from up to the past 3 months
     """
 
     date_today = datetime.datetime.now().strftime("%Y-%m-%d")
+    # date_today = "2023-12-28"
 
     linkdates = scraper.get_articles_google(stock)
     
@@ -161,7 +157,7 @@ def create_weight_dataset(stock: str, daysfuture:int):
         ))
 
     # multiprocessing functions
-    pool = mp.Pool(round((mp.cpu_count() - 1)))
+    pool = mp.Pool(round((mp.cpu_count() - 2)))
     pool.map(
         predict_date, 
         args
@@ -203,6 +199,9 @@ def find_correlation_by_sentiment(
     predictions created by the MarketPredictor from the predictor file.
     """
 
+    # for directory in os.listdir("pool_data"):
+    #     os.remove("pool_data\\" + directory)
+
     main_data = weight_dataset
     fields = ["Open", "High", "Low", "Close", "AdjClose"]
 
@@ -219,61 +218,72 @@ def find_correlation_by_sentiment(
     pred_df = mp.predict(date)
     raw_results = [pred_df['Output Values'][x] for x in range(5)]
 
-    results = []
+    print("Raw Results:")
+    print(raw_results)
+    print()
+
+    attributes = []
+    predict = []
 
     for field in fields:
-        attributes = [str("Predicted"+field), "{}DaySentiment".format(daysfuture)]
-        predict = [str("Real"+field)]
-        all_cols = attributes
-        all_cols.extend(predict)
-        data = pd.DataFrame()
-        for col in all_cols:
-            data[col.strip()] = df[col.strip()]
+        attributes += [str("Predicted"+field)]
+        predict += [str("Real"+field)]
+    
+    attributes.append("{}DaySentiment".format(daysfuture))
 
-        X = data.drop(predict, 1).values
-        y = data[predict].values
+    all_cols = attributes
+    all_cols.extend(predict)
+    
+    data = pd.DataFrame()
+    for col in all_cols:
+        data[col.strip()] = df[col.strip()]
 
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, shuffle=True)
-        old_school = [
-            LinearRegression(),
-            KNeighborsRegressor(n_neighbors=3),
-            KNeighborsRegressor(n_neighbors=9)
-        ]
+    X = data.drop(predict, 1).values
+    y = data[predict].values
 
-        penalized_lr = [Lasso(tol=0.002), Ridge()]
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, shuffle=True)
+    
+    reg_models = [BiasRegressorC1(), BiasRegressorC2()]
 
-        dtrees = [DecisionTreeRegressor(max_depth=md) for md in [1, 3, 5, 10]]
+    def rms_error(actual, predicted):
+        mse = mean_squared_error(actual, predicted)
+        return np.sqrt(mse)
 
-        reg_models = old_school + penalized_lr + dtrees
-        reg_models = [BiasRegressor(LinearRegression())]
+    scores = {}
+    for model in reg_models:
+        model.fit(X_train, y_train)
+        preds = model.predict(X_test)
 
-        def rms_error(actual, predicted):
-            mse = mean_squared_error(actual, predicted)
-            return np.sqrt(mse)
+        while len(list(preds.shape)) > 2:
+            preds = preds[0]
 
-        scores = {}
-        for model in reg_models:
-            model.fit(X_train, y_train)
-            preds = model.predict(X_test)
+        key = get_model_name(model)
+        try:
+            key += str(model.model.get_params().get('max_depth', ""))
+            key += str(model.model.get_params().get('n_neighbors', ""))
+        except:
+            pass
+        if get_model_name(model)[:-2] == "BiasRegressor":
+            key += " with inner model " + get_model_name(model.model)
+            key += str(model.model.get_params().get('max_depth', ""))
+            key += str(model.model.get_params().get('n_neighbors', ""))
+        
+        scores[key] = [rms_error(y_test, preds), model]
 
-            key = (get_model_name(model) + 
-            str(model.get_params().get('max_depth', "")) +
-            str(model.get_params().get('n_neighbors', "")))
-            scores[key] = [rms_error(y_test, preds), model]
+    modeldf = pd.DataFrame.from_dict(scores, orient='index').sort_values(0)
+    modeldf.columns = ['RMSE', 'MODEL_CLASS']
 
-        modeldf = pd.DataFrame.from_dict(scores, orient='index').sort_values(0)
-        modeldf.columns = ['RMSE', 'MODEL_CLASS']
+    dfd = modeldf.to_dict()
+    best_model = str(min(dfd["RMSE"], key=dfd["RMSE"].get))
+    model = dfd['MODEL_CLASS'][best_model]
+    print("Best Model for weighted fit: {}".format(best_model))
 
-        dfd = modeldf.to_dict()
-        best_model = str(min(dfd["RMSE"], key=dfd["RMSE"].get))
-        model = dfd['MODEL_CLASS'][best_model]
-        print("Best Model for {}: {}".format(field, best_model))
+    br = xBRs(model, 10)
 
-        br = xBRs(model, 10)
+    final_X = np.array([list((raw_results + [sentiment_ftr]))])
 
-        final_X = [list((raw_results[fields.index(field)], sentiment_ftr))]
+    preds = br.predict(final_X)
+    while len(list(preds.shape)) > 1:
+        preds = preds[0]
 
-        preds = br.predict(final_X)
-        results.append(float(preds[0]))
-
-    return results
+    return preds

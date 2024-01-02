@@ -1,22 +1,18 @@
 from eightball import get_final_predictions
-from predictor import MarketPredictor
-import datetime
+import os
 
 if __name__ == '__main__':
-    days_into_future = 1
-    date_to_predict = (datetime.datetime.now() + datetime.timedelta(days=days_into_future)).strftime("%Y-%m-%d")
-    stock = "GRTS"
-    print("Date Predicted: " + date_to_predict)
-    print("Stock Predicted: " + stock)
-    mp = MarketPredictor(stock)
-    mp.load_data()
-    mp.fit_inital()
-    raw_preds = mp.predict(date_to_predict)
-    unweighted_results = [raw_preds['Output Values'][x] for x in range(5)]
-    print("\n")
-    print("Raw Results:")
-    print(unweighted_results)
-    weighted_results = get_final_predictions(stock, date_to_predict)
-    print("\n")
-    print("Weighted Results: ")
-    print(weighted_results)
+    stocks = ["GOOG", "TSLA", "AMZN", "NVDA", "DIS", "NFLX", "KO", "WMT", "AAPL", "COST"]
+    for stock in stocks:
+        try:
+            os.remove("dataset_benchmark.pickle")
+        except FileNotFoundError:
+            pass
+        for directory in os.listdir("pool_data"):
+            os.remove("pool_data\\" + directory)
+        date_to_predict = "2023-12-30"
+        print("Date Predicted: " + date_to_predict + " for stock " + stock)
+        weighted_results = get_final_predictions(stock, date_to_predict)
+        print("\n")
+        print("Weighted Results: ")
+        print(weighted_results)

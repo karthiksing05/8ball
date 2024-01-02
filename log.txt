@@ -1,642 +1,3096 @@
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:01:46.803757
+
+
+Training set: (5940, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:01:47.699037
+
+Test set: (660, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:01:48.108946
 
 Fitting the model for the stock predictor. 
-Starting log at 2022-09-17 12:19:47.492031
+Starting log at 2023-12-28 18:01:48.237457
 
 
-Training set: (603, 296) samples
-Test set: (68, 296) samples
+Training set: (5936, 296) samples
+Test set: (660, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:01:48.825614
 
-Training set: (609, 296) samples
-Test set: (68, 296) samples
 
-Fitting/Tuning Finished at 2022-09-17 12:19:57.624490
+Training set: (5945, 296) samples
+Test set: (661, 296) samples
 
-with RMSE of 0.5941559437710684
+Training set: (5931, 296) samples
+Test set: (659, 296) samples
+
+Training set: (5943, 296) samples
+Test set: (661, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:01:55.550368
+
+
+Training set: (5941, 296) samples
+Test set: (661, 296) samples
+
+Training set: (5932, 296) samples
+Test set: (660, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:01:56.663972
+
+
+Training set: (5934, 296) samples
+Test set: (660, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:01:57.736625
+
+
+Training set: (5938, 296) samples
+Test set: (660, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:01:58.624076
+
+
+Training set: (5947, 296) samples
+Test set: (661, 296) samples
+
+Fitting/Tuning Finished at 2023-12-28 18:06:48.128712
+with RMSE of 1.1444941037826195
+
+Fitting/Tuning Finished at 2023-12-28 18:06:48.964707
+with RMSE of 1.232768398981283
 
 Fitting the model for the stock predictor. 
-Starting log at 2022-09-17 12:19:57.724486
+Starting log at 2023-12-28 18:06:49.344707
 
-
-Fitting/Tuning Finished at 2022-09-17 12:19:58.226487
-
-with RMSE of 1.163959106162715
 
 Fitting the model for the stock predictor. 
-Starting log at 2022-09-17 12:19:58.337599
+Starting log at 2023-12-28 18:06:50.198715
 
 
-Predictions Fitting Finished at 2022-09-17 12:20:10.939041
+Fitting/Tuning Finished at 2023-12-28 18:06:51.642484
+with RMSE of 1.2295892384720188
 
-Predictions Fitting Finished at 2022-09-17 12:20:12.091306
-    Input Labels  Input Values
-0           Date        730.00
-1          Open1          7.62
-2          High1          8.61
-3           Low1          7.56
-4         Close1          8.57
-5     Adj Close1          8.57
-6          Open2          7.57
-7          High2          7.64
-8           Low2          7.31
-9         Close2          7.53
-10    Adj Close2          7.53
-11         Open3          8.42
-12         High3          8.47
-13          Low3          7.35
-14        Close3          7.42
-15    Adj Close3          7.42
-16         Open4          8.72
-17         High4          8.80
-18          Low4          8.42
-19        Close4          8.47
-20    Adj Close4          8.47
-21         Open5          8.00
-22         High5          8.90
-23          Low5          7.98
-24        Close5          8.68
-25    Adj Close5          8.68
-26         Open6          8.18
-27         High6          8.27
-28          Low6          7.72
-29        Close6          8.00
-30    Adj Close6          8.00
-31         Open7          7.91
-32         High7          8.17
-33          Low7          7.63
-34        Close7          8.09
-35    Adj Close7          8.09
-36         Open8          7.25
-37         High8          7.78
-38          Low8          7.22
-39        Close8          7.66
-40    Adj Close8          7.66
-41         Open9          7.35
-42         High9          7.43
-43          Low9          7.05
-44        Close9          7.29
-45    Adj Close9          7.29
-46        Open10          7.76
-47        High10          7.80
-48         Low10          6.99
-49       Close10          7.19
-50   Adj Close10          7.19
-51        Open11          6.93
-52        High11          7.90
-53         Low11          6.85
-54       Close11          7.76
-55   Adj Close11          7.76
-56        Open12          7.04
-57        High12          7.30
-58         Low12          6.70
-59       Close12          6.86
-60   Adj Close12          6.86
-61        Open13          6.38
-62        High13          6.98
-63         Low13          6.27
-64       Close13          6.95
-65   Adj Close13          6.95
-66        Open14          6.60
-67        High14          6.67
-68         Low14          6.23
-69       Close14          6.41
-70   Adj Close14          6.41
-71        Open15          6.97
-72        High15          7.12
-73         Low15          6.42
-74       Close15          6.70
-75   Adj Close15          6.70
-76        Open16          6.85
-77        High16          7.08
-78         Low16          6.77
-79       Close16          6.91
-80   Adj Close16          6.91
-81        Open17          7.08
-82        High17          7.12
-83         Low17          6.45
-84       Close17          6.68
-85   Adj Close17          6.68
-86        Open18          7.59
-87        High18          7.59
-88         Low18          7.09
-89       Close18          7.12
-90   Adj Close18          7.12
-91        Open19          7.25
-92        High19          7.56
-93         Low19          7.24
-94       Close19          7.49
-95   Adj Close19          7.49
-96        Open20          7.40
-97        High20          7.50
-98         Low20          7.09
-99       Close20          7.19
-100  Adj Close20          7.19
-101       Open21          7.57
-102       High21          7.84
-103        Low21          7.43
-104      Close21          7.55
-105  Adj Close21          7.55
-106       Open22          7.79
-107       High22          7.84
-108        Low22          7.43
-109      Close22          7.59
-110  Adj Close22          7.59
-111       Open23          8.13
-112       High23          8.23
-113        Low23          7.68
-114      Close23          7.71
-115  Adj Close23          7.71
-116       Open24          7.93
-117       High24          8.13
-118        Low24          7.84
-119      Close24          8.09
-120  Adj Close24          8.09
-121       Open25          7.49
-122       High25          8.03
-123        Low25          7.44
-124      Close25          7.94
-125  Adj Close25          7.94
-126       Open26          7.54
-127       High26          7.70
-128        Low26          7.37
-129      Close26          7.49
-130  Adj Close26          7.49
-131       Open27          7.76
-132       High27          7.87
-133        Low27          7.53
-134      Close27          7.68
-135  Adj Close27          7.68
-136       Open28          7.97
-137       High28          8.00
-138        Low28          7.38
-139      Close28          7.62
-140  Adj Close28          7.62
-141       Open29          8.34
-142       High29          8.43
-143        Low29          7.83
-144      Close29          7.93
-145  Adj Close29          7.93
-146       Open30          8.64
-147       High30          8.73
-148        Low30          8.22
-149      Close30          8.34
-150  Adj Close30          8.34
-151       Open31          8.67
-152       High31          8.80
-153        Low31          8.39
-154      Close31          8.77
-155  Adj Close31          8.77
-156       Open32          8.35
-157       High32          8.64
-158        Low32          8.22
-159      Close32          8.64
-160  Adj Close32          8.64
-161       Open33          7.90
-162       High33          8.35
-163        Low33          7.75
-164      Close33          8.30
-165  Adj Close33          8.30
-166       Open34          8.60
-167       High34          8.62
-168        Low34          7.94
-169      Close34          7.99
-170  Adj Close34          7.99
-171       Open35          8.80
-172       High35          8.80
-173        Low35          8.36
-174      Close35          8.49
-175  Adj Close35          8.49
-176       Open36          9.21
-177       High36          9.21
-178        Low36          8.60
-179      Close36          8.81
-180  Adj Close36          8.81
-181       Open37          9.16
-182       High37          9.17
-183        Low37          8.86
-184      Close37          9.04
-185  Adj Close37          9.04
-186       Open38          9.00
-187       High38          9.51
-188        Low38          8.82
-189      Close38          9.13
-190  Adj Close38          9.13
-191       Open39          9.74
-192       High39          9.89
-193        Low39          8.95
-194      Close39          9.01
-195  Adj Close39          9.01
-196       Open40         10.33
-197       High40         10.63
-198        Low40          9.53
-199      Close40          9.72
-200  Adj Close40          9.72
-201       Open41          9.98
-202       High41         10.33
-203        Low41          9.85
-204      Close41         10.13
-205  Adj Close41         10.13
-206       Open42          9.77
-207       High42         10.20
-208        Low42          9.77
-209      Close42          9.79
-210  Adj Close42          9.79
-211       Open43          9.86
-212       High43          9.86
-213        Low43          9.37
-214      Close43          9.76
-215  Adj Close43          9.76
-216       Open44          9.51
-217       High44          9.56
-218        Low44          8.88
-219      Close44          9.29
-220  Adj Close44          9.29
-221       Open45          9.97
-222       High45          9.97
-223        Low45          9.32
-224      Close45          9.55
-225  Adj Close45          9.55
-226       Open46          9.71
-227       High46          9.90
-228        Low46          9.53
-229      Close46          9.86
-230  Adj Close46          9.86
-231       Open47          9.80
-232       High47         10.11
-233        Low47          9.65
-234      Close47          9.90
-235  Adj Close47          9.90
-236       Open48          9.74
-237       High48          9.86
-238        Low48          9.42
-239      Close48          9.70
-240  Adj Close48          9.70
-241       Open49         10.30
-242       High49         10.34
-243        Low49          9.48
-244      Close49          9.74
-245  Adj Close49          9.74
-246       Open50         10.45
-247       High50         10.45
-248        Low50         10.05
-249      Close50         10.20
-250  Adj Close50         10.20
-251       Open51         10.23
-252       High51         10.29
-253        Low51          9.96
-254      Close51         10.07
-255  Adj Close51         10.07
-256       Open52         10.03
-257       High52         10.35
-258        Low52          9.77
-259      Close52         10.20
-260  Adj Close52         10.20
-261       Open53         10.19
-262       High53         10.36
-263        Low53          9.96
-264      Close53         10.02
-265  Adj Close53         10.02
-266       Open54          9.64
-267       High54         10.23
-268        Low54          9.60
-269      Close54         10.05
-270  Adj Close54         10.05
-271       Open55          9.20
-272       High55          9.80
-273        Low55          9.12
-274      Close55          9.54
-275  Adj Close55          9.54
-276       Open56          9.20
-277       High56          9.31
-278        Low56          9.02
-279      Close56          9.13
-280  Adj Close56          9.13
-281       Open57          9.31
-282       High57          9.74
-283        Low57          9.18
-284      Close57          9.20
-285  Adj Close57          9.20
-286       Open58          9.50
-287       High58          9.55
-288        Low58          9.12
-289      Close58          9.32
-290  Adj Close58          9.32
-291       Open59          9.28
-292       High59          9.70
-293        Low59          9.26
-294      Close59          9.48
-295  Adj Close59          9.48
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:06:52.917480
 
-Predicted Date: 2021-08-24
 
+Fitting/Tuning Finished at 2023-12-28 18:06:53.326480
+with RMSE of 1.3873268107021532
+
+Fitting/Tuning Finished at 2023-12-28 18:06:53.344492
+with RMSE of 1.267928724822542
+
+Fitting/Tuning Finished at 2023-12-28 18:06:55.012479
+with RMSE of 1.387464729351716
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:06:55.026482
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:06:55.150482
+
+
+Fitting/Tuning Finished at 2023-12-28 18:06:55.365481
+with RMSE of 1.3128788624857963
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:06:56.665477
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:06:56.863488
+
+
+Fitting/Tuning Finished at 2023-12-28 18:06:59.368707
+with RMSE of 1.25300487459855
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:07:00.598706
+
+
+Fitting/Tuning Finished at 2023-12-28 18:07:02.307705
+with RMSE of 1.5571682104916
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:07:03.555706
+
+
+Fitting/Tuning Finished at 2023-12-28 18:07:04.728335
+with RMSE of 1.1283715527517924
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:07:06.021332
+
+Predictions Fitting Finished at 2023-12-28 18:11:43.138920
+Predictions Fitting Finished at 2023-12-28 18:11:43.517481
+Predictions Fitting Finished at 2023-12-28 18:11:47.238839
+Predictions Fitting Finished at 2023-12-28 18:11:47.405873
+Predictions Fitting Finished at 2023-12-28 18:11:48.990592
+Predictions Fitting Finished at 2023-12-28 18:11:53.209155
+Predictions Fitting Finished at 2023-12-28 18:11:53.515589
+Predictions Fitting Finished at 2023-12-28 18:11:56.136428
+Predictions Fitting Finished at 2023-12-28 18:12:40.027005
+Predictions Fitting Finished at 2023-12-28 18:12:49.505082
+
+Predicted Date: 2023-11-08
   Output Labels  Output Values
-0          Open           8.48
-1          High           8.91
-2           Low           8.25
-3         Close           8.74
-4     Adj Close           8.74
-    Input Labels  Input Values
-0           Date        736.00
-1          Open1          8.82
-2          High1          9.40
-3           Low1          8.82
-4         Close1          9.20
-5     Adj Close1          9.20
-6          Open2          8.92
-7          High2          9.00
-8           Low2          8.60
-9         Close2          8.85
-10    Adj Close2          8.85
-11         Open3          8.92
-12         High3          9.20
-13          Low3          8.81
-14        Close3          8.94
-15    Adj Close3          8.94
-16         Open4          8.80
-17         High4          9.30
-18          Low4          8.79
-19        Close4          8.88
-20    Adj Close4          8.88
-21         Open5          8.44
-22         High5          9.10
-23          Low5          8.39
-24        Close5          9.07
-25    Adj Close5          9.07
-26         Open6          8.75
-27         High6          8.78
-28          Low6          8.17
-29        Close6          8.50
-30    Adj Close6          8.50
-31         Open7          7.62
-32         High7          8.61
-33          Low7          7.56
-34        Close7          8.57
-35    Adj Close7          8.57
-36         Open8          7.57
-37         High8          7.64
-38          Low8          7.31
-39        Close8          7.53
-40    Adj Close8          7.53
-41         Open9          8.42
-42         High9          8.47
-43          Low9          7.35
-44        Close9          7.42
-45    Adj Close9          7.42
-46        Open10          8.72
-47        High10          8.80
-48         Low10          8.42
-49       Close10          8.47
-50   Adj Close10          8.47
-51        Open11          8.00
-52        High11          8.90
-53         Low11          7.98
-54       Close11          8.68
-55   Adj Close11          8.68
-56        Open12          8.18
-57        High12          8.27
-58         Low12          7.72
-59       Close12          8.00
-60   Adj Close12          8.00
-61        Open13          7.91
-62        High13          8.17
-63         Low13          7.63
-64       Close13          8.09
-65   Adj Close13          8.09
-66        Open14          7.25
-67        High14          7.78
-68         Low14          7.22
-69       Close14          7.66
-70   Adj Close14          7.66
-71        Open15          7.35
-72        High15          7.43
-73         Low15          7.05
-74       Close15          7.29
-75   Adj Close15          7.29
-76        Open16          7.76
-77        High16          7.80
-78         Low16          6.99
-79       Close16          7.19
-80   Adj Close16          7.19
-81        Open17          6.93
-82        High17          7.90
-83         Low17          6.85
-84       Close17          7.76
-85   Adj Close17          7.76
-86        Open18          7.04
-87        High18          7.30
-88         Low18          6.70
-89       Close18          6.86
-90   Adj Close18          6.86
-91        Open19          6.38
-92        High19          6.98
-93         Low19          6.27
-94       Close19          6.95
-95   Adj Close19          6.95
-96        Open20          6.60
-97        High20          6.67
-98         Low20          6.23
-99       Close20          6.41
-100  Adj Close20          6.41
-101       Open21          6.97
-102       High21          7.12
-103        Low21          6.42
-104      Close21          6.70
-105  Adj Close21          6.70
-106       Open22          6.85
-107       High22          7.08
-108        Low22          6.77
-109      Close22          6.91
-110  Adj Close22          6.91
-111       Open23          7.08
-112       High23          7.12
-113        Low23          6.45
-114      Close23          6.68
-115  Adj Close23          6.68
-116       Open24          7.59
-117       High24          7.59
-118        Low24          7.09
-119      Close24          7.12
-120  Adj Close24          7.12
-121       Open25          7.25
-122       High25          7.56
-123        Low25          7.24
-124      Close25          7.49
-125  Adj Close25          7.49
-126       Open26          7.40
-127       High26          7.50
-128        Low26          7.09
-129      Close26          7.19
-130  Adj Close26          7.19
-131       Open27          7.57
-132       High27          7.84
-133        Low27          7.43
-134      Close27          7.55
-135  Adj Close27          7.55
-136       Open28          7.79
-137       High28          7.84
-138        Low28          7.43
-139      Close28          7.59
-140  Adj Close28          7.59
-141       Open29          8.13
-142       High29          8.23
-143        Low29          7.68
-144      Close29          7.71
-145  Adj Close29          7.71
-146       Open30          7.93
-147       High30          8.13
-148        Low30          7.84
-149      Close30          8.09
-150  Adj Close30          8.09
-151       Open31          7.49
-152       High31          8.03
-153        Low31          7.44
-154      Close31          7.94
-155  Adj Close31          7.94
-156       Open32          7.54
-157       High32          7.70
-158        Low32          7.37
-159      Close32          7.49
-160  Adj Close32          7.49
-161       Open33          7.76
-162       High33          7.87
-163        Low33          7.53
-164      Close33          7.68
-165  Adj Close33          7.68
-166       Open34          7.97
-167       High34          8.00
-168        Low34          7.38
-169      Close34          7.62
-170  Adj Close34          7.62
-171       Open35          8.34
-172       High35          8.43
-173        Low35          7.83
-174      Close35          7.93
-175  Adj Close35          7.93
-176       Open36          8.64
-177       High36          8.73
-178        Low36          8.22
-179      Close36          8.34
-180  Adj Close36          8.34
-181       Open37          8.67
-182       High37          8.80
-183        Low37          8.39
-184      Close37          8.77
-185  Adj Close37          8.77
-186       Open38          8.35
-187       High38          8.64
-188        Low38          8.22
-189      Close38          8.64
-190  Adj Close38          8.64
-191       Open39          7.90
-192       High39          8.35
-193        Low39          7.75
-194      Close39          8.30
-195  Adj Close39          8.30
-196       Open40          8.60
-197       High40          8.62
-198        Low40          7.94
-199      Close40          7.99
-200  Adj Close40          7.99
-201       Open41          8.80
-202       High41          8.80
-203        Low41          8.36
-204      Close41          8.49
-205  Adj Close41          8.49
-206       Open42          9.21
-207       High42          9.21
-208        Low42          8.60
-209      Close42          8.81
-210  Adj Close42          8.81
-211       Open43          9.16
-212       High43          9.17
-213        Low43          8.86
-214      Close43          9.04
-215  Adj Close43          9.04
-216       Open44          9.00
-217       High44          9.51
-218        Low44          8.82
-219      Close44          9.13
-220  Adj Close44          9.13
-221       Open45          9.74
-222       High45          9.89
-223        Low45          8.95
-224      Close45          9.01
-225  Adj Close45          9.01
-226       Open46         10.33
-227       High46         10.63
-228        Low46          9.53
-229      Close46          9.72
-230  Adj Close46          9.72
-231       Open47          9.98
-232       High47         10.33
-233        Low47          9.85
-234      Close47         10.13
-235  Adj Close47         10.13
-236       Open48          9.77
-237       High48         10.20
-238        Low48          9.77
-239      Close48          9.79
-240  Adj Close48          9.79
-241       Open49          9.86
-242       High49          9.86
-243        Low49          9.37
-244      Close49          9.76
-245  Adj Close49          9.76
-246       Open50          9.51
-247       High50          9.56
-248        Low50          8.88
-249      Close50          9.29
-250  Adj Close50          9.29
-251       Open51          9.97
-252       High51          9.97
-253        Low51          9.32
-254      Close51          9.55
-255  Adj Close51          9.55
-256       Open52          9.71
-257       High52          9.90
-258        Low52          9.53
-259      Close52          9.86
-260  Adj Close52          9.86
-261       Open53          9.80
-262       High53         10.11
-263        Low53          9.65
-264      Close53          9.90
-265  Adj Close53          9.90
-266       Open54          9.74
-267       High54          9.86
-268        Low54          9.42
-269      Close54          9.70
-270  Adj Close54          9.70
-271       Open55         10.30
-272       High55         10.34
-273        Low55          9.48
-274      Close55          9.74
-275  Adj Close55          9.74
-276       Open56         10.45
-277       High56         10.45
-278        Low56         10.05
-279      Close56         10.20
-280  Adj Close56         10.20
-281       Open57         10.23
-282       High57         10.29
-283        Low57          9.96
-284      Close57         10.07
-285  Adj Close57         10.07
-286       Open58         10.03
-287       High58         10.35
-288        Low58          9.77
-289      Close58         10.20
-290  Adj Close58         10.20
-291       Open59         10.19
-292       High59         10.36
-293        Low59          9.96
-294      Close59         10.02
-295  Adj Close59         10.02
+0          Open         139.98
+1          High         142.33
+2           Low         138.35
+3         Close         140.39
+4     Adj Close         140.39
 
-Predicted Date: 2021-09-01
-
+Predicted Date: 2023-11-02
   Output Labels  Output Values
-0          Open           9.22
-1          High           9.33
-2           Low           8.86
-3         Close           9.17
-4     Adj Close           9.17
+0          Open         134.40
+1          High         137.33
+2           Low         133.05
+3         Close         136.51
+4     Adj Close         136.51
+
+Predicted Date: 2023-10-17
+  Output Labels  Output Values
+0          Open         129.15
+1          High         132.54
+2           Low         128.82
+3         Close         130.40
+4     Adj Close         130.40
+
+Predicted Date: 2023-11-10
+  Output Labels  Output Values
+0          Open         141.38
+1          High         141.99
+2           Low         138.49
+3         Close         139.83
+4     Adj Close         139.83
+
+Predicted Date: 2023-10-19
+  Output Labels  Output Values
+0          Open         128.08
+1          High         129.06
+2           Low         126.70
+3         Close         127.42
+4     Adj Close         127.42
+
+Predicted Date: 2023-10-25
+  Output Labels  Output Values
+0          Open         127.88
+1          High         130.59
+2           Low         125.54
+3         Close         127.35
+4     Adj Close         127.35
+
+Predicted Date: 2023-10-31
+  Output Labels  Output Values
+0          Open         130.38
+1          High         132.58
+2           Low         129.98
+3         Close         131.45
+4     Adj Close         131.45
+
+Predicted Date: 2023-10-23
+  Output Labels  Output Values
+0          Open         124.77
+1          High         127.76
+2           Low         123.92
+3         Close         126.31
+4     Adj Close         126.31
+
+Predicted Date: 2023-10-27
+  Output Labels  Output Values
+0          Open         121.79
+1          High         122.57
+2           Low         117.09
+3         Close         119.31
+4     Adj Close         119.31
+
+Predicted Date: 2023-11-06
+  Output Labels  Output Values
+0          Open         137.46
+1          High         139.45
+2           Low         136.60
+3         Close         137.87
+4     Adj Close         137.87
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:21:54.891103
+
+
+Training set: (5946, 296) samples
+Test set: (661, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:22:01.595074
+
+
+Training set: (5931, 296) samples
+Test set: (660, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:22:06.933761
+
+
+Training set: (5942, 296) samples
+Test set: (661, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:22:13.111425
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:22:13.130600
+
+
+Training set: (5940, 296) samples
+Test set: (661, 296) samples
+
+Training set: (5937, 296) samples
+Test set: (660, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:22:14.715051
+
+
+Training set: (5933, 296) samples
+Test set: (660, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:22:15.510446
+
+
+Training set: (5948, 296) samples
+Test set: (661, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:22:24.048892
+
+
+Training set: (5935, 296) samples
+Test set: (660, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:22:53.644231
+
+
+Training set: (5939, 296) samples
+Test set: (660, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:22:55.460368
+
+
+Training set: (5944, 296) samples
+Test set: (661, 296) samples
+
+Fitting/Tuning Finished at 2023-12-28 18:26:45.502060
+with RMSE of 1.4432230904135408
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:26:46.630886
+
+
+Fitting/Tuning Finished at 2023-12-28 18:26:46.845573
+with RMSE of 1.3406080196644043
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:26:48.023560
+
+
+Fitting/Tuning Finished at 2023-12-28 18:26:48.939476
+with RMSE of 1.1088337101146706
+
+Fitting/Tuning Finished at 2023-12-28 18:26:49.342376
+with RMSE of 1.4457037060343527
+
+Fitting/Tuning Finished at 2023-12-28 18:26:49.363257
+with RMSE of 1.1086188756853288
+
+Fitting/Tuning Finished at 2023-12-28 18:26:49.669764
+with RMSE of 1.2168550356018752
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:26:50.101782
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:26:50.622197
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:26:50.879376
+
+
+Fitting/Tuning Finished at 2023-12-28 18:26:51.461641
+with RMSE of 1.3748525778754128
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:26:52.680502
+
+
+Fitting/Tuning Finished at 2023-12-28 18:26:56.944170
+with RMSE of 1.1993620967779144
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:26:58.173690
+
+
+Fitting/Tuning Finished at 2023-12-28 18:27:26.956314
+with RMSE of 1.03387049642828
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:27:28.408966
+
+
+Fitting/Tuning Finished at 2023-12-28 18:27:34.692624
+with RMSE of 1.2651360895915071
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:27:36.047898
+
+Predictions Fitting Finished at 2023-12-28 18:31:41.230449
+Predictions Fitting Finished at 2023-12-28 18:31:42.646462
+Predictions Fitting Finished at 2023-12-28 18:31:43.862109
+Predictions Fitting Finished at 2023-12-28 18:31:44.514109
+Predictions Fitting Finished at 2023-12-28 18:31:46.245381
+Predictions Fitting Finished at 2023-12-28 18:31:49.443778
+Predictions Fitting Finished at 2023-12-28 18:32:02.440055
+Predictions Fitting Finished at 2023-12-28 18:32:18.875842
+Predictions Fitting Finished at 2023-12-28 18:35:02.674653
+Predictions Fitting Finished at 2023-12-28 18:35:51.662503
+
+Predicted Date: 2023-11-09
+  Output Labels  Output Values
+0          Open         140.44
+1          High         142.98
+2           Low         138.43
+3         Close         140.92
+4     Adj Close         140.92
+
+Predicted Date: 2023-11-03
+  Output Labels  Output Values
+0          Open         137.14
+1          High         138.24
+2           Low         134.95
+3         Close         136.44
+4     Adj Close         136.44
+
+Predicted Date: 2023-11-01
+  Output Labels  Output Values
+0          Open         132.96
+1          High         134.15
+2           Low         131.33
+3         Close         131.71
+4     Adj Close         131.71
+
+Predicted Date: 2023-10-18
+  Output Labels  Output Values
+0          Open         130.00
+1          High         133.31
+2           Low         129.66
+3         Close         131.24
+4     Adj Close         131.24
+
+Predicted Date: 2023-11-13
+  Output Labels  Output Values
+0          Open         142.03
+1          High         144.23
+2           Low         138.63
+3         Close         142.06
+4     Adj Close         142.06
+
+Predicted Date: 2023-10-26
+  Output Labels  Output Values
+0          Open         123.41
+1          High         125.68
+2           Low         122.49
+3         Close         122.74
+4     Adj Close         122.74
+
+Predicted Date: 2023-10-24
+  Output Labels  Output Values
+0          Open         125.27
+1          High         127.50
+2           Low         124.85
+3         Close         127.13
+4     Adj Close         127.13
+
+Predicted Date: 2023-10-20
+  Output Labels  Output Values
+0          Open         128.28
+1          High         130.15
+2           Low         125.69
+3         Close         127.55
+4     Adj Close         127.55
+
+Predicted Date: 2023-10-30
+  Output Labels  Output Values
+0          Open         126.97
+1          High         128.87
+2           Low         122.77
+3         Close         125.14
+4     Adj Close         125.14
+
+Predicted Date: 2023-11-07
+  Output Labels  Output Values
+0          Open         138.87
+1          High         140.70
+2           Low         136.05
+3         Close         139.08
+4     Adj Close         139.08
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:42:08.702324
+
+
+Training set: (5949, 296) samples
+Test set: (661, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:42:12.725146
+
+
+Training set: (5952, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:42:15.614800
+
+
+Training set: (5954, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:42:16.938342
+
+
+Training set: (5950, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:42:22.650600
+
+
+Training set: (5958, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:42:23.950157
+
+
+Training set: (5956, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:42:56.245670
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:42:56.421723
+
+
+Training set: (5961, 296) samples
+Test set: (663, 296) samples
+
+Training set: (5959, 296) samples
+Test set: (663, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:45:05.132024
+
+
+Training set: (5963, 296) samples
+Test set: (663, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:45:38.653047
+
+
+Training set: (5965, 296) samples
+Test set: (663, 296) samples
+
+Fitting/Tuning Finished at 2023-12-28 18:47:27.488722
+with RMSE of 1.1454511164338728
+
+Fitting/Tuning Finished at 2023-12-28 18:47:27.618124
+with RMSE of 1.1258982579968235
+
+Fitting/Tuning Finished at 2023-12-28 18:47:28.566165
+with RMSE of 1.3726378704863962
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:47:28.755815
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:47:28.894278
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:47:29.840327
+
+
+Fitting/Tuning Finished at 2023-12-28 18:47:32.852647
+with RMSE of 1.0540423003298964
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:47:34.170325
+
+
+Fitting/Tuning Finished at 2023-12-28 18:47:35.603816
+with RMSE of 1.3801811176075027
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:47:36.949807
+
+
+Fitting/Tuning Finished at 2023-12-28 18:47:38.324583
+with RMSE of 1.1720299073553597
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:47:39.612846
+
+
+Fitting/Tuning Finished at 2023-12-28 18:47:57.443971
+with RMSE of 1.2883956256859737
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:47:58.762798
+
+
+Fitting/Tuning Finished at 2023-12-28 18:47:59.936228
+with RMSE of 1.2802875005201428
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:48:01.351514
+
+
+Fitting/Tuning Finished at 2023-12-28 18:49:52.266850
+with RMSE of 1.3741448574696842
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:49:53.624905
+
+
+Fitting/Tuning Finished at 2023-12-28 18:50:26.463350
+with RMSE of 1.2518984803950022
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 18:50:27.810314
+
+Predictions Fitting Finished at 2023-12-28 18:52:14.187003
+Predictions Fitting Finished at 2023-12-28 18:52:16.425388
+Predictions Fitting Finished at 2023-12-28 18:52:17.486295
+Predictions Fitting Finished at 2023-12-28 18:52:21.804918
+Predictions Fitting Finished at 2023-12-28 18:52:23.383966
+Predictions Fitting Finished at 2023-12-28 18:52:45.833232
+Predictions Fitting Finished at 2023-12-28 18:53:23.041967
+Predictions Fitting Finished at 2023-12-28 18:53:34.427164
+
+Predicted Date: 2023-11-16
+  Output Labels  Output Values
+0          Open         143.64
+1          High         147.90
+2           Low         141.41
+3         Close         144.28
+4     Adj Close         144.28
+
+Predicted Date: 2023-11-14
+  Output Labels  Output Values
+0          Open         140.30
+1          High         142.83
+2           Low         140.09
+3         Close         144.12
+4     Adj Close         144.12
+
+Predicted Date: 2023-11-20
+  Output Labels  Output Values
+0          Open         146.35
+1          High         147.02
+2           Low         141.59
+3         Close         143.35
+4     Adj Close         143.35
+
+Predicted Date: 2023-11-22
+  Output Labels  Output Values
+0          Open         143.41
+1          High         143.24
+2           Low         140.71
+3         Close         142.26
+4     Adj Close         142.26
+
+Predicted Date: 2023-11-27
+  Output Labels  Output Values
+0          Open         146.26
+1          High         148.22
+2           Low         143.08
+3         Close         145.43
+4     Adj Close         145.43
+
+Predicted Date: 2023-11-29
+  Output Labels  Output Values
+0          Open         145.90
+1          High         149.41
+2           Low         142.89
+3         Close         148.34
+4     Adj Close         148.34
+
+Predicted Date: 2023-12-05
+  Output Labels  Output Values
+0          Open         144.99
+1          High         146.87
+2           Low         142.97
+3         Close         144.64
+4     Adj Close         144.64
+
+Predicted Date: 2023-12-01
+  Output Labels  Output Values
+0          Open         146.84
+1          High         146.44
+2           Low         143.59
+3         Close         143.78
+4     Adj Close         143.78
+Predictions Fitting Finished at 2023-12-28 19:02:25.177033
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:02:52.272121
+
+
+Training set: (5951, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:03:17.832636
+
+
+Training set: (5949, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:03:38.693551
+
+
+Training set: (5955, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:03:39.992808
+
+
+Training set: (5953, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:03:45.228183
+
+
+Training set: (5958, 296) samples
+Test set: (663, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:03:58.016074
+
+
+Training set: (5957, 296) samples
+Test set: (662, 296) samples
+Predictions Fitting Finished at 2023-12-28 19:04:00.452717
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:04:26.267935
+
+
+Training set: (5962, 296) samples
+Test set: (663, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:05:03.563998
+
+
+Training set: (5960, 296) samples
+Test set: (663, 296) samples
+
+Fitting/Tuning Finished at 2023-12-28 19:08:48.017583
+with RMSE of 1.1292249276877924
+
+Fitting/Tuning Finished at 2023-12-28 19:08:49.203528
+with RMSE of 1.2417242231941878
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:08:49.337236
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:08:50.450933
+
+
+Fitting/Tuning Finished at 2023-12-28 19:09:06.155046
+with RMSE of 1.148465415541696
+
+Predicted Date: 2023-12-07
+  Output Labels  Output Values
+0          Open         142.94
+1          High         145.95
+2           Low         138.79
+3         Close         143.61
+4     Adj Close         143.61
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:09:07.753875
+
+
+Fitting/Tuning Finished at 2023-12-28 19:09:11.103338
+with RMSE of 1.395060544010437
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:09:12.604717
+
+
+Fitting/Tuning Finished at 2023-12-28 19:09:16.630671
+with RMSE of 1.2152147433602944
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:09:18.070574
+
+
+Fitting/Tuning Finished at 2023-12-28 19:09:20.745810
+with RMSE of 1.3404323744651412
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:09:22.213975
+
+
+Fitting/Tuning Finished at 2023-12-28 19:09:35.821943
+with RMSE of 1.2183108717393372
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:09:37.376069
+
+
+Fitting/Tuning Finished at 2023-12-28 19:10:26.675286
+with RMSE of 1.2467422728385182
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:10:28.209473
+
+
+Predicted Date: 2023-12-11
+  Output Labels  Output Values
+0          Open         149.19
+1          High         151.42
+2           Low         146.42
+3         Close         150.65
+4     Adj Close         150.65
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:18:12.714640
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:18:13.099433
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:18:13.300229
+
+
+Training set: (5934, 296) samples
+Test set: (660, 296) samples
+
+Training set: (5936, 296) samples
+Test set: (660, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:18:13.881972
+
+
+Training set: (5931, 296) samples
+Test set: (659, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:18:14.014102
+
+
+Training set: (5932, 296) samples
+Test set: (661, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:18:15.367634
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:18:15.464694
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:18:15.791452
+
+
+Training set: (5938, 296) samples
+Test set: (660, 296) samples
+
+Training set: (5941, 296) samples
+Test set: (661, 296) samples
+
+Training set: (5940, 296) samples
+Test set: (660, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:18:16.658485
+
+
+Training set: (5947, 296) samples
+Test set: (661, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:18:18.130376
+
+
+Training set: (5943, 296) samples
+Test set: (661, 296) samples
+
+Fitting/Tuning Finished at 2023-12-28 19:22:44.237078
+with RMSE of 1.4953643690777858
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:22:45.426452
+
+
+Fitting/Tuning Finished at 2023-12-28 19:22:45.798161
+with RMSE of 1.2494981689506355
+
+Fitting/Tuning Finished at 2023-12-28 19:22:46.515046
+with RMSE of 1.3442776759421455
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:22:47.050960
+
+
+Fitting/Tuning Finished at 2023-12-28 19:22:47.184939
+with RMSE of 1.149401684538057
+
+Fitting/Tuning Finished at 2023-12-28 19:22:47.271939
+with RMSE of 1.1490933449642518
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:22:47.783499
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:22:48.505600
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:22:48.589122
+
+
+Fitting/Tuning Finished at 2023-12-28 19:22:49.915885
+with RMSE of 1.0266780015617933
+
+Fitting/Tuning Finished at 2023-12-28 19:22:50.176888
+with RMSE of 1.1783908653845756
+
+Fitting/Tuning Finished at 2023-12-28 19:22:50.655388
+with RMSE of 1.1608747714308465
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:22:51.220890
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:22:51.473188
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:22:51.904711
+
+
+Fitting/Tuning Finished at 2023-12-28 19:22:53.069136
+with RMSE of 1.482230223376166
+
+Fitting/Tuning Finished at 2023-12-28 19:22:54.336055
+with RMSE of 1.2051616930926667
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:22:54.421316
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:22:55.654977
+
+Predictions Fitting Finished at 2023-12-28 19:27:19.773751
+Predictions Fitting Finished at 2023-12-28 19:27:20.016444
+Predictions Fitting Finished at 2023-12-28 19:27:21.001426
+Predictions Fitting Finished at 2023-12-28 19:27:21.690537
+Predictions Fitting Finished at 2023-12-28 19:27:23.164482
+Predictions Fitting Finished at 2023-12-28 19:27:25.522561
+Predictions Fitting Finished at 2023-12-28 19:27:28.609398
+Predictions Fitting Finished at 2023-12-28 19:27:28.984759
+Predictions Fitting Finished at 2023-12-28 19:27:39.981527
+Predictions Fitting Finished at 2023-12-28 19:27:59.263823
+
+Predicted Date: 2023-10-17
+  Output Labels  Output Values
+0          Open         132.27
+1          High         133.17
+2           Low         131.28
+3         Close         132.51
+4     Adj Close         132.51
+
+Predicted Date: 2023-11-06
+  Output Labels  Output Values
+0          Open         140.88
+1          High         140.22
+2           Low         137.63
+3         Close         138.70
+4     Adj Close         138.70
+
+Predicted Date: 2023-10-23
+  Output Labels  Output Values
+0          Open         125.03
+1          High         127.48
+2           Low         122.29
+3         Close         125.63
+4     Adj Close         125.63
+
+Predicted Date: 2023-10-31
+  Output Labels  Output Values
+0          Open         133.16
+1          High         134.88
+2           Low         131.58
+3         Close         133.39
+4     Adj Close         133.39
+
+Predicted Date: 2023-11-10
+  Output Labels  Output Values
+0          Open         141.68
+1          High         143.20
+2           Low         138.49
+3         Close         140.37
+4     Adj Close         140.37
+
+Predicted Date: 2023-10-19
+  Output Labels  Output Values
+0          Open         127.19
+1          High         129.57
+2           Low         125.24
+3         Close         127.08
+4     Adj Close         127.08
+
+Predicted Date: 2023-11-02
+  Output Labels  Output Values
+0          Open         134.25
+1          High         136.12
+2           Low         132.96
+3         Close         134.61
+4     Adj Close         134.61
+
+Predicted Date: 2023-10-27
+  Output Labels  Output Values
+0          Open         118.37
+1          High         119.00
+2           Low         116.56
+3         Close         117.63
+4     Adj Close         117.63
+
+Predicted Date: 2023-11-08
+  Output Labels  Output Values
+0          Open         141.93
+1          High         143.13
+2           Low         139.45
+3         Close         140.26
+4     Adj Close         140.26
+
+Predicted Date: 2023-10-25
+  Output Labels  Output Values
+0          Open         129.00
+1          High         129.62
+2           Low         126.31
+3         Close         127.06
+4     Adj Close         127.06
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:37:21.267307
+
+
+Training set: (5931, 296) samples
+Test set: (660, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:37:30.198672
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:37:30.316545
+
+
+Training set: (5935, 296) samples
+Test set: (660, 296) samples
+
+Training set: (5944, 296) samples
+Test set: (661, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:37:37.486696
+
+
+Training set: (5940, 296) samples
+Test set: (661, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:37:44.286247
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:37:44.462952
+
+
+Training set: (5933, 296) samples
+Test set: (660, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:37:45.101551
+
+
+Training set: (5948, 296) samples
+Test set: (661, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:37:46.079419
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:37:46.233843
+
+
+Training set: (5946, 296) samples
+Test set: (661, 296) samples
+
+Training set: (5939, 296) samples
+Test set: (660, 296) samples
+
+Training set: (5942, 296) samples
+Test set: (661, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:38:01.647588
+
+
+Training set: (5937, 296) samples
+Test set: (660, 296) samples
+
+Fitting/Tuning Finished at 2023-12-28 19:42:09.142897
+with RMSE of 1.4244819730415748
+
+Fitting/Tuning Finished at 2023-12-28 19:42:10.036865
+with RMSE of 1.2054780246771843
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:42:10.289156
+
+
+Fitting/Tuning Finished at 2023-12-28 19:42:10.346582
+with RMSE of 1.1334719519210337
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:42:11.249639
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:42:11.492709
+
+
+Fitting/Tuning Finished at 2023-12-28 19:42:12.360052
+with RMSE of 1.180031207442677
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:42:13.516364
+
+
+Fitting/Tuning Finished at 2023-12-28 19:42:15.164474
+with RMSE of 1.7847133873292715
+
+Fitting/Tuning Finished at 2023-12-28 19:42:15.802190
+with RMSE of 1.1094577293534562
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:42:16.399565
+
+
+Fitting/Tuning Finished at 2023-12-28 19:42:16.980241
+with RMSE of 1.306649041496179
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:42:17.088115
+
+
+Fitting/Tuning Finished at 2023-12-28 19:42:18.276308
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:42:18.281527
+
+with RMSE of 1.176408057508144
+
+Fitting/Tuning Finished at 2023-12-28 19:42:18.472929
+with RMSE of 1.2444536310485337
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:42:19.586519
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:42:19.708312
+
+
+Fitting/Tuning Finished at 2023-12-28 19:42:36.406125
+with RMSE of 1.2120769303600631
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:42:37.718058
+
+Predictions Fitting Finished at 2023-12-28 19:46:44.093844
+Predictions Fitting Finished at 2023-12-28 19:46:44.344401
+Predictions Fitting Finished at 2023-12-28 19:46:44.386166
+Predictions Fitting Finished at 2023-12-28 19:46:46.952449
+Predictions Fitting Finished at 2023-12-28 19:46:48.991732
+Predictions Fitting Finished at 2023-12-28 19:46:49.910447
+Predictions Fitting Finished at 2023-12-28 19:46:50.373284
+Predictions Fitting Finished at 2023-12-28 19:46:58.758972
+Predictions Fitting Finished at 2023-12-28 19:47:02.353093
+Predictions Fitting Finished at 2023-12-28 19:47:35.500331
+
+Predicted Date: 2023-10-24
+  Output Labels  Output Values
+0          Open         126.69
+1          High         126.40
+2           Low         123.27
+3         Close         124.27
+4     Adj Close         124.27
+
+Predicted Date: 2023-10-18
+  Output Labels  Output Values
+0          Open         130.96
+1          High         132.66
+2           Low         129.62
+3         Close         130.61
+4     Adj Close         130.61
+
+Predicted Date: 2023-11-07
+  Output Labels  Output Values
+0          Open         139.49
+1          High         140.39
+2           Low         138.17
+3         Close         140.00
+4     Adj Close         140.00
+
+Predicted Date: 2023-11-01
+  Output Labels  Output Values
+0          Open         133.00
+1          High         133.68
+2           Low         130.66
+3         Close         131.62
+4     Adj Close         131.62
+
+Predicted Date: 2023-11-09
+  Output Labels  Output Values
+0          Open         140.82
+1          High         142.60
+2           Low         140.08
+3         Close         141.80
+4     Adj Close         141.80
+
+Predicted Date: 2023-10-20
+  Output Labels  Output Values
+0          Open         128.25
+1          High         129.87
+2           Low         127.52
+3         Close         128.89
+4     Adj Close         128.89
+
+Predicted Date: 2023-10-30
+  Output Labels  Output Values
+0          Open         127.68
+1          High         130.52
+2           Low         126.14
+3         Close         125.81
+4     Adj Close         125.81
+
+Predicted Date: 2023-11-03
+  Output Labels  Output Values
+0          Open         140.22
+1          High         142.03
+2           Low         137.16
+3         Close         140.02
+4     Adj Close         140.02
+
+Predicted Date: 2023-11-13
+  Output Labels  Output Values
+0          Open         141.03
+1          High         142.25
+2           Low         139.81
+3         Close         139.67
+4     Adj Close         139.67
+
+Predicted Date: 2023-10-26
+  Output Labels  Output Values
+0          Open         120.76
+1          High         123.83
+2           Low         117.91
+3         Close         121.89
+4     Adj Close         121.89
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:56:36.737256
+
+
+Training set: (5949, 296) samples
+Test set: (661, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:56:40.783234
+
+
+Training set: (5950, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:56:48.285589
+
+
+Training set: (5952, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:56:51.700581
+
+
+Training set: (5954, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:57:02.657614
+
+
+Training set: (5956, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:57:08.472082
+
+
+Training set: (5958, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:57:10.284416
+
+
+Training set: (5959, 296) samples
+Test set: (663, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:57:11.514013
+
+
+Training set: (5961, 296) samples
+Test set: (663, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:57:16.037362
+
+
+Training set: (5963, 296) samples
+Test set: (663, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 19:57:30.286729
+
+
+Training set: (5965, 296) samples
+Test set: (663, 296) samples
+
+Fitting/Tuning Finished at 2023-12-28 20:01:33.245150
+with RMSE of 1.1956313620131906
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:01:34.367902
+
+
+Fitting/Tuning Finished at 2023-12-28 20:01:35.319680
+with RMSE of 1.295367939638204
+
+Fitting/Tuning Finished at 2023-12-28 20:01:35.511081
+with RMSE of 1.0840922519727594
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:01:36.439557
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:01:36.608340
+
+
+Fitting/Tuning Finished at 2023-12-28 20:01:37.589137
+with RMSE of 1.1931540507346785
+
+Fitting/Tuning Finished at 2023-12-28 20:01:37.733552
+with RMSE of 1.265659648688691
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:01:38.790925
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:01:38.919691
+
+
+Fitting/Tuning Finished at 2023-12-28 20:01:40.394111
+with RMSE of 1.1983651843064493
+
+Fitting/Tuning Finished at 2023-12-28 20:01:41.077435
+with RMSE of 1.1565147520764831
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:01:41.607523
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:01:42.373115
+
+
+Fitting/Tuning Finished at 2023-12-28 20:01:44.271248
+with RMSE of 1.2273844241062295
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:01:45.552683
+
+
+Fitting/Tuning Finished at 2023-12-28 20:01:45.978980
+with RMSE of 1.4054058753142822
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:01:47.264921
+
+
+Fitting/Tuning Finished at 2023-12-28 20:02:00.036914
+with RMSE of 1.2828195340311168
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:02:01.408213
+
+Predictions Fitting Finished at 2023-12-28 20:06:08.322530
+Predictions Fitting Finished at 2023-12-28 20:06:09.004712
+Predictions Fitting Finished at 2023-12-28 20:06:11.560304
+Predictions Fitting Finished at 2023-12-28 20:06:12.077081
+Predictions Fitting Finished at 2023-12-28 20:06:13.396564
+Predictions Fitting Finished at 2023-12-28 20:06:14.845346
+Predictions Fitting Finished at 2023-12-28 20:06:15.758204
+Predictions Fitting Finished at 2023-12-28 20:06:19.817799
+Predictions Fitting Finished at 2023-12-28 20:06:32.331944
+Predictions Fitting Finished at 2023-12-28 20:07:05.412045
+
+Predicted Date: 2023-11-14
+  Output Labels  Output Values
+0          Open         141.70
+1          High         143.26
+2           Low         140.19
+3         Close         141.21
+4     Adj Close         141.21
+
+Predicted Date: 2023-11-20
+  Output Labels  Output Values
+0          Open         144.88
+1          High         145.94
+2           Low         141.72
+3         Close         143.35
+4     Adj Close         143.35
+
+Predicted Date: 2023-11-27
+  Output Labels  Output Values
+0          Open         144.33
+1          High         148.71
+2           Low         144.55
+3         Close         147.34
+4     Adj Close         147.34
+
+Predicted Date: 2023-11-16
+  Output Labels  Output Values
+0          Open         146.18
+1          High         148.61
+2           Low         142.26
+3         Close         145.88
+4     Adj Close         145.88
+
+Predicted Date: 2023-11-22
+  Output Labels  Output Values
+0          Open         143.58
+1          High         146.26
+2           Low         140.58
+3         Close         144.97
+4     Adj Close         144.97
+
+Predicted Date: 2023-11-29
+  Output Labels  Output Values
+0          Open         147.24
+1          High         148.20
+2           Low         145.38
+3         Close         147.70
+4     Adj Close         147.70
+
+Predicted Date: 2023-12-05
+  Output Labels  Output Values
+0          Open         142.40
+1          High         147.18
+2           Low         140.64
+3         Close         145.14
+4     Adj Close         145.14
+
+Predicted Date: 2023-12-01
+  Output Labels  Output Values
+0          Open         143.85
+1          High         144.43
+2           Low         143.04
+3         Close         144.48
+4     Adj Close         144.48
+
+Predicted Date: 2023-12-07
+  Output Labels  Output Values
+0          Open         145.05
+1          High         147.33
+2           Low         143.58
+3         Close         146.76
+4     Adj Close         146.76
+
+Predicted Date: 2023-12-11
+  Output Labels  Output Values
+0          Open         147.98
+1          High         149.81
+2           Low         146.91
+3         Close         148.29
+4     Adj Close         148.29
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:15:57.820915
+
+
+Training set: (5949, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:16:06.282142
+
+
+Training set: (5953, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:16:08.631653
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:16:08.842174
+
+
+Training set: (5951, 296) samples
+Test set: (662, 296) samples
+
+Training set: (5957, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:16:13.647055
+
+
+Training set: (5955, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:16:26.897750
+
+
+Training set: (5958, 296) samples
+Test set: (663, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:16:28.978197
+
+
+Training set: (5962, 296) samples
+Test set: (663, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:16:35.397697
+
+
+Training set: (5960, 296) samples
+Test set: (663, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:16:38.510666
+
+
+Training set: (5964, 296) samples
+Test set: (663, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:16:52.921220
+
+
+Training set: (5966, 296) samples
+Test set: (663, 296) samples
+
+Fitting/Tuning Finished at 2023-12-28 20:20:49.597650
+with RMSE of 1.159602969860986
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:20:50.744315
+
+
+Fitting/Tuning Finished at 2023-12-28 20:20:52.666399
+with RMSE of 1.4268268481322923
+
+Fitting/Tuning Finished at 2023-12-28 20:20:53.499188
+with RMSE of 1.4974763951543784
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:20:53.757480
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:20:54.625360
+
+
+Fitting/Tuning Finished at 2023-12-28 20:20:56.470511
+with RMSE of 1.4509965654384678
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:20:57.618034
+
+
+Fitting/Tuning Finished at 2023-12-28 20:20:58.161742
+with RMSE of 1.1087873365881988
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:20:59.339000
+
+
+Fitting/Tuning Finished at 2023-12-28 20:21:05.290342
+with RMSE of 1.2421931809728248
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:21:06.542450
+
+
+Fitting/Tuning Finished at 2023-12-28 20:21:07.312024
+with RMSE of 1.2230688687132614
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:21:08.606575
+
+
+Fitting/Tuning Finished at 2023-12-28 20:21:12.902536
+with RMSE of 1.3470068260256145
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:21:14.206568
+
+
+Fitting/Tuning Finished at 2023-12-28 20:21:16.797264
+with RMSE of 1.599586106059652
+
+Fitting/Tuning Finished at 2023-12-28 20:21:17.231436
+with RMSE of 1.5110205392556295
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:21:18.140258
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:21:18.573944
+
+Predictions Fitting Finished at 2023-12-28 20:25:24.101702
+Predictions Fitting Finished at 2023-12-28 20:25:24.653282
+Predictions Fitting Finished at 2023-12-28 20:25:28.391398
+Predictions Fitting Finished at 2023-12-28 20:25:31.461064
+Predictions Fitting Finished at 2023-12-28 20:25:33.513598
+Predictions Fitting Finished at 2023-12-28 20:25:47.722131
+Predictions Fitting Finished at 2023-12-28 20:25:51.422731
+Predictions Fitting Finished at 2023-12-28 20:25:52.930348
+Predictions Fitting Finished at 2023-12-28 20:26:08.485995
+Predictions Fitting Finished at 2023-12-28 20:26:15.343607
+
+Predicted Date: 2023-11-21
+  Output Labels  Output Values
+0          Open         141.29
+1          High         144.54
+2           Low         139.76
+3         Close         143.83
+4     Adj Close         143.83
+
+Predicted Date: 2023-11-24
+  Output Labels  Output Values
+0          Open         145.48
+1          High         144.73
+2           Low         143.82
+3         Close         143.37
+4     Adj Close         143.37
+
+Predicted Date: 2023-11-17
+  Output Labels  Output Values
+0          Open         142.57
+1          High         142.92
+2           Low         140.30
+3         Close         141.02
+4     Adj Close         141.02
+
+Predicted Date: 2023-11-28
+  Output Labels  Output Values
+0          Open         145.87
+1          High         149.07
+2           Low         145.32
+3         Close         147.69
+4     Adj Close         147.69
+
+Predicted Date: 2023-12-06
+  Output Labels  Output Values
+0          Open         147.21
+1          High         149.03
+2           Low         146.72
+3         Close         148.99
+4     Adj Close         148.99
+
+Predicted Date: 2023-11-30
+  Output Labels  Output Values
+0          Open         147.98
+1          High         149.51
+2           Low         145.01
+3         Close         146.07
+4     Adj Close         146.07
+
+Predicted Date: 2023-12-04
+  Output Labels  Output Values
+0          Open         146.74
+1          High         148.55
+2           Low         144.62
+3         Close         145.28
+4     Adj Close         145.28
+
+Predicted Date: 2023-12-08
+  Output Labels  Output Values
+0          Open         146.72
+1          High         146.57
+2           Low         144.72
+3         Close         145.67
+4     Adj Close         145.67
+
+Predicted Date: 2023-12-12
+  Output Labels  Output Values
+0          Open         144.77
+1          High         147.04
+2           Low         142.40
+3         Close         143.20
+4     Adj Close         143.20
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:33:58.817521
+
+
+Training set: (5970, 296) samples
+Test set: (664, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:34:38.829533
+
+
+Training set: (5967, 296) samples
+Test set: (663, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:34:41.489951
+
+
+Training set: (5968, 296) samples
+Test set: (664, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:34:43.197723
+
+
+Training set: (5972, 296) samples
+Test set: (664, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:34:46.026744
+
+
+Training set: (5974, 296) samples
+Test set: (664, 296) samples
+
+Fitting/Tuning Finished at 2023-12-28 20:36:57.363712
+with RMSE of 1.4483191179712163
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:36:58.337225
+
+
+Fitting/Tuning Finished at 2023-12-28 20:37:14.180510
+with RMSE of 1.2072524854064515
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:37:15.303741
+
+
+Fitting/Tuning Finished at 2023-12-28 20:37:16.084622
+with RMSE of 1.187842819045309
+
+Fitting/Tuning Finished at 2023-12-28 20:37:16.230782
+with RMSE of 1.1007293596382564
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:37:17.274784
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:37:17.451427
+
+
+Fitting/Tuning Finished at 2023-12-28 20:37:18.190927
+with RMSE of 1.3332568165667107
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:37:19.429230
+
+Predictions Fitting Finished at 2023-12-28 20:39:28.725337
+Predictions Fitting Finished at 2023-12-28 20:39:42.914935
+Predictions Fitting Finished at 2023-12-28 20:39:45.527761
+Predictions Fitting Finished at 2023-12-28 20:39:45.867064
+
+Predicted Date: 2023-12-19
+  Output Labels  Output Values
+0          Open         153.43
+1          High         154.56
+2           Low         151.86
+3         Close         153.87
+4     Adj Close         153.87
+
+Predicted Date: 2023-12-13
+  Output Labels  Output Values
+0          Open         145.35
+1          High         146.70
+2           Low         145.46
+3         Close         145.80
+4     Adj Close         145.80
+
+Predicted Date: 2023-12-15
+  Output Labels  Output Values
+0          Open         149.47
+1          High         152.00
+2           Low         146.36
+3         Close         149.18
+4     Adj Close         149.18
+
+Predicted Date: 2023-12-26
+  Output Labels  Output Values
+0          Open         153.28
+1          High         154.93
+2           Low         151.26
+3         Close         152.47
+4     Adj Close         152.47
+
+Predicted Date: 2023-12-21
+  Output Labels  Output Values
+0          Open         152.79
+1          High         154.45
+2           Low         151.23
+3         Close         154.09
+4     Adj Close         154.09
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:45:06.465589
+
+
+Training set: (5971, 296) samples
+Test set: (664, 296) samples
+
+Fitting/Tuning Finished at 2023-12-28 20:46:07.157202
+with RMSE of 1.2252819063255291
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:46:07.892990
+
+Predictions Fitting Finished at 2023-12-28 20:47:09.794306
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:47:29.809988
+
+
+Training set: (5969, 296) samples
+Test set: (664, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:47:32.287217
+
+
+Training set: (5967, 296) samples
+Test set: (664, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:47:57.366322
+
+
+Training set: (5973, 296) samples
+Test set: (664, 296) samples
+
+Fitting/Tuning Finished at 2023-12-28 20:49:17.759743
+with RMSE of 1.2468479028706438
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:49:18.824446
+
+
+Fitting/Tuning Finished at 2023-12-28 20:49:21.026761
+with RMSE of 1.4078711593200863
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:49:22.209042
+
+
+Fitting/Tuning Finished at 2023-12-28 20:49:35.852385
+with RMSE of 1.3085432457829744
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:49:37.033840
+
+Predictions Fitting Finished at 2023-12-28 20:51:04.249627
+Predictions Fitting Finished at 2023-12-28 20:51:07.628599
+Predictions Fitting Finished at 2023-12-28 20:51:12.795488
+
+Predicted Date: 2023-12-20
+  Output Labels  Output Values
+0          Open         154.90
+1          High         155.96
+2           Low         154.29
+3         Close         154.74
+4     Adj Close         154.74
+
+Predicted Date: 2023-12-14
+  Output Labels  Output Values
+0          Open         147.93
+1          High         151.32
+2           Low         147.24
+3         Close         149.81
+4     Adj Close         149.81
+
+Predicted Date: 2023-12-22
+  Output Labels  Output Values
+0          Open         154.26
+1          High         156.79
+2           Low         151.99
+3         Close         153.77
+4     Adj Close         153.77
+
+Predicted Date: 2023-12-18
+  Output Labels  Output Values
+0          Open         149.23
+1          High         153.49
+2           Low         148.54
+3         Close         152.19
+4     Adj Close         152.19
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:57:44.397375
+
+
+Training set: (5976, 296) samples
+Test set: (664, 296) samples
+
+Fitting/Tuning Finished at 2023-12-28 20:58:29.265804
+with RMSE of 1.0636381643141593
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 20:58:29.946925
+
+Predictions Fitting Finished at 2023-12-28 20:59:16.486492
+
+Predicted Date: 2023-12-29
+  Output Labels  Output Values
+0          Open         153.53
+1          High         155.05
+2           Low         152.89
+3         Close         154.44
+4     Adj Close         154.44
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 21:40:52.669615
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 21:40:52.762807
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 21:40:52.908740
+
+
+Training set: (5938, 296) samples
+Test set: (660, 296) samples
+
+Training set: (5947, 296) samples
+Test set: (661, 296) samples
+
+Training set: (5943, 296) samples
+Test set: (661, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 21:40:53.632702
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 21:40:53.813466
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 21:40:53.799541
+
+
+Training set: (5940, 296) samples
+Test set: (661, 296) samples
+Test set: (660, 296) samples
+
+Training set: (5936, 296) samples
+Test set: (660, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 21:40:55.359581
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 21:40:55.606210
+
+
+Training set: (5931, 296) samples
+Test set: (659, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 21:40:55.917321
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 21:40:56.002366
+
+
+Training set: (5934, 296) samples
+Test set: (660, 296) samples
+
+Training set: (5945, 296) samples
+Test set: (661, 296) samples
+
+Training set: (5932, 296) samples
+Test set: (660, 296) samples
+
+Fitting/Tuning Finished at 2023-12-28 21:45:49.879502
+with RMSE of 1.1529453438853405
+
+Fitting/Tuning Finished at 2023-12-28 21:45:49.912575
+with RMSE of 1.1680530910865035
+
+Fitting/Tuning Finished at 2023-12-28 21:45:50.926984
+with RMSE of 1.3016574535818344
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 21:45:51.154921
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 21:45:51.208873
+
+
+Fitting/Tuning Finished at 2023-12-28 21:45:51.630969
+with RMSE of 1.2043203287344355
+
+Fitting/Tuning Finished at 2023-12-28 21:45:51.712751
+with RMSE of 1.2605933495476678
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 21:45:52.246935
+
+
+Fitting/Tuning Finished at 2023-12-28 21:45:52.307829
+with RMSE of 1.2948059566726395
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 21:45:52.862889
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 21:45:53.123890
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 21:45:53.635451
+
+
+Fitting/Tuning Finished at 2023-12-28 21:45:55.171900
+with RMSE of 1.3675919622542547
+
+Fitting/Tuning Finished at 2023-12-28 21:45:56.119296
+with RMSE of 1.2723318702270592
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 21:45:56.634335
+
+
+Fitting/Tuning Finished at 2023-12-28 21:45:56.881420
+with RMSE of 1.2062938365124798
+
+Fitting/Tuning Finished at 2023-12-28 21:45:57.398198
+with RMSE of 1.3020154287041996
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 21:45:57.593073
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 21:45:58.287342
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 21:45:58.875459
+
+Predictions Fitting Finished at 2023-12-28 21:50:46.877414
+Predictions Fitting Finished at 2023-12-28 21:50:48.578403
+Predictions Fitting Finished at 2023-12-28 21:50:49.324861
+Predictions Fitting Finished at 2023-12-28 21:50:51.417490
+Predictions Fitting Finished at 2023-12-28 21:50:52.757561
+Predictions Fitting Finished at 2023-12-28 21:50:53.955622
+Predictions Fitting Finished at 2023-12-28 21:50:54.406282
+Predictions Fitting Finished at 2023-12-28 21:50:57.149958
+Predictions Fitting Finished at 2023-12-28 21:51:02.042943
+Predictions Fitting Finished at 2023-12-28 21:51:11.987545
+
+Predicted Date: 2023-11-10
+  Output Labels  Output Values
+0          Open         141.40
+1          High         141.59
+2           Low         138.99
+3         Close         140.36
+4     Adj Close         140.36
+
+Predicted Date: 2023-10-27
+  Output Labels  Output Values
+0          Open         120.80
+1          High         123.62
+2           Low         121.27
+3         Close         123.59
+4     Adj Close         123.59
+
+Predicted Date: 2023-10-23
+  Output Labels  Output Values
+0          Open         126.66
+1          High         129.09
+2           Low         124.24
+3         Close         127.90
+4     Adj Close         127.90
+
+Predicted Date: 2023-11-02
+  Output Labels  Output Values
+0          Open         135.59
+1          High         138.16
+2           Low         133.96
+3         Close         135.61
+4     Adj Close         135.61
+
+Predicted Date: 2023-10-25
+  Output Labels  Output Values
+0          Open         128.77
+1          High         128.77
+2           Low         125.85
+3         Close         127.94
+4     Adj Close         127.94
+
+Predicted Date: 2023-10-31
+  Output Labels  Output Values
+0          Open         129.26
+1          High         129.76
+2           Low         129.36
+3         Close         130.24
+4     Adj Close         130.24
+
+Predicted Date: 2023-10-19
+  Output Labels  Output Values
+0          Open         129.51
+1          High         129.43
+2           Low         125.93
+3         Close         127.02
+4     Adj Close         127.02
+
+Predicted Date: 2023-11-06
+  Output Labels  Output Values
+0          Open         137.77
+1          High         139.95
+2           Low         136.10
+3         Close         136.54
+4     Adj Close         136.54
+
+Predicted Date: 2023-10-17
+  Output Labels  Output Values
+0          Open         131.51
+1          High         133.02
+2           Low         131.44
+3         Close         133.53
+4     Adj Close         133.53
+
+Predicted Date: 2023-11-08
+  Output Labels  Output Values
+0          Open         140.64
+1          High         144.52
+2           Low         139.51
+3         Close         142.78
+4     Adj Close         142.78
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:01:47.052879
+
+
+Training set: (5948, 296) samples
+Test set: (661, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:01:48.883647
+
+
+Training set: (5939, 296) samples
+Test set: (660, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:01:53.057387
+
+
+Training set: (5942, 296) samples
+Test set: (661, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:01:54.561376
+
+
+Training set: (5935, 296) samples
+Test set: (660, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:01:56.940764
+
+
+Training set: (5937, 296) samples
+Test set: (660, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:02:03.673904
+
+
+Training set: (5940, 296) samples
+Test set: (661, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:02:12.341557
+
+
+Training set: (5933, 296) samples
+Test set: (660, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:02:20.343415
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:02:21.468686
+
+
+Training set: (5944, 296) samples
+Test set: (661, 296) samples
+
+Training set: (5931, 296) samples
+Test set: (660, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:02:27.281936
+
+
+Training set: (5946, 296) samples
+Test set: (661, 296) samples
+
+Fitting/Tuning Finished at 2023-12-28 22:07:30.812475
+with RMSE of 1.3600350931585268
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:07:32.279031
+
+
+Fitting/Tuning Finished at 2023-12-28 22:07:35.266903
+with RMSE of 1.416408531180995
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:07:36.999341
+
+
+Fitting/Tuning Finished at 2023-12-28 22:07:37.283351
+with RMSE of 1.1485680258055906
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:07:39.081181
+
+
+Fitting/Tuning Finished at 2023-12-28 22:07:40.601738
+with RMSE of 1.1497805855473038
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:07:42.491359
+
+
+Fitting/Tuning Finished at 2023-12-28 22:07:48.339695
+with RMSE of 1.455354125842828
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:07:50.585446
+
+
+Fitting/Tuning Finished at 2023-12-28 22:07:54.120818
+with RMSE of 1.0607419155915185
+
+Fitting/Tuning Finished at 2023-12-28 22:07:54.901120
+with RMSE of 1.1438419027644127
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:07:56.759349
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:07:57.331777
+
+
+Fitting/Tuning Finished at 2023-12-28 22:08:01.245089
+with RMSE of 1.499083512140894
+
+Fitting/Tuning Finished at 2023-12-28 22:08:01.574413
+with RMSE of 1.1749130322010197
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:08:03.949215
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:08:04.211582
+
+
+Fitting/Tuning Finished at 2023-12-28 22:08:18.629509
+with RMSE of 1.1204937416906353
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:08:21.807835
+
+Predictions Fitting Finished at 2023-12-28 22:13:08.854833
+Predictions Fitting Finished at 2023-12-28 22:13:12.489513
+Predictions Fitting Finished at 2023-12-28 22:13:13.210130
+Predictions Fitting Finished at 2023-12-28 22:13:16.315121
+Predictions Fitting Finished at 2023-12-28 22:13:25.186231
+Predictions Fitting Finished at 2023-12-28 22:13:25.217229
+Predictions Fitting Finished at 2023-12-28 22:13:33.803322
+Predictions Fitting Finished at 2023-12-28 22:13:33.893267
+Predictions Fitting Finished at 2023-12-28 22:13:37.405073
+
+Predicted Date: 2023-11-13
+  Output Labels  Output Values
+0          Open         141.95
+1          High         142.42
+2           Low         139.54
+3         Close         142.01
+4     Adj Close         142.01
+
+Predicted Date: 2023-10-24
+  Output Labels  Output Values
+0          Open         126.12
+1          High         126.21
+2           Low         123.59
+3         Close         123.84
+4     Adj Close         123.84
+
+Predicted Date: 2023-11-03
+  Output Labels  Output Values
+0          Open         138.48
+1          High         138.99
+2           Low         134.63
+3         Close         137.77
+4     Adj Close         137.77
+
+Predicted Date: 2023-10-30
+  Output Labels  Output Values
+0          Open         127.54
+1          High         129.13
+2           Low         126.41
+3         Close         127.44
+4     Adj Close         127.44
+
+Predicted Date: 2023-11-01
+  Output Labels  Output Values
+0          Open         132.98
+1          High         133.55
+2           Low         131.92
+3         Close         132.79
+4     Adj Close         132.79
+
+Predicted Date: 2023-11-07
+  Output Labels  Output Values
+0          Open         140.25
+1          High         139.94
+2           Low         137.22
+3         Close         138.12
+4     Adj Close         138.12
+
+Predicted Date: 2023-10-26
+  Output Labels  Output Values
+0          Open         120.49
+1          High         123.57
+2           Low         119.83
+3         Close         122.22
+4     Adj Close         122.22
+
+Predicted Date: 2023-11-09
+  Output Labels  Output Values
+0          Open         141.76
+1          High         142.95
+2           Low         139.49
+3         Close         141.49
+4     Adj Close         141.49
+
+Predicted Date: 2023-10-20
+  Output Labels  Output Values
+0          Open         127.92
+1          High         130.64
+2           Low         126.78
+3         Close         128.28
+4     Adj Close         128.28
+
+Predicted Date: 2023-10-18
+  Output Labels  Output Values
+0          Open         131.30
+1          High         131.89
+2           Low         127.95
+3         Close         130.26
+4     Adj Close         130.26
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:25:02.544972
+
+
+Training set: (5950, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:25:08.080390
+
+
+Training set: (5949, 296) samples
+Test set: (661, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:25:14.572658
+
+
+Training set: (5954, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:25:17.061053
+
+
+Training set: (5956, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:25:24.792189
+
+
+Training set: (5952, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:25:43.346515
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:25:44.026078
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:25:44.280215
+
+
+Training set: (5963, 296) samples
+Test set: (663, 296) samples
+
+Training set: (5958, 296) samples
+Test set: (662, 296) samples
+
+Training set: (5965, 296) samples
+Test set: (663, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:25:50.002785
+
+
+Training set: (5959, 296) samples
+Test set: (663, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:25:59.151597
+
+
+Training set: (5961, 296) samples
+Test set: (663, 296) samples
+
+Fitting/Tuning Finished at 2023-12-28 22:30:41.372610
+with RMSE of 1.414423197977611
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:30:42.905785
+
+
+Fitting/Tuning Finished at 2023-12-28 22:30:49.591172
+with RMSE of 1.315820575654876
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:30:51.124002
+
+
+Fitting/Tuning Finished at 2023-12-28 22:30:51.365732
+with RMSE of 0.9968306972928467
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:30:52.896761
+
+
+Fitting/Tuning Finished at 2023-12-28 22:30:55.945936
+with RMSE of 0.9968497221226289
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:30:57.906519
+
+
+Fitting/Tuning Finished at 2023-12-28 22:31:14.383867
+with RMSE of 1.2779959343004543
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:31:16.999963
+
+
+Fitting/Tuning Finished at 2023-12-28 22:31:18.440775
+with RMSE of 1.61776921538718
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:31:20.445356
+
+
+Fitting/Tuning Finished at 2023-12-28 22:31:21.861397
+with RMSE of 1.1963975724246585
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:31:24.233747
+
+
+Fitting/Tuning Finished at 2023-12-28 22:31:27.239514
+with RMSE of 1.254044465734952
+
+Fitting/Tuning Finished at 2023-12-28 22:31:27.647941
+with RMSE of 1.4840847879622445
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:31:30.321791
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:31:30.626167
+
+
+Fitting/Tuning Finished at 2023-12-28 22:31:44.373366
+with RMSE of 1.4222055335405066
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:31:47.169054
+
+Predictions Fitting Finished at 2023-12-28 22:36:39.492414
+Predictions Fitting Finished at 2023-12-28 22:36:40.385983
+Predictions Fitting Finished at 2023-12-28 22:36:46.003657
+Predictions Fitting Finished at 2023-12-28 22:36:45.092332
+Predictions Fitting Finished at 2023-12-28 22:37:01.396066
+Predictions Fitting Finished at 2023-12-28 22:37:08.801319
+Predictions Fitting Finished at 2023-12-28 22:37:12.833596
+Predictions Fitting Finished at 2023-12-28 22:37:12.929271
+Predictions Fitting Finished at 2023-12-28 22:37:18.152948
+Predictions Fitting Finished at 2023-12-28 22:37:26.507587
+
+Predicted Date: 2023-11-14
+  Output Labels  Output Values
+0          Open         142.45
+1          High         142.11
+2           Low         140.40
+3         Close         140.09
+4     Adj Close         140.09
+
+Predicted Date: 2023-11-16
+  Output Labels  Output Values
+0          Open         147.02
+1          High         150.32
+2           Low         146.34
+3         Close         145.90
+4     Adj Close         145.90
+
+Predicted Date: 2023-11-22
+  Output Labels  Output Values
+0          Open         142.58
+1          High         141.97
+2           Low         139.45
+3         Close         141.31
+4     Adj Close         141.31
+
+Predicted Date: 2023-11-27
+  Output Labels  Output Values
+0          Open         148.30
+1          High         150.56
+2           Low         144.65
+3         Close         146.92
+4     Adj Close         146.92
+
+Predicted Date: 2023-11-29
+  Output Labels  Output Values
+0          Open         145.62
+1          High         147.21
+2           Low         141.05
+3         Close         143.88
+4     Adj Close         143.88
+
+Predicted Date: 2023-11-20
+  Output Labels  Output Values
+0          Open         143.43
+1          High         146.61
+2           Low         141.23
+3         Close         143.82
+4     Adj Close         143.82
+
+Predicted Date: 2023-12-01
+  Output Labels  Output Values
+0          Open         144.60
+1          High         146.05
+2           Low         141.87
+3         Close         144.32
+4     Adj Close         144.32
+
+Predicted Date: 2023-12-07
+  Output Labels  Output Values
+0          Open         143.47
+1          High         148.52
+2           Low         142.45
+3         Close         146.95
+4     Adj Close         146.95
+
+Predicted Date: 2023-12-11
+  Output Labels  Output Values
+0          Open         148.17
+1          High         149.03
+2           Low         146.25
+3         Close         148.17
+4     Adj Close         148.17
+
+Predicted Date: 2023-12-05
+  Output Labels  Output Values
+0          Open         143.63
+1          High         146.64
+2           Low         142.81
+3         Close         145.15
+4     Adj Close         145.15
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:50:31.159891
+
+
+Training set: (5951, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:50:37.239283
+
+
+Training set: (5949, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:51:13.080088
+
+
+Training set: (5957, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:51:16.733137
+
+
+Training set: (5955, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:51:39.135160
+
+
+Training set: (5958, 296) samples
+Test set: (663, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:51:53.562917
+
+
+Training set: (5953, 296) samples
+Test set: (662, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:52:24.570019
+
+
+Training set: (5964, 296) samples
+Test set: (663, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:52:44.572772
+
+
+Training set: (5960, 296) samples
+Test set: (663, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:53:15.658357
+
+
+Training set: (5966, 296) samples
+Test set: (663, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:53:40.852296
+
+
+Training set: (5962, 296) samples
+Test set: (663, 296) samples
+
+Fitting/Tuning Finished at 2023-12-28 22:59:28.252998
+with RMSE of 1.4119601665816963
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:59:29.424539
+
+
+Fitting/Tuning Finished at 2023-12-28 22:59:30.912197
+with RMSE of 1.1292506235050626
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:59:32.161082
+
+
+Fitting/Tuning Finished at 2023-12-28 22:59:41.951959
+with RMSE of 1.310383139469947
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:59:43.307508
+
+
+Fitting/Tuning Finished at 2023-12-28 22:59:43.382337
+with RMSE of 1.1578324819961692
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:59:44.681092
+
+
+Fitting/Tuning Finished at 2023-12-28 22:59:54.450774
+with RMSE of 1.3862825311062634
+
+Fitting/Tuning Finished at 2023-12-28 22:59:57.038157
+with RMSE of 1.1979442203040294
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:59:59.923081
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 22:59:59.945692
+
+
+Fitting/Tuning Finished at 2023-12-28 23:00:09.254990
+with RMSE of 1.1528848843146224
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:00:10.646993
+
+
+Fitting/Tuning Finished at 2023-12-28 23:00:19.108891
+with RMSE of 1.3561924931666298
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:00:20.502529
+
+
+Fitting/Tuning Finished at 2023-12-28 23:00:36.175655
+with RMSE of 1.3390922949363544
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:00:37.971334
+
+
+Fitting/Tuning Finished at 2023-12-28 23:00:41.502245
+with RMSE of 1.3754592674168353
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:00:47.444342
+
+Predictions Fitting Finished at 2023-12-28 23:04:10.409119
+Predictions Fitting Finished at 2023-12-28 23:04:12.965377
+Predictions Fitting Finished at 2023-12-28 23:04:18.754162
+Predictions Fitting Finished at 2023-12-28 23:04:21.564057
+Predictions Fitting Finished at 2023-12-28 23:04:42.692121
+Predictions Fitting Finished at 2023-12-28 23:04:43.817882
+Predictions Fitting Finished at 2023-12-28 23:04:44.943826
+Predictions Fitting Finished at 2023-12-28 23:05:13.319562
+Predictions Fitting Finished at 2023-12-28 23:05:59.552135
+Predictions Fitting Finished at 2023-12-28 23:06:47.487691
+
+Predicted Date: 2023-11-15
+  Output Labels  Output Values
+0          Open         144.12
+1          High         144.52
+2           Low         139.56
+3         Close         141.68
+4     Adj Close         141.68
+
+Predicted Date: 2023-11-17
+  Output Labels  Output Values
+0          Open         142.79
+1          High         144.73
+2           Low         139.94
+3         Close         140.65
+4     Adj Close         140.65
+
+Predicted Date: 2023-11-30
+  Output Labels  Output Values
+0          Open         144.14
+1          High         146.31
+2           Low         141.07
+3         Close         144.30
+4     Adj Close         144.30
+
+Predicted Date: 2023-11-24
+  Output Labels  Output Values
+0          Open         148.78
+1          High         146.79
+2           Low         145.04
+3         Close         144.91
+4     Adj Close         144.91
+
+Predicted Date: 2023-11-28
+  Output Labels  Output Values
+0          Open         148.83
+1          High         150.89
+2           Low         145.34
+3         Close         146.07
+4     Adj Close         146.07
+
+Predicted Date: 2023-11-21
+  Output Labels  Output Values
+0          Open         146.63
+1          High         148.45
+2           Low         145.07
+3         Close         145.51
+4     Adj Close         145.51
+
+Predicted Date: 2023-12-08
+  Output Labels  Output Values
+0          Open         146.54
+1          High         148.72
+2           Low         145.56
+3         Close         146.65
+4     Adj Close         146.65
+
+Predicted Date: 2023-12-04
+  Output Labels  Output Values
+0          Open         147.92
+1          High         148.63
+2           Low         145.76
+3         Close         145.65
+4     Adj Close         145.65
+
+Predicted Date: 2023-12-12
+  Output Labels  Output Values
+0          Open         146.04
+1          High         146.74
+2           Low         142.82
+3         Close         145.78
+4     Adj Close         145.78
+
+Predicted Date: 2023-12-06
+  Output Labels  Output Values
+0          Open         147.09
+1          High         147.84
+2           Low         146.25
+3         Close         146.34
+4     Adj Close         146.34
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:13:25.330108
+
+
+Training set: (5967, 296) samples
+Test set: (663, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:13:36.551789
+
+
+Training set: (5968, 296) samples
+Test set: (664, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:13:51.135992
+
+
+Training set: (5970, 296) samples
+Test set: (664, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:13:54.526120
+
+
+Training set: (5972, 296) samples
+Test set: (664, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:13:57.952617
+
+
+Training set: (5974, 296) samples
+Test set: (664, 296) samples
+
+Fitting/Tuning Finished at 2023-12-28 23:15:53.827228
+with RMSE of 1.5031887828883728
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:15:54.905872
+
+
+Fitting/Tuning Finished at 2023-12-28 23:16:13.909689
+with RMSE of 1.2866510141180294
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:16:15.175324
+
+
+Fitting/Tuning Finished at 2023-12-28 23:16:24.316626
+with RMSE of 1.4447704243920743
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:16:25.586004
+
+
+Fitting/Tuning Finished at 2023-12-28 23:16:29.877639
+with RMSE of 1.4745396748067376
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:16:31.166109
+
+
+Fitting/Tuning Finished at 2023-12-28 23:16:31.310338
+with RMSE of 1.1542167087919308
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:16:32.657879
+
+Predictions Fitting Finished at 2023-12-28 23:18:13.354187
+Predictions Fitting Finished at 2023-12-28 23:18:39.067489
+Predictions Fitting Finished at 2023-12-28 23:18:43.464930
+Predictions Fitting Finished at 2023-12-28 23:18:48.489253
+Predictions Fitting Finished at 2023-12-28 23:18:48.664993
+
+Predicted Date: 2023-12-13
+  Output Labels  Output Values
+0          Open         145.14
+1          High         146.04
+2           Low         144.25
+3         Close         144.84
+4     Adj Close         144.84
+
+Predicted Date: 2023-12-19
+  Output Labels  Output Values
+0          Open         153.12
+1          High         154.78
+2           Low         152.04
+3         Close         154.36
+4     Adj Close         154.36
+
+Predicted Date: 2023-12-15
+  Output Labels  Output Values
+0          Open         146.91
+1          High         150.22
+2           Low         144.99
+3         Close         147.78
+4     Adj Close         147.78
+
+Predicted Date: 2023-12-21
+  Output Labels  Output Values
+0          Open         151.76
+1          High         153.61
+2           Low         146.19
+3         Close         148.61
+4     Adj Close         148.61
+
+Predicted Date: 2023-12-26
+  Output Labels  Output Values
+0          Open         153.85
+1          High         155.79
+2           Low         153.19
+3         Close         155.33
+4     Adj Close         155.33
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:25:06.821827
+
+
+Training set: (5967, 296) samples
+Test set: (664, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:25:41.433308
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:25:41.442002
+
+
+Training set: (5969, 296) samples
+Test set: (664, 296) samples
+
+Training set: (5971, 296) samples
+Test set: (664, 296) samples
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:26:10.707853
+
+
+Training set: (5973, 296) samples
+Test set: (664, 296) samples
+
+Fitting/Tuning Finished at 2023-12-28 23:26:36.472296
+with RMSE of 1.1274064718850167
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:26:37.680642
+
+
+Fitting/Tuning Finished at 2023-12-28 23:27:38.852990
+with RMSE of 1.378944323901424
+
+Fitting/Tuning Finished at 2023-12-28 23:27:39.508969
+with RMSE of 1.0001027008522516
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:27:39.883071
+
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:27:40.538159
+
+
+Fitting/Tuning Finished at 2023-12-28 23:28:04.899435
+with RMSE of 1.2403072600540594
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:28:06.071372
+
+Predictions Fitting Finished at 2023-12-28 23:28:21.971195
+Predictions Fitting Finished at 2023-12-28 23:29:25.529770
+Predictions Fitting Finished at 2023-12-28 23:29:27.753748
+Predictions Fitting Finished at 2023-12-28 23:29:35.363235
+
+Predicted Date: 2023-12-14
+  Output Labels  Output Values
+0          Open         150.66
+1          High         149.87
+2           Low         147.38
+3         Close         146.11
+4     Adj Close         146.11
+
+Predicted Date: 2023-12-20
+  Output Labels  Output Values
+0          Open         153.54
+1          High         154.52
+2           Low         150.35
+3         Close         152.51
+4     Adj Close         152.51
+
+Predicted Date: 2023-12-18
+  Output Labels  Output Values
+0          Open         148.02
+1          High         149.54
+2           Low         145.80
+3         Close         148.14
+4     Adj Close         148.14
+
+Predicted Date: 2023-12-22
+  Output Labels  Output Values
+0          Open         153.59
+1          High         155.90
+2           Low         151.59
+3         Close         154.64
+4     Adj Close         154.64
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:36:09.154188
+
+
+Training set: (5976, 296) samples
+Test set: (664, 296) samples
+
+Fitting/Tuning Finished at 2023-12-28 23:36:54.500684
+with RMSE of 1.338536611954689
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:36:55.219647
+
+Predictions Fitting Finished at 2023-12-28 23:37:42.160034
+
+Predicted Date: 2023-12-29
+  Output Labels  Output Values
+0          Open         154.13
+1          High         154.78
+2           Low         152.88
+3         Close         153.78
+4     Adj Close         153.78
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:42:37.477892
+
+
+Training set: (5593, 296) samples
+Test set: (622, 296) samples
+
+Fitting/Tuning Finished at 2023-12-28 23:43:19.461663
+with RMSE of 2.683253474271826
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:43:20.128485
+
+Predictions Fitting Finished at 2023-12-28 23:44:03.744280
+
+Predicted Date: 2023-12-29
+  Output Labels  Output Values
+0          Open         488.69
+1          High         491.96
+2           Low         483.09
+3         Close         488.32
+4     Adj Close         488.34
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-28 23:58:15.180354
+
+
+Training set: (13990, 296) samples
+Test set: (1555, 296) samples
+
+Fitting/Tuning Finished at 2023-12-29 00:00:05.321902
+with RMSE of 0.8467163421560867
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-29 00:00:07.033329
+
+Predictions Fitting Finished at 2023-12-29 00:02:04.086817
+
+Predicted Date: 2023-12-29
+  Output Labels  Output Values
+0          Open          90.59
+1          High          90.65
+2           Low          89.87
+3         Close          90.37
+4     Adj Close          90.05
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-29 00:11:22.317028
+
+
+Training set: (4840, 296) samples
+Test set: (538, 296) samples
+
+Fitting/Tuning Finished at 2023-12-29 00:12:01.161351
+with RMSE of 4.9805908491222795
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-29 00:12:01.756590
+
+Predictions Fitting Finished at 2023-12-29 00:12:41.345268
+
+Predicted Date: 2023-12-29
+  Output Labels  Output Values
+0          Open         496.00
+1          High         502.38
+2           Low         492.54
+3         Close         498.27
+4     Adj Close         498.27
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-29 00:25:47.750949
+
+
+Training set: (13990, 296) samples
+Test set: (1555, 296) samples
+
+Fitting/Tuning Finished at 2023-12-29 00:27:42.951769
+with RMSE of 0.2565044275133131
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-29 00:27:44.540569
+
+Predictions Fitting Finished at 2023-12-29 00:29:44.596055
+
+Predicted Date: 2023-12-29
+  Output Labels  Output Values
+0          Open          58.58
+1          High          58.81
+2           Low          58.05
+3         Close          58.54
+4     Adj Close          58.73
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-29 00:44:10.292410
+
+
+Training set: (11597, 296) samples
+Test set: (1289, 296) samples
+
+Fitting/Tuning Finished at 2023-12-29 00:45:39.726540
+with RMSE of 0.6795912873741672
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-29 00:45:40.970506
+
+Predictions Fitting Finished at 2023-12-29 00:47:14.372789
+
+Predicted Date: 2023-12-29
+  Output Labels  Output Values
+0          Open         158.81
+1          High         160.24
+2           Low         158.40
+3         Close         158.94
+4     Adj Close         157.60
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-29 00:58:24.692955
+
+
+Training set: (9712, 296) samples
+Test set: (1080, 296) samples
+
+Fitting/Tuning Finished at 2023-12-29 00:59:37.100405
+with RMSE of 0.896622762311781
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-29 00:59:38.292548
+
+Predictions Fitting Finished at 2023-12-29 01:00:53.612555
+
+Predicted Date: 2023-12-29
+  Output Labels  Output Values
+0          Open         193.68
+1          High         195.42
+2           Low         192.10
+3         Close         193.19
+4     Adj Close         192.48
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-29 01:09:56.289106
+
+
+Training set: (8446, 296) samples
+Test set: (939, 296) samples
+
+Fitting/Tuning Finished at 2023-12-29 01:10:57.459235
+with RMSE of 3.3054601027458665
+
+Fitting the model for the stock predictor. 
+Starting log at 2023-12-29 01:10:58.327203
+
+Predictions Fitting Finished at 2023-12-29 01:12:02.142258
+
+Predicted Date: 2023-12-29
+  Output Labels  Output Values
+0          Open         657.17
+1          High         654.29
+2           Low         651.88
+3         Close         654.35
+4     Adj Close         643.00

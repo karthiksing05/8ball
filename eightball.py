@@ -26,13 +26,13 @@ def get_final_predictions(stock: str, date_to_predict: str) -> tuple:
     with Litewick to create a trading bot.
     """
 
-    today = datetime.datetime.now()
+    today = datetime.datetime.now().strftime("%Y-%m-%d")
     pred_datetime = datetime.datetime.strptime(date_to_predict, "%Y-%m-%d")
     delta = (pred_datetime - today)
     daysfuture = delta.days
     daysfuture += 1
     if daysfuture <= 0:
-        raise ValueError("You have predicted a date in the past/today. To use this function, please predict a date in the future.")
+        raise ValueError("You have predicted a date in the past. To use this function, please predict a date in the future.")
 
     BENCHMARK_FILE = "dataset_benchmark.pickle"
 
@@ -57,7 +57,6 @@ def get_final_predictions(stock: str, date_to_predict: str) -> tuple:
     dumped_date = pickled_info[0]
     data = pickled_info[1][0]
     test_sent_today = pickled_info[1][1]
-    
 
     final_preds = find_correlation_by_sentiment(
         data,

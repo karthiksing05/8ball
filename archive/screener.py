@@ -1,5 +1,5 @@
 # My Custom Library Imports:
-from litewick import create_candlestick_dataset, identify_trend_reversal
+from archive.litewick import create_candlestick_dataset, identify_trend_reversal
 from patterns import define_trend
 from eightball import get_final_predictions
 

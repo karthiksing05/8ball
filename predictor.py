@@ -1,10 +1,10 @@
 __doc__ = """
 Description of this price predictor:
 This is my Investor's 8ball. It focuses on using news headlines, previous stock prices, and machine
-learning to calculate the price of an item on the "Yahoo Finance Market on any date. Currently, we are 
+learning to calculate the price of an item on the Yahoo Finance Market on any date. Currently, we are 
 starting off with an sklearn framework for linear regression, which will be used to predict the stock prices, 
 and then, because numbers are not enough to express what happens in the real world, we will use news headlines
-to calculate a weight, which we will multiply each of the stock predictions by to get our final result.
+to calculate a weight, which we will integrate into each of the stock predictions to get our final result.
 
 A quick note that the model in question being used is an XGBoost Regressor with the proper parameters configured
 via a RandomSearchCV, wrapped in an sklearn MultiOutputRegressor wrapper, which then gets wrapped in a biaswrapper
@@ -35,7 +35,7 @@ from sklearn.multioutput import MultiOutputRegressor
 from xgboost.sklearn import XGBRegressor
 
 # My Python Package!!
-from biaswrappers.regressor import BiasRegressor
+from biaswrappers.regressor import BiasRegressorC1
 
 # linreg for UpDown Classification (starting small, will go to
 # sentiment and more advanced regressors in future)
@@ -132,9 +132,6 @@ class MarketPredictor(object):
                 rows = list(csv.reader(f))
                 cell = rows[y][x]
                 return cell
-
-        with open("error.txt", "r") as f:
-            ERROR_MESSAGE = str(f.read())
 
         if os.path.exists(self.dataset):
             os.remove(self.dataset)
@@ -293,9 +290,9 @@ class MarketPredictor(object):
             filename = self.dataset
 
         # Clearing the log
-        clear_log()
+        # clear_log()
 
-        append_new_line("log.txt", "\nFitting the model for the stock predictor. \nStarting log at "+str(datetime.datetime.now())+"\n")
+        append_new_line("log.txt", "Fitting the model for the stock predictor. \nStarting log at "+str(datetime.datetime.now())+"\n")
 
         data = pd.read_csv(filename, sep=",")
         data = data[self.attributes]
@@ -325,7 +322,7 @@ class MarketPredictor(object):
         )
         
         multi_model = MultiOutputRegressor(inside_model)
-        model = BiasRegressor(multi_model)
+        model = BiasRegressorC1(multi_model)
         model.fit(X_train, y_train)
 
         test_preds = model.predict(X_test)
@@ -334,7 +331,7 @@ class MarketPredictor(object):
         self.model = model
 
         append_new_line("log.txt", "\nFitting/Tuning Finished at "+str(datetime.datetime.now()))
-        append_new_line("log.txt", "\nwith RMSE of "+str(rmse))
+        append_new_line("log.txt", "with RMSE of "+str(rmse))
 
     def predict(self, date:str, filename:str=None):
         """
@@ -358,7 +355,7 @@ class MarketPredictor(object):
         # print("Y:{}\nM:{}\nD:{}\n".format(year, month, day))
         
         def numOfDays(date1, date2):
-            return (date2-date1).days
+            return (date2 - date1).days
 
         # This function can read any cell in a csv file.
         def read_cell(x, y):
@@ -393,7 +390,6 @@ class MarketPredictor(object):
 
         stock_days = days + float(read_cell(0, -1)) - 1
 
-        print("Date Predicted: " + predicted_date.strftime("%Y-%m-%d"))
         print("Model Used For Prediction: " + str(get_model_name(self.model)))
 
         for day in range(0, days):
@@ -434,7 +430,7 @@ class MarketPredictor(object):
             # print(coef_str)
             # print(y_in_str)
 
-            append_new_line("log.txt", "\nPredictions Fitting Finished at "+str(datetime.datetime.now()))
+            append_new_line("log.txt", "Predictions Fitting Finished at "+str(datetime.datetime.now()))
 
             """
             Here is where the predicting begins.
@@ -462,11 +458,9 @@ class MarketPredictor(object):
                 value = round(float(value), 6)
                 formatted_pred_values.append(value)
 
-            # my_values = DMatrix(my_values)
-
             prediction = linear.predict(my_values)
             output_values = list(prediction)[0][0]
-            ranges = [[rmse + pred, rmse - pred] for pred in output_values]
+            ranges = [[float(pred - rmse), float(pred + rmse)] for pred in output_values]
 
             formatted_output_values = []
             for value in output_values:
@@ -478,7 +472,8 @@ class MarketPredictor(object):
             label_d = {"Output Labels":self.labels, "Output Values":[float(round(x, 2)) for x in formatted_output_values]}
             label_df = pd.DataFrame(data=label_d)
 
-            df_str = str(attr_df) + "\n\n" + "Predicted Date: {}\n\n".format(date) + str(label_df)
+            df_str = "\n" + "Predicted Date: {}\n".format(date) + str(label_df)
+            # append_new_line("log.txt", str(attr_df))
             append_new_line("log.txt", df_str)
 
             future_data = []
@@ -502,16 +497,10 @@ class MarketPredictor(object):
 
         print("\nSee log.txt for more details about the training and testing of the model. (And all the dataframes)\n")
         # Writing to the Excel file: predictions.xlsx
-        wb_name = 'data\\predictions.xlsx'
-        try:
-            label_df.to_excel(wb_name)
-            self.preds_dict = label_d
-            return label_df
-        except:
-            print("You have predicted a date that has already been processed by the data.")
-            print("To view the corresponding prices for this date, use the 'print_past-date'")
-            print("method, please.")
-            exit()
+        wb_name = f'data\\predictions{self.ticker}_{predicted_date.strftime("%Y-%m-%d")}_from_{self.end_date}.xlsx'
+        # label_df.to_excel(wb_name)
+        self.preds_dict = label_d
+        return label_df
 
     def up_or_down(self, date:str):
         """
